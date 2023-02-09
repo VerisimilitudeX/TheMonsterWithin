@@ -290,7 +290,7 @@ to attach them to the start of each source file to most effectively
 convey the exclusion of warranty; and each file should have at least
 the "copyright" line and a pointer to where the full notice is found.
 
-    Terminus is an educational learning game aiming to teach how to use the command-line in a Linux environment.
+    The Monster Within is an educational learning game aiming to teach how to use the command-line in a Linux environment.
     Copyright (C) 2013 Michele Pratusevich
 
     This program is free software; you can redistribute it and/or modify

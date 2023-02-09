@@ -124,7 +124,7 @@ digraph level_map{
 	"Library" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
 	<td bgcolor="black" align="center" colspan="2"><font color="white">Library</font></td></tr>
-	<tr><td align="left" port="r2">HistoryOfTerminus</td></tr>
+	<tr><td align="left" port="r2">HistoryOfThe Monster Within</td></tr>
 	<tr><td align="left" port="r3">NostalgiaForHome</td></tr>
 	<tr><td align="left" port="r0">TotallyRadSpellbook</td></tr>
 	<tr><td align="left" port="r1">PaperbackRomance</td></tr>
@@ -298,5 +298,5 @@ digraph level_map{
 
 	"Home" -> "MagicLocker";
 
-	label = "\n\n\nItem and room map for the Terminus game.\nLabeled arrows represent tasks that need to be completed before advancing to the next room.\nDotted arrows are rooms that are connected but that you cannot move into.\nDashed lines mean originally hidden until a task is completed.";
+	label = "\n\n\nItem and room map for the The Monster Within game.\nLabeled arrows represent tasks that need to be completed before advancing to the next room.\nDotted arrows are rooms that are connected but that you cannot move into.\nDashed lines mean originally hidden until a task is completed.";
 }

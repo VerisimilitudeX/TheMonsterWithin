@@ -219,7 +219,7 @@ public class Game {
 				"There is a pedestal at the center of the cobblestone turnabout, but no statue on it. \n" +
 				"The architecture is charming, but everyone here seems nervous for some reason.\n", "loc_square");
 		townSquare.addItem(new Item("RandomCitizen1", "\"Excuse me,\" you begin. The man turns, startled. \n" +
-				"\"Oh, hello! Welcome to Terminus. You'll have to forgive me, but we're all a little \n" +
+				"\"Oh, hello! Welcome to The Monster Within. You'll have to forgive me, but we're all a little \n" +
 				"on edge lately, what with the Dark Wizard spreading corruption all along the \n" +
 				"coast.  You should be careful!\" \n", "item_citizen1"));
 		townSquare.addItem(new Item("RandomCitizen2", "The man looks up from his newspaper when he notices you staring. \n" +
@@ -267,7 +267,7 @@ public class Game {
 		library.addItem(new Item("PaperbackRomance", "You flip the paperback open to a random page. \n" +
 				"\"Oh, Horatio!\" Antonia exclaimed, her bosom heaving as Horatio deftly ripped the \n" +
 				"bodice from her lithe frame. Horatio gave an animalistic growl and he clasped her \n" +
-				"fingers in his strong hands and brought them to rest upon his swollen— You close the \n" +
+				"fingers in his strong hands and brought them to rest upon his swollenï¿½ You close the \n" +
 				"book, disinterested, and place it back on the shelf. \n", "item_romancenovel"));
 		library.addItem(new GrepItem("HistoryOfTerminus", "It looks like an interesting book, but it's way too \n" +
 				"long and the print is too tiny.\n", "item_historybook", "DarkWizard", "...old tales tell of a dark wizard who will fragment the land...\n" +
