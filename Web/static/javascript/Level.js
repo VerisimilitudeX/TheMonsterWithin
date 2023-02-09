@@ -1,3 +1,3 @@
-function Level(firstroom){
-	this.room = firstroom;
+function Level(firstroom) {
+    this.room = firstroom;
 }

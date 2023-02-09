@@ -53,7 +53,7 @@
     function get_stack(caller) {
         if (caller) {
             return [caller.toString().match(/.*\n.*\n/)].
-                concat(get_stack(caller.caller));
+            concat(get_stack(caller.caller));
         } else {
             return [];
         }
@@ -79,6 +79,7 @@
         }
         return false;
     }
+
     function wc(n, v) {
         var dt, e, c;
         dt = new Date();
@@ -97,9 +98,11 @@
         }
         return false;
     }
+
     function rls(n) {
         return localStorage[n];
     }
+
     function rc(n) {
         var nn, ca, i, c;
         nn = n + '=';
@@ -115,19 +118,21 @@
         }
         return null;
     }
+
     function dls(n) {
         return delete localStorage[n];
     }
+
     function dc(n) {
         return wc(n, '', -1);
     }
     /**
-    * Public API
-    * $.Storage.set("name", "value")
-    * $.Storage.set({"name1":"value1", "name2":"value2", etc})
-    * $.Storage.get("name")
-    * $.Storage.remove("name")
-    */
+     * Public API
+     * $.Storage.set("name", "value")
+     * $.Storage.set({"name1":"value1", "name2":"value2", etc})
+     * $.Storage.get("name")
+     * $.Storage.remove("name")
+     */
     $.extend({
         Storage: {
             set: isLS ? wls : wc,
@@ -245,7 +250,8 @@
 
             },
             remove: function(element, label, fn) {
-                var timers = element.$timers, ret;
+                var timers = element.$timers,
+                    ret;
 
                 if (timers) {
 
@@ -300,7 +306,8 @@
             var global = jQuery.timer.global;
             for (var label in global) {
                 if (global.hasOwnProperty(label)) {
-                    var els = global[label], i = els.length;
+                    var els = global[label],
+                        i = els.length;
                     while (--i) {
                         jQuery.timer.remove(els[i], label);
                     }
@@ -321,22 +328,22 @@
         }
 
         var nativeSplit = String.prototype.split,
-        compliantExecNpcg = /()??/.exec("")[1] === undef, // NPCG: nonparticipating capturing group
-        self;
+            compliantExecNpcg = /()??/.exec("")[1] === undef, // NPCG: nonparticipating capturing group
+            self;
 
-        self = function (str, separator, limit) {
+        self = function(str, separator, limit) {
             // If `separator` is not a regex, use `nativeSplit`
             if (Object.prototype.toString.call(separator) !== "[object RegExp]") {
                 return nativeSplit.call(str, separator, limit);
             }
             var output = [],
-            flags = (separator.ignoreCase ? "i" : "") +
-                (separator.multiline  ? "m" : "") +
-                (separator.extended   ? "x" : "") + // Proposed for ES6
-                (separator.sticky     ? "y" : ""), // Firefox 3+
+                flags = (separator.ignoreCase ? "i" : "") +
+                (separator.multiline ? "m" : "") +
+                (separator.extended ? "x" : "") + // Proposed for ES6
+                (separator.sticky ? "y" : ""), // Firefox 3+
                 lastLastIndex = 0,
-            // Make `global` and avoid `lastIndex` issues by working with a copy
-            separator2, match, lastIndex, lastLength;
+                // Make `global` and avoid `lastIndex` issues by working with a copy
+                separator2, match, lastIndex, lastLength;
             separator = new RegExp(separator.source, flags + "g");
             str += ""; // Type-convert
             if (!compliantExecNpcg) {
@@ -344,43 +351,43 @@
                 separator2 = new RegExp("^" + separator.source + "$(?!\\s)", flags);
             }
             /* Values for `limit`, per the spec:
-         * If undefined: 4294967295 // Math.pow(2, 32) - 1
-         * If 0, Infinity, or NaN: 0
-         * If positive number: limit = Math.floor(limit); if (limit > 4294967295) limit -= 4294967296;
-         * If negative number: 4294967296 - Math.floor(Math.abs(limit))
-         * If other: Type-convert, then use the above rules
-         */
+             * If undefined: 4294967295 // Math.pow(2, 32) - 1
+             * If 0, Infinity, or NaN: 0
+             * If positive number: limit = Math.floor(limit); if (limit > 4294967295) limit -= 4294967296;
+             * If negative number: 4294967296 - Math.floor(Math.abs(limit))
+             * If other: Type-convert, then use the above rules
+             */
             // ? Math.pow(2, 32) - 1 : ToUint32(limit)
             limit = limit === undef ? -1 >>> 0 : limit >>> 0;
             while (match = separator.exec(str)) {
-                    // `separator.lastIndex` is not reliable cross-browser
-                    lastIndex = match.index + match[0].length;
-                    if (lastIndex > lastLastIndex) {
-                        output.push(str.slice(lastLastIndex, match.index));
-                        // Fix browsers whose `exec` methods don't consistently return `undefined` for
-                        // nonparticipating capturing groups
-                        if (!compliantExecNpcg && match.length > 1) {
-                            match[0].replace(separator2, function () {
-                                for (var i = 1; i < arguments.length - 2; i++) {
-                                    if (arguments[i] === undef) {
-                                        match[i] = undef;
-                                    }
+                // `separator.lastIndex` is not reliable cross-browser
+                lastIndex = match.index + match[0].length;
+                if (lastIndex > lastLastIndex) {
+                    output.push(str.slice(lastLastIndex, match.index));
+                    // Fix browsers whose `exec` methods don't consistently return `undefined` for
+                    // nonparticipating capturing groups
+                    if (!compliantExecNpcg && match.length > 1) {
+                        match[0].replace(separator2, function() {
+                            for (var i = 1; i < arguments.length - 2; i++) {
+                                if (arguments[i] === undef) {
+                                    match[i] = undef;
                                 }
-                            });
-                        }
-                        if (match.length > 1 && match.index < str.length) {
-                            Array.prototype.push.apply(output, match.slice(1));
-                        }
-                        lastLength = match[0].length;
-                        lastLastIndex = lastIndex;
-                        if (output.length >= limit) {
-                            break;
-                        }
+                            }
+                        });
                     }
-                    if (separator.lastIndex === match.index) {
-                        separator.lastIndex++; // Avoid an infinite loop
+                    if (match.length > 1 && match.index < str.length) {
+                        Array.prototype.push.apply(output, match.slice(1));
+                    }
+                    lastLength = match[0].length;
+                    lastLastIndex = lastIndex;
+                    if (output.length >= limit) {
+                        break;
                     }
                 }
+                if (separator.lastIndex === match.index) {
+                    separator.lastIndex++; // Avoid an infinite loop
+                }
+            }
             if (lastLastIndex === str.length) {
                 if (lastLength || !separator.test("")) {
                     output.push("");
@@ -392,7 +399,7 @@
         };
 
         // For convenience
-        String.prototype.split = function (separator, limit) {
+        String.prototype.split = function(separator, limit) {
             return self(this, separator, limit);
         };
 
@@ -499,56 +506,58 @@
     // serialize object myself (biwascheme or prototype library do something
     // wiked with JSON serialization for Arrays)
     $.json_stringify = function(object, level) {
-        var result = '', i;
+        var result = '',
+            i;
         level = level === undefined ? 1 : level;
         var type = typeof object;
         switch (type) {
-        case 'function':
-            result += object;
-            break;
-        case 'boolean':
-            result += object ? 'true' : 'false';
-            break;
-        case 'object':
-            if (object === null) {
-                result += 'null';
-            } else if (object instanceof Array) {
-                result += '[';
-                var len = object.length;
-                for (i = 0; i < len - 1; ++i) {
-                    result += $.json_stringify(object[i], level + 1);
+            case 'function':
+                result += object;
+                break;
+            case 'boolean':
+                result += object ? 'true' : 'false';
+                break;
+            case 'object':
+                if (object === null) {
+                    result += 'null';
+                } else if (object instanceof Array) {
+                    result += '[';
+                    var len = object.length;
+                    for (i = 0; i < len - 1; ++i) {
+                        result += $.json_stringify(object[i], level + 1);
+                    }
+                    result += $.json_stringify(object[len - 1], level + 1) + ']';
+                } else {
+                    result += '{';
+                    for (var property in object) {
+                        if (object.hasOwnProperty(property)) {
+                            result += '"' + property + '":' +
+                                $.json_stringify(object[property], level + 1);
+                        }
+                    }
+                    result += '}';
                 }
-                result += $.json_stringify(object[len - 1], level + 1) + ']';
-            } else {
-                result += '{';
-                for (var property in object) {
-                    if (object.hasOwnProperty(property)) {
-                        result += '"' + property + '":' +
-                            $.json_stringify(object[property], level + 1);
+                break;
+            case 'string':
+                var str = object;
+                var repl = {
+                    '\\\\': '\\\\',
+                    '"': '\\"',
+                    '/': '\\/',
+                    '\\n': '\\n',
+                    '\\r': '\\r',
+                    '\\t': '\\t'
+                };
+                for (i in repl) {
+                    if (repl.hasOwnProperty(i)) {
+                        str = str.replace(new RegExp(i, 'g'), repl[i]);
                     }
                 }
-                result += '}';
-            }
-            break;
-        case 'string':
-            var str = object;
-            var repl = {
-                '\\\\': '\\\\',
-                '"': '\\"',
-                '/': '\\/',
-                '\\n': '\\n',
-                '\\r': '\\r',
-                '\\t': '\\t'};
-            for (i in repl) {
-                if (repl.hasOwnProperty(i)) {
-                    str = str.replace(new RegExp(i, 'g'), repl[i]);
-                }
-            }
-            result += '"' + str + '"';
-            break;
-        case 'number':
-            result += String(object);
-            break;
+                result += '"' + str + '"';
+                break;
+            case 'number':
+                result += String(object);
+                break;
         }
         result += (level > 1 ? ',' : '');
         // quick hacks below
@@ -569,14 +578,14 @@
         }
         var data = $.Storage.get(name + 'commands');
         data = data ? new Function('return ' + data + ';')() : [];
-        var pos = data.length-1;
+        var pos = data.length - 1;
 
         $.extend(this, {
             append: function(item) {
                 if (enabled) {
-                    if (data[data.length-1] !== item) {
+                    if (data[data.length - 1] !== item) {
                         data.push(item);
-                        pos = data.length-1;
+                        pos = data.length - 1;
                         if (size && data.length > size) {
                             data = data.slice(-size);
                         }
@@ -588,7 +597,7 @@
                 return data;
             },
             next: function() {
-                if (pos < data.length-1) {
+                if (pos < data.length - 1) {
                     ++pos;
                 }
                 if (pos !== -1) {
@@ -596,13 +605,13 @@
                 }
             },
             reset: function() {
-                pos = data.length-1;
+                pos = data.length - 1;
             },
             last: function() {
-                return data[length-1];
+                return data[length - 1];
             },
             end: function() {
-                return pos === data.length-1;
+                return pos === data.length - 1;
             },
             position: function() {
                 return pos;
@@ -635,7 +644,7 @@
         var self = this;
         self.addClass('cmd');
         self.append('<span class="prompt"></span><span></span>' +
-                    '<span class="cursor">&nbsp;</span><span></span>');
+            '<span class="cursor">&nbsp;</span><span></span>');
         var clip = $('<textarea/>').addClass('clipboard').appendTo(self);
         if (options.width) {
             self.width(options.width);
@@ -658,10 +667,12 @@
         function blink(i) {
             cursor.toggleClass('inverted');
         }
+
         function draw_reverse_prompt() {
             prompt = "(reverse-i-search)`" + reverse_search_string + "': ";
             draw_prompt();
         }
+
         function clear_reverse_state() {
             prompt = backup_prompt;
             reverse_search = false;
@@ -678,9 +689,9 @@
                 len -= reverse_search_position;
             }
             if (reverse_search_string.length > 0) {
-                for (var j=reverse_search_string.length; j>0; j--) {
+                for (var j = reverse_search_string.length; j > 0; j--) {
                     regex = new RegExp('^' + reverse_search_string.substring(0, j));
-                    for (var i=len; i--;) {
+                    for (var i = len; i--;) {
                         if (regex.test(history_data[i])) {
                             reverse_search_position = history_data.length - i;
                             position = 0;
@@ -702,6 +713,7 @@
             var w = cursor.innerWidth();
             num_chars = Math.floor(W / w);
         }
+
         function str_repeat(str, n) {
             var result = '';
             for (var i = n; i--;) {
@@ -709,6 +721,7 @@
             }
             return result;
         }
+
         function get_splited_command_line(string) {
             var first = string.substring(0, num_chars - prompt_len);
             var rest = string.substring(num_chars - prompt_len);
@@ -717,6 +730,7 @@
         var redraw = (function(self) {
             var before = cursor.prev();
             var after = cursor.next();
+
             function draw_cursor_line(string, position) {
                 var len = string.length;
                 if (position === len) {
@@ -743,16 +757,19 @@
                     }
                 }
             }
+
             function div(string) {
                 return '<div>' + $.terminal.encode(string) + '</div>';
             }
+
             function lines_after(lines) {
                 var last_ins = after;
                 $.each(lines, function(i, line) {
                     last_ins = $(div(line)).insertAfter(last_ins).
-                        addClass('clear');
+                    addClass('clear');
                 });
             }
+
             function lines_before(lines) {
                 $.each(lines, function(i, line) {
                     before.before(div(line));
@@ -779,7 +796,7 @@
                         var tmp = string.split("\n");
                         first_len = num_chars - prompt_len - 1;
                         // empty character after each line
-                        for (i=0; i<tmp.length-1; ++i) {
+                        for (i = 0; i < tmp.length - 1; ++i) {
                             tmp[i] += ' ';
                         }
                         // split first line
@@ -790,7 +807,7 @@
                             array = [tmp[0]];
                         }
                         // process rest of the lines
-                        for (i=1; i<tmp.length; ++i) {
+                        for (i = 1; i < tmp.length; ++i) {
                             if (tmp[i].length > num_chars) {
                                 array = array.concat(str_parts(tmp[i], num_chars));
                             } else {
@@ -831,23 +848,23 @@
                             var pos = 0;
                             if (from_last <= last_len) {
                                 lines_before(array.slice(0, -1));
-                                pos = last_len === from_last ? 0 : last_len-from_last;
-                                draw_cursor_line(last, pos+tabs_rm);
+                                pos = last_len === from_last ? 0 : last_len - from_last;
+                                draw_cursor_line(last, pos + tabs_rm);
                             } else {
                                 // in the middle
                                 if (num_lines === 3) {
                                     before.before('<div>' + $.terminal.encode(array[0]) +
-                                                  '</div>');
-                                    draw_cursor_line(array[1], position-first_len-1);
+                                        '</div>');
+                                    draw_cursor_line(array[1], position - first_len - 1);
                                     after.after('<div class="clear">' +
-                                                $.terminal.encode(array[2]) +
-                                                '</div>');
+                                        $.terminal.encode(array[2]) +
+                                        '</div>');
                                 } else {
                                     // more lines, cursor in the middle
                                     var line_index;
                                     var current;
                                     pos = position;
-                                    for (i=0; i<array.length; ++i) {
+                                    for (i = 0; i < array.length; ++i) {
                                         var current_len = array[i].length;
                                         if (pos > current_len) {
                                             pos -= current_len;
@@ -864,19 +881,19 @@
                                     }
                                     draw_cursor_line(current, pos);
                                     lines_before(array.slice(0, line_index));
-                                    lines_after(array.slice(line_index+1));
+                                    lines_after(array.slice(line_index + 1));
                                 }
                             }
                         }
                     }
                 } else {
-                     if (string === '') {
-                         before.html('');
-                         cursor.html('&nbsp;');
-                         after.html('');
-                     } else {
-                         draw_cursor_line(string, position);
-                     }
+                    if (string === '') {
+                        before.html('');
+                        cursor.html('&nbsp;');
+                        after.html('');
+                    } else {
+                        draw_cursor_line(string, position);
+                    }
                 }
             };
         })(self);
@@ -918,9 +935,9 @@
                 var pos, len, result;
                 // arrows / Home / End / ENTER
                 if (reverse_search && (e.which === 35 || e.which === 36 ||
-                                       e.which === 37 || e.which === 38 ||
-                                       e.which === 39 || e.which === 40 ||
-                                       e.which === 13 || e.which === 27)) {
+                        e.which === 37 || e.which === 38 ||
+                        e.which === 39 || e.which === 40 ||
+                        e.which === 13 || e.which === 27)) {
                     clear_reverse_state();
                     draw_prompt();
                     if (e.which === 27) { // ESC
@@ -934,10 +951,10 @@
                     // need to check for alt first
                     //if (e.which === 18) { // press ALT
                     if (e.which === 68) { //ALT+D
-                        var regex  = /[^ ]+ |[^ ]+$/;
+                        var regex = /[^ ]+ |[^ ]+$/;
                         self.set(command.slice(0, position) +
-                                 command.slice(position).replace(regex, ''),
-                                 true);
+                            command.slice(position).replace(regex, ''),
+                            true);
                         // chrome jump to address bar
                         return false;
                     }
@@ -945,8 +962,8 @@
                 } else if (e.keyCode === 13) { //enter
                     if ((history && command) &&
                         ((options.historyFilter &&
-                         options.historyFilter(command)) ||
-                         !options.historyFilter)) {
+                                options.historyFilter(command)) ||
+                            !options.historyFilter)) {
                         history.append(command);
                     }
                     var tmp = command;
@@ -988,18 +1005,18 @@
                     }
                     return true;
                 } else if (history && e.which === 38 ||
-                           (e.which === 80 && e.ctrlKey)) {
+                    (e.which === 80 && e.ctrlKey)) {
                     //UP ARROW or CTRL+P
                     if (history.end()) {
                         last_command = command;
                     }
                     self.set(history.previous());
                 } else if (history && e.which === 40 ||
-                           (e.which === 78 && e.ctrlKey)) {
+                    (e.which === 78 && e.ctrlKey)) {
                     //DOWN ARROW or CTRL+N
                     self.set(history.end() ? last_command : history.next());
                 } else if (e.which === 37 ||
-                           (e.which === 66 && e.ctrlKey)) {
+                    (e.which === 66 && e.ctrlKey)) {
                     //CTRL+LEFT ARROW or CTRL+B
                     if (e.ctrlKey && e.which !== 66) {
                         len = position - 1;
@@ -1008,10 +1025,10 @@
                             --len;
                         }
                         for (var i = len; i > 0; --i) {
-                            if (command[i] === ' ' && command[i+1] !== ' ') {
+                            if (command[i] === ' ' && command[i + 1] !== ' ') {
                                 pos = i + 1;
                                 break;
-                            } else if (command[i] === '\n' && command[i+1] !== '\n') {
+                            } else if (command[i] === '\n' && command[i + 1] !== '\n') {
                                 pos = i;
                                 break;
                             }
@@ -1044,7 +1061,7 @@
                         reverse_search = false;
                     }
                 } else if (e.which === 39 ||
-                           (e.which === 70 && e.ctrlKey)) {
+                    (e.which === 70 && e.ctrlKey)) {
                     //RIGHT ARROW OR CTRL+F
                     if (e.ctrlKey && e.which !== 70) {
                         // jump to beginig or end of the word
@@ -1059,7 +1076,7 @@
                                 position += match.index + 1;
                             } else {
                                 position += match.index + match[0].length - 1;
-                                if (match[0][match[0].length-1] !== ' ') {
+                                if (match[0][match[0].length - 1] !== ' ') {
                                     --position;
                                 }
                             }
@@ -1087,14 +1104,14 @@
                             //CTRL+SHIFT+T open closed tab
                             return true;
                         }
-                    //} else if (e.altKey) { //ALT+CTRL+??
+                        //} else if (e.altKey) { //ALT+CTRL+??
                     } else {
                         if (e.which === 87) { // CTRL+W
                             if (command !== '') {
                                 var first = command.slice(0, position);
-                                var last = command.slice(position+1);
+                                var last = command.slice(position + 1);
                                 var m = first.match(/([^ ]+ *$)/);
-                                position = first.length-m[0].length;
+                                position = first.length - m[0].length;
                                 command = first.slice(0, position) + last;
                                 redraw();
                             }
@@ -1102,13 +1119,13 @@
                         } else if (e.which === 72) { // CTRL+H
                             if (command !== '' && position > 0) {
                                 command = command.slice(0, --position);
-                                if (position < command.length-1) {
+                                if (position < command.length - 1) {
                                     command += command.slice(position);
                                 }
                                 redraw();
                             }
                             return false;
-                        //NOTE: in opera charCode is undefined
+                            //NOTE: in opera charCode is undefined
                         } else if (e.which === 65) {
                             //CTRL+A
                             self.position(0);
@@ -1140,15 +1157,16 @@
                     return true;
                 }
                 return false;
-            } /*else {
-                if ((e.altKey && e.which === 68) ||
-                    (e.ctrlKey &&
-                     $.inArray(e.which, [65, 66, 68, 69, 80, 78, 70]) > -1) ||
-                    // 68 === D
-                    [35, 36, 37, 38, 39, 40].has(e.which)) {
-                    return false;
-                }
-            } */
+            }
+            /*else {
+                           if ((e.altKey && e.which === 68) ||
+                               (e.ctrlKey &&
+                                $.inArray(e.which, [65, 66, 68, 69, 80, 78, 70]) > -1) ||
+                               // 68 === D
+                               [35, 36, 37, 38, 39, 40].has(e.which)) {
+                               return false;
+                           }
+                       } */
         }
         $.extend(self, {
             name: function(string) {
@@ -1399,8 +1417,8 @@
                 var line = array[i];
                 var first_index = 0;
                 var count = 0;
-                for (var j=0, jlen=line.length; j<jlen; ++j) {
-                    if (line[j] === '[' && line[j+1] === '[') {
+                for (var j = 0, jlen = line.length; j < jlen; ++j) {
+                    if (line[j] === '[' && line[j + 1] === '[') {
                         formatting = true;
                     } else if (formatting && line[j] === ']') {
                         if (in_text) {
@@ -1415,38 +1433,38 @@
                             if (!m) {
                                 throw "Unclosed html entity at char " + j;
                             }
-                            j+=m[1].length-2; // because contine add 1 to j
+                            j += m[1].length - 2; // because contine add 1 to j
                             // if entity is at the end there is no next loop - issue #77
-                            if (j === jlen-1) {
+                            if (j === jlen - 1) {
                                 result.push(output_line + m[1]);
                             }
                             continue;
-                        } else if (line[j] === ']' && line[j-1] === '\\') {
+                        } else if (line[j] === ']' && line[j - 1] === '\\') {
                             // escape \] count as one character
                             --count;
                         } else {
                             ++count;
                         }
                     }
-                    if (count === length || j === jlen-1) {
-                        var output_line = line.substring(first_index, j+1);
+                    if (count === length || j === jlen - 1) {
+                        var output_line = line.substring(first_index, j + 1);
                         if (prev_format) {
                             output_line = prev_format + output_line;
                             if (output_line.match(']')) {
                                 prev_format = '';
                             }
                         }
-                        first_index = j+1;
+                        first_index = j + 1;
                         count = 0;
                         var matched = output_line.match(re_format);
                         if (matched) {
-                            var last = matched[matched.length-1];
-                            if (last[last.length-1] !== ']') {
+                            var last = matched[matched.length - 1];
+                            if (last[last.length - 1] !== ']') {
                                 prev_format = last.match(re_begin)[1];
                                 output_line += ']';
                             } else if (output_line.match(re_last)) {
                                 var line_len = output_line.length;
-                                var f_len = line_len - last[last.length-1].length;
+                                var f_len = line_len - last[last.length - 1].length;
                                 output_line = output_line.replace(re_last, '');
                                 prev_format = last.match(re_begin)[1];
                             }
@@ -1457,21 +1475,21 @@
             }
             return result;
         },
-        split_equal_mprat: function(str, length){
+        split_equal_mprat: function(str, length) {
             var array = [];
-            if (str.length > length){
+            if (str.length > length) {
                 var linearray = str.split("\n");
-                for (var i = 0; i < linearray.length; i++){
-                    if (linearray[i].length < length){
+                for (var i = 0; i < linearray.length; i++) {
+                    if (linearray[i].length < length) {
                         array.push(linearray[i]);
                     } else {
                         //line is too long - need to break it up
                         var line_to_split = linearray[i];
                         var wordarray = line_to_split.split(" ");
-                        
-                        while (wordarray.length > 0){
-                            var newline = "";    
-                            while (wordarray.length > 0 && newline.length + wordarray[0].length < length){
+
+                        while (wordarray.length > 0) {
+                            var newline = "";
+                            while (wordarray.length > 0 && newline.length + wordarray[0].length < length) {
                                 newline += wordarray[0] + " ";
                                 wordarray.splice(0, 1);
                             }
@@ -1496,11 +1514,11 @@
         encode: function(str) {
             // don't escape entities
             return str.replace(/&(?!#[0-9]+;|[a-zA-Z]+;)/g, '&amp;')
-                      .replace(/</g, '&lt;').replace(/>/g, '&gt;')
-                        // I don't think that it find \n
-                      .replace(/\n/g, '<br/>')
-                      .replace(/ /g, '&nbsp;')
-                      .replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
+                .replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                // I don't think that it find \n
+                .replace(/\n/g, '<br/>')
+                .replace(/ /g, '&nbsp;')
+                .replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');
         },
         format: function(str) {
             if (typeof str === 'string') {
@@ -1511,15 +1529,15 @@
                     str = $.map(splited, function(text) {
                         if (text === '') {
                             return text;
-                        } else if (text.substring(0,1) === '[') {
+                        } else if (text.substring(0, 1) === '[') {
                             // use substring for IE quirks mode - [0] don't work
                             return text.replace(format_re, function(s,
-                                                                    style,
-                                                                    color,
-                                                                    background,
-                                                                    _class,
-                                                                    data_text,
-                                                                    text) {
+                                style,
+                                color,
+                                background,
+                                _class,
+                                data_text,
+                                text) {
                                 if (text === '') {
                                     return '<span>&nbsp;</span>';
                                 }
@@ -1551,7 +1569,7 @@
                                 if (background.match(color_hex_re)) {
                                     style_str += 'background-color:' + background;
                                 }
-                                var result = '<span style="' + style_str + '"' + (_class !== '' ? ' class="' + _class + '"' : '') + ' data-text="'+ (data_text==='' ? text : data_text.replace(/&#93;/g, ']')).replace('"', '&quote;') + '">' + text + '</span>';
+                                var result = '<span style="' + style_str + '"' + (_class !== '' ? ' class="' + _class + '"' : '') + ' data-text="' + (data_text === '' ? text : data_text.replace(/&#93;/g, ']')).replace('"', '&quote;') + '">' + text + '</span>';
                                 return result;
                             });
                         } else {
@@ -1607,14 +1625,14 @@
         },
         from_ansi: (function() {
             var color = {
-                30:	'black',
-                31:	'red',
-                32:	'green',
-                33:	'yellow',
-                34:	'blue',
-                35:	'magenta',
-                36:	'cyan',
-                37:	'white'
+                30: 'black',
+                31: 'red',
+                32: 'green',
+                33: 'yellow',
+                34: 'blue',
+                35: 'magenta',
+                36: 'cyan',
+                37: 'white'
             };
             var background = {
                 40: 'black',
@@ -1626,19 +1644,20 @@
                 46: 'cyan',
                 47: 'white'
             };
+
             function format_ansi(code) {
                 var controls = code.split(';');
                 var num;
                 var styles = [];
                 var output_color = '';
                 var output_background = '';
-                for(var i in controls) {
+                for (var i in controls) {
                     num = parseInt(controls[i], 10);
                     if (num === 1) {
-                       styles.push('b');
+                        styles.push('b');
                     }
                     if (num === 4) {
-                       styles.push('u');
+                        styles.push('u');
                     }
                     if (background[num]) {
                         output_background = background[num];
@@ -1649,7 +1668,7 @@
                 }
                 var normal = $.terminal.ansi_colors.normal;
                 var colors = normal;
-                for (var i=styles.length;i--;) {
+                for (var i = styles.length; i--;) {
                     if (styles[i] == 'b') {
                         if (output_color == '') {
                             output_color = 'white';
@@ -1659,9 +1678,9 @@
                     }
                 }
                 return '[[' + [styles.join(''),
-                               colors[output_color],
-                               normal[output_background]
-                              ].join(';') + ']';
+                    colors[output_color],
+                    normal[output_background]
+                ].join(';') + ']';
             }
             return function(input) {
                 var splitted = input.split(/(\[[0-9;]*m)/g);
@@ -1670,11 +1689,11 @@
                 }
                 var output = [];
                 //skip closing at the begining
-                if (splitted.length > 3 && splitted.slice(0,3).join('') == '[0m') {
+                if (splitted.length > 3 && splitted.slice(0, 3).join('') == '[0m') {
                     splitted = splitted.slice(3);
                 }
                 var inside = false;
-                for (var i=0; i<splitted.length; ++i) {
+                for (var i = 0; i < splitted.length; ++i) {
                     var match = splitted[i].match(/^\[([0-9;]*)m$/);
                     if (match) {
                         if (match[1] == '') {
@@ -1719,8 +1738,11 @@
     // -----------------------------------------------------------------------
     $.jrpc = function(url, id, method, params, success, error) {
         var request = $.json_stringify({
-           'jsonrpc': '2.0', 'method': method,
-            'params': params, 'id': id});
+            'jsonrpc': '2.0',
+            'method': method,
+            'params': params,
+            'id': id
+        });
         return $.ajax({
             url: url,
             data: request,
@@ -1731,7 +1753,8 @@
             async: true,
             cache: false,
             //timeout: 1,
-            type: 'POST'});
+            type: 'POST'
+        });
     };
 
     // -----------------------------------------------------------------------
@@ -1745,25 +1768,29 @@
     var signatures = [
         ['jQuery Terminal', '(c) 2011-2012 jcubic'],
         ['jQuery Terminal Emulator v. ' + version,
-         copyright.replace(/ *<.*>/, '')],
+            copyright.replace(/ *<.*>/, '')
+        ],
         ['jQuery Terminal Emulator version ' + version_string,
-         copyright],
+            copyright
+        ],
         ['      _______                 ________                        __',
-         '     / / _  /_ ____________ _/__  ___/______________  _____  / /',
-         ' __ / / // / // / _  / _/ // / / / _  / _/     / /  \\/ / _ \\/ /',
-         '/  / / // / // / ___/ // // / / / ___/ // / / / / /\\  / // / /__',
-         '\\___/____ \\\\__/____/_/ \\__ / /_/____/_//_/ /_/ /_/  \\/\\__\\_\\___/',
-         '         \\/          /____/                                   '.replace(reg, '') +
-         version_string,
-         copyright],
+            '     / / _  /_ ____________ _/__  ___/______________  _____  / /',
+            ' __ / / // / // / _  / _/ // / / / _  / _/     / /  \\/ / _ \\/ /',
+            '/  / / // / // / ___/ // // / / / ___/ // / / / / /\\  / // / /__',
+            '\\___/____ \\\\__/____/_/ \\__ / /_/____/_//_/ /_/ /_/  \\/\\__\\_\\___/',
+            '         \\/          /____/                                   '.replace(reg, '') +
+            version_string,
+            copyright
+        ],
         ['      __ _____                     ________                              __',
-         '     / // _  /__ __ _____ ___ __ _/__  ___/__ ___ ______ __ __  __ ___  / /',
-         ' __ / // // // // // _  // _// // / / // _  // _//     // //  \\/ // _ \\/ /',
-         '/  / // // // // // ___// / / // / / // ___// / / / / // // /\\  // // / /__',
-         '\\___//____ \\\\___//____//_/ _\\_  / /_//____//_/ /_/ /_//_//_/ /_/ \\__\\_\\___/',
-         '          \\/              /____/                                          '.replace(reg, '') +
-         version_string,
-         copyright]
+            '     / // _  /__ __ _____ ___ __ _/__  ___/__ ___ ______ __ __  __ ___  / /',
+            ' __ / // // // // // _  // _// // / / // _  // _//     // //  \\/ // _ \\/ /',
+            '/  / // // // // // ___// / / // / / // ___// / / / / // // /\\  // // / /__',
+            '\\___//____ \\\\___//____//_/ _\\_  / /_//____//_/ /_/ /_//_//_/ /_/ \\__\\_\\___/',
+            '          \\/              /____/                                          '.replace(reg, '') +
+            version_string,
+            copyright
+        ]
     ];
     // for canceling on CTRL+D
     var requests = [];
@@ -1781,11 +1808,12 @@
                 // assume that scrollbars are 20px - in my Laptop with
                 // Linux/Chrome they are 16px
                 var margins = self.innerWidth() - self.width();
-                result -= Math.ceil((20 - margins / 2) / (cur_width-1));
+                result -= Math.ceil((20 - margins / 2) / (cur_width - 1));
             }
 
             return result;
         }
+
         function escape_brackets(string) {
             return string.replace(/\[/g, '&#91;').replace(/\]/g, '&#93;');
         }
@@ -1821,6 +1849,7 @@
             }
         }
         var scroll_object;
+
         function scroll_to_bottom() {
             var scrollHeight = scroll_object.prop ? scroll_object.prop('scrollHeight') :
                 scroll_object.attr('scrollHeight');
@@ -1844,6 +1873,7 @@
             }
             return true;
         }
+
         function draw_line(string) {
             string = typeof string === 'string' ? string : String(string);
             var div, i, len;
@@ -1911,8 +1941,8 @@
                 }, function(xhr, status, error) {
                     if (status !== 'abort') {
                         terminal.error('&#91;AJAX&#93; ' + status +
-                                       ' - Server reponse is: \n' +
-                                       xhr.responseText);
+                            ' - Server reponse is: \n' +
+                            xhr.responseText);
                     }
                     terminal.resume();
                 });
@@ -1986,14 +2016,14 @@
                     if (!silent) {
                         echo_command(command);
                     }
-                    var position = lines.length-1;
+                    var position = lines.length - 1;
                     if (command === 'clear' && settings.clear) {
                         self.clear();
                     } else {
                         var result = interpreter['eval'](command, self);
                         if (result !== undefined) {
                             // was lines after echo_command (by eval)
-                            if (position === lines.length-1) {
+                            if (position === lines.length - 1) {
                                 lines.pop();
                                 if (result !== false) {
                                     self.echo(result);
@@ -2002,11 +2032,11 @@
                             } else {
                                 if (result === false) {
                                     lines = lines.slice(0, position).
-                                        concat(lines.slice(position+1));
+                                    concat(lines.slice(position + 1));
                                 } else {
                                     lines = lines.slice(0, position).
-                                        concat([result]).
-                                        concat(lines.slice(position+1));
+                                    concat([result]).
+                                    concat(lines.slice(position + 1));
                                 }
                                 self.resize();
                             }
@@ -2130,6 +2160,7 @@
                 interpreter.onStart(self);
             }
         }
+
         function initialize() {
             prepare_top_interpreter();
             show_greetings();
@@ -2193,11 +2224,11 @@
                     if (strings.length == 1) {
                         string = strings[0];
                     } else {
-                        var string = strings[strings.length-1];
-                        for (var i=strings.length-1; i>0;i--) {
+                        var string = strings[strings.length - 1];
+                        for (var i = strings.length - 1; i > 0; i--) {
                             // treat escape space as part of the string
-                            if (strings[i-1][strings[i-1].length-1] == '\\') {
-                                string = strings[i-1] + ' ' + string;
+                            if (strings[i - 1][strings[i - 1].length - 1] == '\\') {
+                                string = strings[i - 1] + ' ' + string;
                             } else {
                                 break;
                             }
@@ -2206,7 +2237,7 @@
                     var reg = new RegExp('^' + string);
                     interpreters.top().completion(self, string, function(commands) {
                         var matched = [];
-                        for (i=commands.length; i--;) {
+                        for (i = commands.length; i--;) {
                             if (reg.test(commands[i])) {
                                 matched.push(commands[i]);
                             }
@@ -2237,15 +2268,15 @@
                 } else if (e.which === 33) { // PAGE UP
                     self.scroll(-self.height());
                 } else {
-                    self.attr({scrollTop: self.attr('scrollHeight')});
+                    self.attr({ scrollTop: self.attr('scrollHeight') });
                 }
             } else if (e.which === 68 && e.ctrlKey) { // CTRL+D
-                for (i=requests.length; i--;) {
+                for (i = requests.length; i--;) {
                     var r = requests[i];
                     if (4 !== r.readyState) {
                         try {
                             r.abort();
-                        } catch(e) {
+                        } catch (e) {
                             self.error('error in aborting ajax');
                         }
                     }
@@ -2262,9 +2293,9 @@
         function split_command_line(string) {
             var re = /('[^']*'|"(\\"|[^"])*"|\/(\\\/|[^\/])*\/|(\\ |[^ ])+|[\w-]+)/g;
             return $.map(string.match(re), function(arg) {
-                if (arg[0] === "'" && arg[arg.length-1] === "'") {
+                if (arg[0] === "'" && arg[arg.length - 1] === "'") {
                     return arg.replace(/^'|'$/g, '');
-                } else if (arg[0] === '"' && arg[arg.length-1] === '"') {
+                } else if (arg[0] === '"' && arg[arg.length - 1] === '"') {
                     arg = arg.replace(/^"|"$/g, '').replace(/\\([" ])/g, '$1');
                     if (settings.processArguments) {
                         return arg.replace(/\\\\|\\t|\\n/g, function(string) {
@@ -2281,7 +2312,7 @@
                     }
                 } else {
                     if (settings.processArguments) {
-                        if (arg[0] === '/' && arg[arg.length-1] == '/') {
+                        if (arg[0] === '/' && arg[arg.length - 1] == '/') {
                             return new RegExp(arg.replace(/^\/|\/$/g, ''));
                         } else if (arg.match(/^-?[0-9]+$/)) {
                             return parseInt(arg, 10);
@@ -2291,7 +2322,7 @@
                             return arg.replace(/\\ /g, ' ');
                         }
                     } else {
-                        if (arg[0] === '/' && arg[arg.length-1] == '/') {
+                        if (arg[0] === '/' && arg[arg.length - 1] == '/') {
                             return arg;
                         } else {
                             return arg.replace(/\\ /g, ' ');
@@ -2300,6 +2331,7 @@
                 }
             });
         }
+
         function make_eval_from_object(object) {
             // function that maps commands to object methods
             // it keeps terminal context
@@ -2340,8 +2372,8 @@
         if (this.length > 1) {
             return this.each(function() {
                 $.fn.terminal.call($(this),
-                                   init_eval,
-                                   $.extend({name: self.selector}, options));
+                    init_eval,
+                    $.extend({ name: self.selector }, options));
             });
         } else {
             var lines = [];
@@ -2434,7 +2466,7 @@
                         display_exception(e, 'onClear');
                         throw e;
                     }
-                    self.attr({ scrollTop: 0});
+                    self.attr({ scrollTop: 0 });
                     return self;
                 },
                 export_view: function() {
@@ -2511,14 +2543,14 @@
                         var scrollTop = self.scrollTop();
                         if (!is_scrolled_into_view(self)) {
                             self.enable();
-                            $('html,body').animate({scrollTop: offsetTop-50}, 500);
+                            $('html,body').animate({ scrollTop: offsetTop - 50 }, 500);
                             return self;
                         } else {
                             terminals.front().disable();
                             var next = terminals.rotate().enable();
                             // 100 provides buffer in viewport
                             var x = next.offset().top - 50;
-                            $('html,body').animate({scrollTop: x}, 500);
+                            $('html,body').animate({ scrollTop: x }, 500);
                             try {
                                 settings.onTerminalChange(next);
                             } catch (e) {
@@ -2693,8 +2725,7 @@
                 error: function(message) {
                     //echo red message
                     //quick hack to fix trailing back slash
-                    return self.echo('[[;#f00;]' + escape_brackets(message).
-                                     replace(/\\$/, '&#92;') + ']');
+                    return self.echo('[[;#f00;]' + escape_brackets(message).replace(/\\$/, '&#92;') + ']');
                 },
                 scroll: function(amount) {
                     var pos;
@@ -2757,7 +2788,7 @@
                         } else if ($.type(_eval) != 'function') {
                             throw "Invalid value as eval in push command";
                         }
-                        interpreters.push($.extend({'eval': _eval}, options));
+                        interpreters.push($.extend({ 'eval': _eval }, options));
                         prepare_top_interpreter();
                     }
                     return self;
@@ -2799,7 +2830,7 @@
                 },
                 reset: function() {
                     self.clear();
-                    while(interpreters.size() > 1) {
+                    while (interpreters.size() > 1) {
                         interpreters.pop();
                     }
                     initialize();
@@ -2809,7 +2840,7 @@
                 return function() {
                     try {
                         return fun.apply(this, Array.prototype.slice.apply(arguments));
-                    } catch(e) {
+                    } catch (e) {
                         if (_ !== 'exec') { // exec catch by command
                             display_exception(e, 'TERMINAL');
                         }
@@ -2868,22 +2899,22 @@
                     return function(user, passwd, callback, term) {
                         self.pause();
                         $.jrpc(url,
-                               id++,
-                               method,
-                               [user, passwd],
-                               function(response) {
-                                   self.resume();
-                                   if (!response.error && response.result) {
-                                       callback(response.result);
-                                   } else {
-                                       callback(null);
-                                   }
-                               }, function(xhr, status, error) {
-                                   self.resume();
-                                   self.error('&#91;AJAX&#92; Response: ' +
-                                              status + '\n' +
-                                              xhr.responseText);
-                               });
+                            id++,
+                            method, [user, passwd],
+                            function(response) {
+                                self.resume();
+                                if (!response.error && response.result) {
+                                    callback(response.result);
+                                } else {
+                                    callback(null);
+                                }
+                            },
+                            function(xhr, status, error) {
+                                self.resume();
+                                self.error('&#91;AJAX&#92; Response: ' +
+                                    status + '\n' +
+                                    xhr.responseText);
+                            });
                     };
                     //default name is login so you can pass true
                 })($.type(settings.login) === 'boolean' ? 'login' : settings.login);
@@ -2894,8 +2925,7 @@
                     'eval': init_eval,
                     prompt: settings.prompt,
                     completion: settings.completion ?
-                        settings.completion :
-                        function(term, string, callback) {
+                        settings.completion : function(term, string, callback) {
                             callback(command_list);
                         },
                     greetings: settings.greetings
