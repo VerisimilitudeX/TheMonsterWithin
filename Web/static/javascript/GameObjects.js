@@ -27,11 +27,11 @@ var TheAwakening = new Room("TheAwakening",
 Shaheer write smth here \
 on it reads: Spell Casting Academy: The Elite School of Magic.",
     "loc_forest.gif");
-TheAwakening.addItem(new Item("Sign",
+TheAwakening.addItem(new Item("gloves",
     "Spell Casting Academy: The Elite School of Magic \
 Today Only: Free Introductory Lessons! Novices welcome!",
     "loc_forest.gif"));
-TheAwakening.addItem(new Item("BackSign",
+TheAwakening.addItem(new Item("knife",
     "If you ever want to go directly Home, just type 'cd ~' or just plain old `cd' \
 and you'll come back Home. Getting back might be more difficult though.",
     "loc_forest.gif"));
