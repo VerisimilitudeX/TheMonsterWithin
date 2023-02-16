@@ -15,89 +15,14 @@ digraph level_map{
 	<td align="left" port="r0">WelcomeLetter</td></tr>
 	</table>>];
 
-	"WesternForest" [label = 
+	"TheAwakening" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">WesternForest</font></td></tr><tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">TheAwakening</font></td></tr><tr>
 	<td align="left" port="r0">Sign</td></tr>
 	<tr><td align="left" port="r1">BackSign</td></tr>
 	</table>>];
 
-	"NorthernMeadow" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">NorthernMeadow</font></td></tr><tr>
-	<td align="left" port="r0">Pony</td></tr>
-	</table>>];
-
-	"SpellCastingAcademy" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">SpellCastingAcademy</font></td></tr><tr>
-	<td align="left" port="r0">HurryingStudent</td></tr>
-	</table>>];
-
-	"Lessons" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">Lessons</font></td></tr><tr>
-	<td align="left" port="r0">Professor</td></tr>
-	</table>>];
-
-	"PracticeRoom" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">PracticeRoom</font></td></tr>
-	<tr><td align="left" port="r0">Instructions</td></tr>
-	<tr><td align="left" port="r1">PracticeDummy1</td></tr>
-	<tr><td align="left" port="r2">PracticeDummy2</td></tr>
-	<tr><td align="left" port="r3">PracticeDummy3</td></tr>
-	<tr><td align="left" port="r4">PracticeDummy4</td></tr>
-	<tr><td align="left" port="r5">PracticeDummy5</td></tr>
-	</table>>];
-
-	"EasternMountains" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">EasternMountains</font></td></tr><tr><td align="left" port="r0">OldMan</td></tr>
-	<tr><td align="left" port="r1">OldManuscripts</td></tr>
-	</table>>];
-
-	"Cave" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">Cave</font></td></tr>
-	<tr><td align="left" port="r0"></td></tr>
-	</table>>];
-
-	"Staircase" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">Staircase</font></td></tr>
-	<tr><td align="left" port="r0">Sign</td></tr>
-	</table>>];
-
-	"DarkCorridor" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">DarkCorridor</font></td></tr>
-	<tr><td align="left" port="r0"></td></tr>
-	</table>>];
-
-	"DankRoom" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">DankRoom</font></td></tr>
-	<tr><td align="left" port="r0">Boulder</td></tr>
-	</table>>];
-
-	"Tunnel" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">Tunnel</font></td></tr>
-	<tr><td align="left" port="r0">Rat</td></tr>
-	</table>>];
-
-	"SmallHole" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">SmallHole</font></td></tr>
-	<tr><td align="left" port="r0">(can move Boulder here)</td></tr>
-	</table>>];
-
-	"StoneChamber" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">StoneChamber</font></td></tr>
-	<tr><td align="left" port="r0"></td></tr>
-	</table>>];
+	
 
 	"Portal" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
@@ -250,21 +175,8 @@ digraph level_map{
 	</table>>];
 
 	subgraph cluster_level1{
-		"Home" -> "WesternForest";
-		"Home" -> "NorthernMeadow";
-		"WesternForest" -> "SpellCastingAcademy";
-		"SpellCastingAcademy" -> "PracticeRoom";
-		"SpellCastingAcademy" -> "Lessons";
-		"PracticeRoom" -> "Box" [style="dotted"];
-		"NorthernMeadow" -> "EasternMountains";
-		"EasternMountains" -> "Cave";
-		"Cave" -> "DarkCorridor";
-		"Cave" -> "Staircase";
-		"DarkCorridor" -> "DankRoom";
-		"DankRoom" -> "SmallHole";
-		"DankRoom" -> "Tunnel" [style="dashed", label="Move Boulder into SmallHole"];
-		"Tunnel" -> "StoneChamber";
-		"StoneChamber" -> "Portal";
+		"Home" -> "TheAwakening";
+		"TheAwakening" -> "Portal";
 		label = "Level 1";
 	}
 

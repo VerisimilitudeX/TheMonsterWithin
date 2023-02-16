@@ -65,151 +65,22 @@ public class Game {
 		
 		//---------LEVEL 1----------------------
 		//WESTERN FOREST
-		Room westernForest = new Room("WesternForest", "You enter and travel deep into the forest. \n" +
+		Room TheAwakening = new Room("TheAwakening", "You enter and travel deep into the forest. \n" +
 				"Eventually, the path leads to a clearing with a large impressive building. \n" +
 				"A sign on it reads: Spell Casting Academy: The Elite School of Magic.\n", 
 				"loc_forest");
-		westernForest.addItem(new Item("Sign", "Spell Casting Academy: The Elite School of Magic \n" +
+		TheAwakening.addItem(new Item("Sign", "Spell Casting Academy: The Elite School of Magic \n" +
 				"Today Only: Free Introductory Lessons! Novices welcome! \n", "item_sign"));
 		
-		//SPELL CASTING ACADEMY
-		Room spellCastingAcademy = new Room("SpellCastingAcademy", "The halls are filled the hustle and bustle " +
-				"of academy students scurrying to and from classes. " +
-				"The inside of the academy is as impressive as it is on the outside " +
-				"with a high ceiling and gothic arches, it seems even larger on the inside. \n", 
-				"loc_academy");
-		spellCastingAcademy.addItem(new OnceItem("HurryingStudent", "You to speak to a hurrying student. " +
-				"The student runs into you and falls to the ground. " +
-				"The student quickly gets up and apologizes to you, asking if you are okay. " +
-				"You are sturdier than you look and you're undamaged." + 
-				"\"I'm so sorry, I was in such a hurry that I didn't see you there... " +
-				"Say, I haven't seen you here before. You're new here aren't-cha?\" " +
-				"the student winks at you, \"Don't worry, there's tons of newbies around today, " +
-				"why don't you try checking out one of the free intro lessons? " +
-				"I'd show you where to go, but I gotta run to class. " +
-				"Just head into the Lessons hall and someone should help you out. See you around.\" " + 
-				"The student runs past you. You notice that the student is pretty cute, " +
-				"and probably around your age. Unfortunately, the student disappears around " +
-				" a corner before you can ask for a name.\n", "item_student"));
-		
-		//PRACTICE ROOM
-		Room practiceRoom = new Room("PracticeRoom", "The room is filled with practice dummies \n" +
-				"for students to practice their new spells on. \n", "loc_practiceroom");
-		practiceRoom.addItem(new Item("Instructions", "Welcome to the Practice Room. \n" +
-				"Here you will find practice dummies try your new spells on. \n" + 
-				"Go ahead, give it a go! Practice dummies will respawn in their original \n" +
-				"location once you leave the Practice Room. If you don't know any spells yet, \n" +
-				"go back and check out some Lessons.\n", "item_manuscript"));
-		practiceRoom.addItem(new MoveableItem("PracticeDummy1", "It's a practice dummy\n", "item_dummy"));
-		practiceRoom.addItem(new MoveableItem("PracticeDummy2", "It's a practice dummy\n", "item_dummy"));
-		practiceRoom.addItem(new MoveableItem("PracticeDummy3", "It's a practice dummy\n", "item_dummy"));
-		practiceRoom.addItem(new MoveableItem("PracticeDummy4", "It's a practice dummy\n", "item_dummy"));
-		practiceRoom.addItem(new MoveableItem("PracticeDummy5", "It's a practice dummy\n", "item_dummy"));
-		practiceRoom.addCommand("mv");
-		
-		//BOX
-		Box box = new Box("Box", "This box is too small for you to fit into.");
-		
-		//MEADOW
-		Room northernMeadow = new Room("NorthernMeadow", "This is a beautiful green meadow. " +
-				"A plump but majestic pony prances happily about.\n", "loc_meadow");
-		northernMeadow.addItem(new Item("Pony", "You go up to the pony and attempt to ride it. " +
-				"It compiles and you ride the pony around in circles for a bit. " +
-				"It then grows tired of having you as a burden and knocks you off. " +
-				"He then looks towards the east as if suggesting that you head in that direction.\n", "item_fatpony"));
-		
-		
-		//EASTERN MOUNTAINS
-		Room easternMountains = new Room("EasternMountains", "You travel through a mountain path, " +
-				"which eventually leads you to the entrance of a cave. " +
-				"Sitting right outside this cave is an old man.", "loc_mountains");
-		easternMountains.addItem(new Item("OldMan", "You speak with the old man. " +
-				"He greets you warmly as if you were old friends. " +
-				"You feel at ease with him. Hello adventurer! Top of the morning to you! " +
-				"You seem like a young and energetic explorer. " +
-				"If you're brave enough, your destiny awaits within this cave." +
-				"That destiny will manifest itself as a portal. " +
-				"Enter this portal and begin the next chapter of your life. " +
-				"The old man sees the shock on your face and smiles comforting smile, " +
-				"\"I am but a fragile old man, and cannot accompany you through this cave, " +
-				"but what I can provide are a few simple spells that will help you along " +
-				"your way. Just read my old manuscripts and tryout those spells.\"", "item_mysteryman"));
-		easternMountains.addItem(new Item("OldManuscripts", "If you ever forget a spell just use \"help\" " +
-				"and a list of available spells will appear. If you need details " +
-				"on how to use a specific spell, use 'man' followed by spell command. " +
-				"For example, if you were interested in details on how to use the " +
-				"\"mv\" spell you would use: man mv\n", "item_manuscript"));
-		
-		//LESSONS
-		Room lessons = new Room("Lessons", "You enter the Lessons hall ready and eager. \n" +
-				"It's much quieter here, as many of the lessons have already started. \n" +
-				" You quickly ushered into the Introductory Lesson, which already begun. \n" +
-				"You enter the class on the \"Move Spell.\"\n", "loc_classroom");
-		lessons.addItem(new Item("Professor", "The professor is difficult to understand, \n" +
-				"but you pick up just enough to learn 3 things: \n" + 
-				"1. You can use 'mv' to move things in the world \n" + 
-				"2. You have to indicate the object and the new location \n" +
-				"(i.e.: mv OBJECT NEWLOCATION) \n" + 
-				"3. This spell will only work on certain objects, for example \n" +
-				"the PracticeDummy objects in the PracticeRoom \n" +
-				"You did not pay enough attention to learn which types of \n" +
-				"objects are unmovable. Oh well, experimenting was always more of \n" +
-				"your style anyways. But be careful!\n", "item_professor"));
-		
-		//CAVE
-		Room cave = new Room("Cave", "It's your typical cave: dark and dank.\n", "loc_cave");
-		
-		//DARK CORRIDOR
-		Room darkCorridor = new Room("DarkCorridor", "You travel through the dark corridor \n" +
-				"and find a small dank room at the end.\n", "loc_corridor");
-		
-		//STAIRCASE
-		Room staircase = new Room("Staircase", "The rocky staircase leads you to a dead end \n" +
-				"and a sign indicating such.\n", "loc_stair");
-		staircase.addItem(new Item("Sign", "DEAD END\n", "item_sign"));
-		
-		//DANK ROOM
-		dankRoom = new Room("DankRoom", "It's a musty dank room. A round boulder sits \n" +
-				"to the right side of the room.\n", "loc_darkroom");
-		dankRoom.addItem(new MoveableItem("Boulder", "You feel a slight breeze coming from behind the \n" +
-				"boulder. Maybe move it out of your way?\n", "item_boulder"));
-		dankRoom.addCommand("mv");
-		
-		//SMALL HOLE
-		Box smallHole = new Box("SmallHole", "There's nothing exciting in the small hole, and it's pretty dirty. There's no real reason to go into the hole.");
-		
-		//TUNNEL
-		tunnel = new Room("Tunnel", "It's quite moist in here. \n" +
-				"You notice a small furry movement in the corner of your vision. \n" +
-				"It's most likely a rat. A very large rat. Perhaps a mongoose. \n" +
-				"At the end of the tunnel you find a stone chamber.\n", "loc_tunnel");
-		tunnel.addItem(new Item("Rat", "Upon further inspection, you determine that the furry \n" +
-				"presence is in fact a rat...the size of a small dog. It bites you. \n" +
-				"You are very displeased.\n", "item_rat"));
-		
-		//STONE CHAMBER
-		Room stoneChamber = new Room("StoneChamber", "The whole rooms glows a dim green light. \n" +
-				"The source of this light is a portal standing in the middle of the room. \n" +
-				"This is obviously the portal of which the old man spoke.\n", "loc_portalroom");
+
 	
 		//PORTAL (to bring you to the next level
 		Room portal = new Room("Portal", "You have been transported through time...\n", "item_portal");
 		
 		//link LEVEL 1 together
-		link(home, westernForest);
-		link(home, northernMeadow);
-		link(westernForest, spellCastingAcademy);
-		link(northernMeadow, easternMountains);
-		link(spellCastingAcademy, lessons);
-		link(spellCastingAcademy, practiceRoom);
-		link(easternMountains, cave);
-		link(cave, darkCorridor);
-		link(cave, staircase);
-		link(darkCorridor, dankRoom);
 		//link(dankRoom, tunnel); - this link is made when you move the boulder
-		link(dankRoom, smallHole);
-		link(tunnel, stoneChamber);
-		link(stoneChamber, portal);
+		link(home, TheAwakening);
+		link(TheAwakening, portal);
 		//---------------END LEVEL 1-----------------
 		
 		
