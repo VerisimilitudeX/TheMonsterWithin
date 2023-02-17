@@ -65,13 +65,15 @@ public class Game {
 		
 		//---------LEVEL 1----------------------
 		//WESTERN FOREST
-		Room TheAwakening = new Room("TheAwakening", "You enter and travel deep into the forest. \n" +
+		Room theAwakening = new Room("theAwakening", "You enter and travel deep into the forest. \n" +
 				"Eventually, the path leads to a clearing with a large impressive building. \n" +
-				"A sign on it reads: Spell Casting Academy: The Elite School of Magic.\n", 
+				"A gloves on it reads: Spell Casting Academy: The Elite School of Magic.\n", 
 				"loc_forest");
-		TheAwakening.addItem(new Item("Sign", "Spell Casting Academy: The Elite School of Magic \n" +
-				"Today Only: Free Introductory Lessons! Novices welcome! \n", "item_sign"));
-		
+		theAwakening.addItem(new Item("gloves", "Spell Casting Academy: The Elite School of Magic \n" +
+				"Today Only: Free Introductory Lessons! Novices welcome! \n", "item_gloves"));
+
+		theAwakening.addItem(new Item("knife", "Spell Casting Academy: The Elite School of Magic \n" +
+				"Today Only: Free Introductory Lessons! Novices welcome! \n", "item_knife"));		
 
 	
 		//PORTAL (to bring you to the next level
@@ -79,8 +81,8 @@ public class Game {
 		
 		//link LEVEL 1 together
 		//link(dankRoom, tunnel); - this link is made when you move the boulder
-		link(home, TheAwakening);
-		link(TheAwakening, portal);
+		link(home, wes);
+		link(theAwakening, portal);
 		//---------------END LEVEL 1-----------------
 		
 		
