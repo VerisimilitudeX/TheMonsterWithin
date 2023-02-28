@@ -12,7 +12,7 @@
 //HOME
 var Home = new Room("Home",
     "You are in the comfort of your own home.",
-    "loc_farm.gif");
+    "loc_home.png");
 Home.addItem(new Item("WelcomeLetter", "Welcome! If you are new to the game, here are some tips: \n\n" +
     "Look at your surroundings with the command \"ls\". \n" +
     "Move to a new location with the command \"cd LOCATION\" \n" +
@@ -21,20 +21,20 @@ Home.addItem(new Item("WelcomeLetter", "Welcome! If you are new to the game, her
     "If you forget where you are, type \"pwd\" \n\n" +
     "Go ahead, explore. We hope you enjoy what you find. Do ls as your first command.\n"));
 
-//WESTERN FOREST
+//first comment the awakening
 var TheAwakening = new Room("TheAwakening",
     "You suddenly wake up the clink of metal \
 Shaheer write smth here \
 on it reads: Spell Casting Academy: The Elite School of Magic.",
-    "loc_forest.gif");
+    "theAwakening.png");
 TheAwakening.addItem(new Item("gloves",
     "Spell Casting Academy: The Elite School of Magic \
 Today Only: Free Introductory Lessons! Novices welcome!",
-    "loc_forest.gif"));
+    "item_glove.gif"));
 TheAwakening.addItem(new Item("knife",
     "If you ever want to go directly Home, just type 'cd ~' or just plain old `cd' \
 and you'll come back Home. Getting back might be more difficult though.",
-    "loc_forest.gif"));
+    "item_knife.gif"));
 
 //PORTAL (to bring you to the next level
 var Portal = new Room("Portal",
