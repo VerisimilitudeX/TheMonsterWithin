@@ -162,12 +162,12 @@ public class SuperPanel extends JFrame implements KeyListener{
 	    		 incomplete = text.substring(lastSpace+1, caretPos); 
 		    	 
 	    		 //CD, LS
-		    	 //Only auto-fill locations
+		    	 //Only auto-fill activities
 		    	 if(text.startsWith("cd ") || 
 		    			 text.startsWith("ls "))
 		    	 {
-		    		 ArrayList<String> locations = emulator.getGame().getLocationNames();
-		    		 for(String location : locations)
+		    		 ArrayList<String> activities = emulator.getGame().getLocationNames();
+		    		 for(String location : activities)
 		    		 {
 	    				if(location.startsWith(incomplete))
 	    				{

@@ -50,10 +50,10 @@ public class Game {
 	public Game(){
 		String introText = "Welcome! If you are new to the game, here are some tips: \n " +
 		"Look at your surroundings with the command \"ls\". \n " +
-		"Move to a new location with the command \"cd LOCATION\" \n" +
+		"Move to a new location with the command \"cd Location/Activity\" \n" +
 		"You can backtrack with the command \"cd ..\". \n" +
 		"Interact with things in the world with the command \"less ITEM\" \n" +
-		"Go ahead, explore. We hope you enjoy what you find. Do ls as your first command.\n";
+		"Go ahead, explore. We hope you enjoy what you find. Do cd or ls as your first command.\n";
 		//this.rooms = new HashSet<Room>();
 		
 		//HOME
@@ -63,30 +63,31 @@ public class Game {
 		this.currentIcon = new ImageIcon("graphic/" + home.getIconText() + ".gif");
 		this.currentRoom = home;
 		
-		//---------LEVEL 1----------------------
-		//WESTERN FOREST
-		Room theAwakening = new Room("theAwakening", "You enter and travel deep into the forest. \n" +
-				"Eventually, the path leads to a clearing with a large impressive building. \n" +
-				"A gloves on it reads: Spell Casting Academy: The Elite School of Magic.\n", 
-				"loc_forest");
-		theAwakening.addItem(new Item("gloves", "Spell Casting Academy: The Elite School of Magic \n" +
-				"Today Only: Free Introductory Lessons! Novices welcome! \n", "item_gloves"));
-
-		theAwakening.addItem(new Item("knife", "Spell Casting Academy: The Elite School of Magic \n" +
-				"Today Only: Free Introductory Lessons! Novices welcome! \n", "item_knife"));		
-
+		//---------TheAwakening----------------------
+		Room theAwakening = new Room("theAwakening", "Clink CLink- You have Awaken@ \
+				Welcome to the Awakening! \
+				You wake up and look at your creator. \
+				Time to learn how humans act! ",
+    			"loc_awake.png");
+		theAwakening.addItem(new Item("gloves", "Collect these gloves, they may be useful later" , "item_gloves"));
+		theAwakening.addItem(new Item("knife", "Collect this knife, it may be useful later" "item_knife"));		
+		// Learn how humans act
+		var theDesolation = new Room("theDesolation",
+    			"Piyush fill content here coz idk what to add",
+    			"loc_desolation.png");
 	
 		//PORTAL (to bring you to the next level
 		Room portal = new Room("Portal", "You have been transported through time...\n", "item_portal");
 		
-		//link LEVEL 1 together
+		//link TheAwakening together
 		//link(dankRoom, tunnel); - this link is made when you move the boulder
 		link(home, wes);
-		link(theAwakening, portal);
-		//---------------END LEVEL 1-----------------
+		link(theAwakening, theDesolation);
+		link(theDesolation, portal);
+		//---------------TheAwakening-----------------
 		
 		
-		//---------------LEVEL 2---------------------
+		//---------------The Trial---------------------
 		//TOWN SQUARE
 		Room townSquare = new Room("TownSquare", "You are in a sunny and spacious town square. \n" +
 				"There is a pedestal at the center of the cobblestone turnabout, but no statue on it. \n" +
@@ -341,10 +342,10 @@ public class Game {
 	
 	public ArrayList<String> getLocationNames()
 	{
-		ArrayList<String> locations = new ArrayList<String>();
+		ArrayList<String> activities = new ArrayList<String>();
 		for (Room r: this.currentRoom.getChildren())
-			locations.add(r.getName());
-		return locations;
+			activities.add(r.getName());
+		return activities;
 	}
 	
 	public ArrayList<String> getItemNames()
@@ -357,7 +358,7 @@ public class Game {
 	
 	public ArrayList<String> getCurrentLSList(){
 		ArrayList<String> lsList = new ArrayList<String>();
-		lsList.add("Locations:");
+		lsList.add("Activities:");
 		lsList.addAll(getLocationNames());
 		lsList.add("Items:");
 		lsList.addAll(getItemNames());

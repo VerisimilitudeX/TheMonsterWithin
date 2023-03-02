@@ -127,18 +127,18 @@ Room.prototype.ls = function(args){
 		other_rooms = (this.children.toString()).replaceAll(",", "\n");
 		$("#scene").attr("src",this.room_pic); // Display image of room
 		if (this.items.length > 0){
-			return " Locations: \n" + other_rooms + "\n Items: \n" + (this.items.toString()).replaceAll(",", "\n");
+			return " Activities: \n" + other_rooms + "\n Items: \n" + (this.items.toString()).replaceAll(",", "\n");
 		}
-		return " Locations: \n" + other_rooms;
+		return " Activities: \n" + other_rooms;
 	}
 };
 
 Room.prototype.printLS = function(){
 	other_rooms = (this.children.toString()).replaceAll(",", "\n");
 		if (this.items.length > 0){
-			return " Locations: \n" + other_rooms + "\n Items: \n" + (this.items.toString()).replaceAll(",", "\n");
+			return " Activities: \n" + other_rooms + "\n Items: \n" + (this.items.toString()).replaceAll(",", "\n");
 		}
-		return " Locations: \n" + other_rooms;
+		return " Activities: \n" + other_rooms;
 }
 
 var enterRoom = function(new_room){
@@ -149,7 +149,7 @@ var enterRoom = function(new_room){
 
 Room.prototype.cd = function(args){
 	if (args.length > 1){
-		return "You can't move to multiple locations.";
+		return "You can't perform multiple activities.";
 	} else if (args.length == 0){
 		enterRoom(Home);
 		return "You have come Home!";

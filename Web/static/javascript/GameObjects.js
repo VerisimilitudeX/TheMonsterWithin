@@ -12,21 +12,21 @@
 //HOME
 var Home = new Room("Home",
     "You are in the comfort of your own home.",
-    "loc_home.png");
-Home.addItem(new Item("WelcomeLetter", "Welcome! If you are new to the game, here are some tips: \n\n" +
+    "loc_home.png",
     "Look at your surroundings with the command \"ls\". \n" +
-    "Move to a new location with the command \"cd LOCATION\" \n" +
+    "Move to a new location with the command \"cd Location/Activity\" \n" +
     "You can backtrack with the command \"cd ..\". \n" +
-    "Interact with things in the world with the command \"less ITEM\" \n\n" +
+    "Interact with items in the world with the command \"less ITEM\" \n\n" +
     "If you forget where you are, type \"pwd\" \n\n" +
-    "Go ahead, explore. We hope you enjoy what you find. Do ls as your first command.\n"));
+    "Go ahead, explore. We hope you enjoy what you find. Do cd or ls as your first command.\n");
 
 //first comment the awakening
 var TheAwakening = new Room("TheAwakening",
-    "You suddenly wake up the clink of metal \
-Shaheer write smth here \
-on it reads: Spell Casting Academy: The Elite School of Magic.",
-    "theAwakening.png");
+    "Clink CLink- You have Awaken! \
+Welcome to the Awakening! \
+You wake up and look at your creator. \
+Time to learn how humans act! ",
+    "loc_awake.png");
 TheAwakening.addItem(new Item("gloves",
     "Spell Casting Academy: The Elite School of Magic \
 Today Only: Free Introductory Lessons! Novices welcome!",
@@ -35,15 +35,18 @@ TheAwakening.addItem(new Item("knife",
     "If you ever want to go directly Home, just type 'cd ~' or just plain old `cd' \
 and you'll come back Home. Getting back might be more difficult though.",
     "item_knife.gif"));
-
+// Learn how humans act
+var theDesolation = new Room("theDesolation",
+    "Piyush fill content here coz idk what to add",
+    "loc_desolation.png");
 //PORTAL (to bring you to the next level
 var Portal = new Room("Portal",
     "You have been transported through time...",
     "item_portal.gif");
-//---------------END LEVEL 1-----------------
+//---------------The Awakening-----------------
 
 
-//---------------LEVEL 2---------------------
+//---------------The Trial---------------------
 //TOWN SQUARE
 var TownSquare = new Room("TownSquare",
     "You are in a sunny and spacious town square. \
@@ -1706,9 +1709,9 @@ MagicLocker.addItem(MoreComing);
 function link_rooms(parentRoom, childRoom) { if (!(childRoom in parentRoom.children)) { parentRoom.addChild(childRoom); } if (!(parentRoom in childRoom.parents)) { childRoom.addParent(parentRoom); } };
 
 
-// LEVEL 1 LINKS
+// TheAwakening LINKS
 link_rooms(Home, TheAwakening);
-link_rooms(TheAwakening, SpellCastingAcademy);
+link_rooms(TheAwakening, theDesolation);
 link_rooms(SpellCastingAcademy, PracticeRoom);
 link_rooms(PracticeRoom, Box);
 link_rooms(Home, NorthernMeadow);
@@ -1722,10 +1725,10 @@ link_rooms(DankRoom, SmallHole);
 link_rooms(Tunnel, StoneChamber);
 link_rooms(StoneChamber, Portal);
 
-//level 1 -> level 2
+//TheAwakening -> The Trial     
 link_rooms(Portal, TownSquare);
 
-//LEVEL 2 LINKS
+//The Trial LINKS
 link_rooms(TownSquare, Marketplace);
 link_rooms(TownSquare, Library);
 link_rooms(TownSquare, RockyPath);

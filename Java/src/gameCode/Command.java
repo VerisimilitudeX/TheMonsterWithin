@@ -5,9 +5,9 @@ public enum Command {
 	EXIT ("exit"),	//Acts on NOTHING
 	LESS ("less"), 	//Acts on items
 	GREP ("grep"), 	//Acts on items
-	CD ("cd"), 		//Acts on locations
+	CD ("cd"), 		//Acts on activities
 	MV ("mv"),		//Acts on items
-	LS ("ls"),		//Acts on locations
+	LS ("ls"),		//Acts on activities
 	MAN ("man"),	//Acts on commands
 	HELP("help"),	//Acts on NOTHING
 	RM("rm"),		//Acts on items

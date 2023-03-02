@@ -22,7 +22,10 @@ digraph level_map{
 	<tr><td align="left" port="r1">knife</td></tr>
 	</table>>];
 
-	
+	"theDesolation" [label = 
+	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">theDesolation</font></td></tr><tr>
+	</table>>];
 
 	"Portal" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
@@ -176,7 +179,8 @@ digraph level_map{
 
 	subgraph cluster_level1{
 		"Home" -> "TheAwakening";
-		"TheAwakening" -> "Portal";
+		"TheAwakening" -> "theDesolation";
+		"theDesolation" -> "portal";
 		label = "Level 1";
 	}
 
