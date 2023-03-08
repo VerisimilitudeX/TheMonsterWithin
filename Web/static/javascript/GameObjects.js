@@ -17,32 +17,45 @@ var Home = new Room("Home",
     "Move to a new location with the command \"cd Location/Activity\" \n" +
     "You can backtrack with the command \"cd ..\". \n" +
     "Interact with items in the world with the command \"less ITEM\" \n\n" +
-    "If you forget where you are, type \"pwd\" \n\n" +
-    "Go ahead, explore. We hope you enjoy what you find. Do cd or ls as your first command.\n");
+    "If you forget where you are, type \"pwd\" \n\n" + 
+    "Go ahead, explore. We hope you enjoy what you find. Do cd or ls as your first command.\n",
+    "item_home.gif");
 
 //first comment the awakening
-var TheAwakening = new Room("TheAwakening",
-    "Clink CLink- You have Awaken! \
-Welcome to the Awakening! \
-You wake up and look at your creator. \
-Time to learn how humans act! ",
-    "loc_awake.png");
-TheAwakening.addItem(new Item("gloves",
-    "Spell Casting Academy: The Elite School of Magic \
-Today Only: Free Introductory Lessons! Novices welcome!",
-    "item_glove.gif"));
-TheAwakening.addItem(new Item("knife",
-    "If you ever want to go directly Home, just type 'cd ~' or just plain old `cd' \
-and you'll come back Home. Getting back might be more difficult though.",
-    "item_knife.gif"));
-// Learn how humans act
-var theDesolation = new Room("theDesolation",
-    "Piyush fill content here coz idk what to add",
-    "loc_desolation.png");
-//PORTAL (to bring you to the next level
-var Portal = new Room("Portal",
-    "You have been transported through time...",
-    "item_portal.gif");
+    var TheAwakening = new Room("TheAwakening",
+        "Clink CLink- You have Awaken! \
+    Welcome to the Awakening! \
+    You wake up and look at your creator. \
+    Interact with items using the command \"less ITEM\". \ ",
+        "loc_awake.png");
+    // The Desolation
+    var theDesolation = new Room("theDesolation",
+        "Use the command less ITEM to select the correct item to kill William, your creator's brother. \n" +
+        "loc_desolation.png");
+    theDesolation.addItem(new Item("gloves",
+        " You have collected gloves! \
+    You have used the gloves to strangle William- your creator's brother! \n\ " +
+        "You have killed William! \n\ "));
+    theDesolation.addItem(new Item("knife",
+        "Hmmm, Are you sure this is the correct item? \
+    Use less and the correct item to complete the objective and try again. \n\ "));
+    // The Trial of Justine
+    var theTrial = new Room("theTrial",
+        "You have been transported to the Trial. \
+        Which item will you use to hide in the corner? \n\ " +
+        "loc_trial.png");
+        
+        theTrial.addItem(new Item("cloak",
+        "You have used the cloak to hide in the corner succesfuly. \
+        Justine has been convicted and she will expire later. \n\ "));
+
+        theTrial.addItem(new Item("cape",
+        "Hmmm, Are you sure this is the correct item? \
+        Use less and the correct item to complete the objective and try again. \n\ "));
+    //PORTAL (to bring you to the next level
+    var Portal = new Room("Portal",
+        "You have been transported through time...",
+        "item_portal.gif");
 //---------------The Awakening-----------------
 
 
@@ -1712,18 +1725,12 @@ function link_rooms(parentRoom, childRoom) { if (!(childRoom in parentRoom.child
 // TheAwakening LINKS
 link_rooms(Home, TheAwakening);
 link_rooms(TheAwakening, theDesolation);
-link_rooms(SpellCastingAcademy, PracticeRoom);
-link_rooms(PracticeRoom, Box);
-link_rooms(Home, NorthernMeadow);
-link_rooms(NorthernMeadow, EasternMountains);
-link_rooms(SpellCastingAcademy, Lessons);
-link_rooms(EasternMountains, Cave);
-link_rooms(Cave, DarkCorridor);
-link_rooms(Cave, Staircase);
-link_rooms(DarkCorridor, DankRoom);
-link_rooms(DankRoom, SmallHole);
-link_rooms(Tunnel, StoneChamber);
-link_rooms(StoneChamber, Portal);
+link_rooms(theDesolation, theTrial);
+link_rooms(theTrial, theAwakening);
+link_rooms(theTrial, theDesolation);
+link_rooms(theAwakening, theTrial);
+link_rooms(theDesolation, theAwakening);
+
 
 //TheAwakening -> The Trial     
 link_rooms(Portal, TownSquare);

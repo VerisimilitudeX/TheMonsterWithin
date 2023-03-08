@@ -58,31 +58,50 @@ public class Game {
 		
 		//HOME
 		Room home = new Room("Home", introText + "\n", "titlescreen");
-		home.addItem(new Item("Letter", introText, "item_manuscript"));
 		
 		this.currentIcon = new ImageIcon("graphic/" + home.getIconText() + ".gif");
 		this.currentRoom = home;
 		
 		//---------TheAwakening----------------------
-		Room theAwakening = new Room("theAwakening", "Clink CLink- You have Awaken@ \
+		Room theAwakening = new Room("theAwakening", "Clink CLink- You have Awaken! \
 				Welcome to the Awakening! \
 				You wake up and look at your creator. \
-				Time to learn how humans act! ",
+				Time to learn how humans act!\
+				Enter the Desolation to learn how humans act.\ ",
     			"loc_awake.png");
-		theAwakening.addItem(new Item("gloves", "Collect these gloves, they may be useful later" , "item_gloves"));
-		theAwakening.addItem(new Item("knife", "Collect this knife, it may be useful later" "item_knife"));		
-		// Learn how humans act
-		var theDesolation = new Room("theDesolation",
-    			"Piyush fill content here coz idk what to add",
-    			"loc_desolation.png");
+		// Learn how humans act( The desolation)
+		Room theDesolation = new Room("theDesolation", "You have succesfuly obtained the required knowledge to learn how humans act \
+				Use less item to complete your tasks with items!\ ",
+    			"loc_desolate.png");
+		theDesolation.addItem(new Item("gloves", " You have collected gloves! \
+You have used the gloves to strangle William- your creator's brother! \n\ " +
+    "You have killed William! \n\ " "item_gloves.png"));
 	
+		theDesolation.addItem(new Item("knife", "Are you sure this is the correct item to use? "));
+
+		// The Trial of Justine
+    	Room theTrial = new Room("theTrial",
+        "You have been transported to the Trial. \
+        Which item will you use to hide in the corner? \n\ " +
+        "loc_trial.png");
+        
+        theTrial.addItem(new Item("cloak",
+        "You have used the cloak to hide in the corner succesfuly. \
+        Justine has been convicted and she will expire later. \n\ "));
+
+        theTrial.addItem(new Item("cape",
+        "Hmmm, Are you sure this is the correct item? \
+        Use less and the correct item to complete the objective and try again. \n\ "));
 		//PORTAL (to bring you to the next level
 		Room portal = new Room("Portal", "You have been transported through time...\n", "item_portal");
-		
-		//link TheAwakening together
-		//link(dankRoom, tunnel); - this link is made when you move the boulder
+
 		link(home, wes);
 		link(theAwakening, theDesolation);
+		link(theAwakening, theTrial);
+		link(theDesolation, theTrial);
+		link(theDesolation, theAwakening);
+		link(theTrial, theDesolation);
+		link(theTrial, theAwakening);
 		link(theDesolation, portal);
 		//---------------TheAwakening-----------------
 		
