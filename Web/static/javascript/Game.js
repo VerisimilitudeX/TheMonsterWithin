@@ -5,7 +5,7 @@ var current_room = state.getCurrentRoom();
 var man_pages = {
     "cd": "The old man's voice echoes in your head as if from a great distance: \n" +
         "(Choose Destination) Use \"cd\" to move about the world. \n" +
-        "Command Input: cd LOCATION \n" +
+        "Command Input: cd Location/Activity \n" +
         "Rememberrrrrr...",
     "mv": "The old man's voice echoes in your head as if from a great distance: \n" +
         "(MoVe). \n Use \"mv\" to move an object to a new location. \n Command Input:" +
@@ -18,7 +18,7 @@ var man_pages = {
         " Command Input: \n" +
         "ls          (for current location) \n" +
         "-OR- \n" +
-        "ls LOCATION     (for locations you that you cannot \"cd\" into)\n" +
+        "ls LOCATION     (for activities you that you cannot \"cd\" into)\n" +
         "Rememberrrrrr...",
     "less": "The old man's voice echoes in your head as if from a great distance: \n" +
         "(Look at, Examine, or Speak to Something). \nUse \"less\" to look at what’s in a " +
@@ -112,11 +112,11 @@ $(document).ready(function() {
         // Signiture to include at top of terminal
         greetings: "Welcome! If you are new to the game, here are some tips: \n\n" +
             "Look at your surroundings with the command \"ls\". \n" +
-            "Move to a new location with the command \"cd LOCATION\" \n" +
+            "Move to a new location with the command \"cd Location/Activity\" \n" +
             "You can backtrack with the command \"cd ..\". \n" +
             "Interact with things in the world with the command \"less ITEM\" \n\n" +
             "If you forget where you are, type \"pwd\" \n\n" +
-            "Go ahead, explore. We hope you enjoy what you find. Do ls as your first command.\n",
+            "Go ahead, explore. We hope you enjoy what you find. Do cd or ls as your first command.\n",
         exit: false, // Disable 'exit' command
         clear: true, // Disable 'clear' command
     });

@@ -253,25 +253,25 @@ public class Emulator
 						if (tokens[1].equals("cd")){
 							output = "The old man's voice echoes in your head as if from a great distance: \n" +
 									"(Choose Destination) \n" +
-									"Use ‘cd’ to move about the world. \n\n" +
-									"Command Input: cd LOCATION \n Rememberrrrrr...";
+									"Use ï¿½cdï¿½ to move about the world. \n\n" +
+									"Command Input: cd Location/Activity \n Rememberrrrrr...";
 						} else if (tokens[1].equals("ls")){
 							output = "The old man's voice echoes in your head as if from a great distance: \n" +
 									"(Look at your Surroundings)\n" +
-									"Use \"ls\" to look at what’s in a certain location. Either your current location or (rarely) you may have look into a location to see what's in it. \n" +
+									"Use \"ls\" to look at whatï¿½s in a certain location. Either your current location or (rarely) you may have look into a location to see what's in it. \n" +
 									"Command Input:\n" +
 									"ls			(for current location)\n" +
 									"		-OR- \n" +
-									"ls LOCATION		(for locations you that you cannot \"cd\" into)\n" +
+									"ls LOCATION		(for activities you that you cannot \"cd\" into)\n" +
 									"Rememberrrrrr...";
 						} else if (tokens[1].equals("less")){
 							output = "The old man's voice echoes in your head as if from a great distance:\n" +
 									"(Look  at, Examine, or Speak to Something)\n" +
-									"Use \"less\" to look at what’s in a certain location. Either your current location or (rarely) you may have look into a location to see what is in it.\n" +
+									"Use \"less\" to look at whatï¿½s in a certain location. Either your current location or (rarely) you may have look into a location to see what is in it.\n" +
 									"Command Input:\n" +
 									"less			(for current location)\n" +
 									"OR-\n" +
-									"less ITEM		(for locations you that you cannot \"cd\" into)\n" +
+									"less ITEM		(for activities you that you cannot \"cd\" into)\n" +
 									"Rememberrrrrr...";
 						} else if (tokens[1].equals("mv")){
 							output = "The old man's voice echoes in your head as if from a great distance:\n" +
@@ -290,7 +290,7 @@ public class Emulator
 						} else if (tokens[1].equals("mkdir")){
 							output = "The old man's voice echoes in your head as if from a great distance:\n" +
 									"(MaKe Dream Into Reality)\n" +
-									"Use \"mkdir\" to make new locations.\n" +
+									"Use \"mkdir\" to make new activities.\n" +
 									"Command Input:\n" +
 									"rm OBJECTNAME\n" +
 									"Rememberrrrrr...";

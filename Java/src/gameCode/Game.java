@@ -50,43 +50,63 @@ public class Game {
 	public Game(){
 		String introText = "Welcome! If you are new to the game, here are some tips: \n " +
 		"Look at your surroundings with the command \"ls\". \n " +
-		"Move to a new location with the command \"cd LOCATION\" \n" +
+		"Move to a new location with the command \"cd Location/Activity\" \n" +
 		"You can backtrack with the command \"cd ..\". \n" +
 		"Interact with things in the world with the command \"less ITEM\" \n" +
-		"Go ahead, explore. We hope you enjoy what you find. Do ls as your first command.\n";
+		"Go ahead, explore. We hope you enjoy what you find. Do cd or ls as your first command.\n";
 		//this.rooms = new HashSet<Room>();
 		
 		//HOME
 		Room home = new Room("Home", introText + "\n", "titlescreen");
-		home.addItem(new Item("Letter", introText, "item_manuscript"));
 		
 		this.currentIcon = new ImageIcon("graphic/" + home.getIconText() + ".gif");
 		this.currentRoom = home;
 		
-		//---------LEVEL 1----------------------
-		//WESTERN FOREST
-		Room theAwakening = new Room("theAwakening", "You enter and travel deep into the forest. \n" +
-				"Eventually, the path leads to a clearing with a large impressive building. \n" +
-				"A gloves on it reads: Spell Casting Academy: The Elite School of Magic.\n", 
-				"loc_forest");
-		theAwakening.addItem(new Item("gloves", "Spell Casting Academy: The Elite School of Magic \n" +
-				"Today Only: Free Introductory Lessons! Novices welcome! \n", "item_gloves"));
-
-		theAwakening.addItem(new Item("knife", "Spell Casting Academy: The Elite School of Magic \n" +
-				"Today Only: Free Introductory Lessons! Novices welcome! \n", "item_knife"));		
-
+		//---------TheAwakening----------------------
+		Room theAwakening = new Room("theAwakening", "Clink CLink- You have Awaken! \
+				Welcome to the Awakening! \
+				You wake up and look at your creator. \
+				Time to learn how humans act!\
+				Enter the Desolation to learn how humans act.\ ",
+    			"loc_awake.png");
+		// Learn how humans act( The desolation)
+		Room theDesolation = new Room("theDesolation", "You have succesfuly obtained the required knowledge to learn how humans act \
+				Use less item to complete your tasks with items!\ ",
+    			"loc_desolate.png");
+		theDesolation.addItem(new Item("gloves", " You have collected gloves! \
+You have used the gloves to strangle William- your creator's brother! \n\ " +
+    "You have killed William! \n\ " "item_gloves.png"));
 	
+		theDesolation.addItem(new Item("knife", "Are you sure this is the correct item to use? "));
+
+		// The Trial of Justine
+    	Room theTrial = new Room("theTrial",
+        "You have been transported to the Trial. \
+        Which item will you use to hide in the corner? \n\ " +
+        "loc_trial.png");
+        
+        theTrial.addItem(new Item("cloak",
+        "You have used the cloak to hide in the corner succesfuly. \
+        Justine has been convicted and she will expire later. \n\ "));
+
+        theTrial.addItem(new Item("cape",
+        "Hmmm, Are you sure this is the correct item? \
+        Use less and the correct item to complete the objective and try again. \n\ "));
 		//PORTAL (to bring you to the next level
 		Room portal = new Room("Portal", "You have been transported through time...\n", "item_portal");
-		
-		//link LEVEL 1 together
-		//link(dankRoom, tunnel); - this link is made when you move the boulder
+
 		link(home, wes);
-		link(theAwakening, portal);
-		//---------------END LEVEL 1-----------------
+		link(theAwakening, theDesolation);
+		link(theAwakening, theTrial);
+		link(theDesolation, theTrial);
+		link(theDesolation, theAwakening);
+		link(theTrial, theDesolation);
+		link(theTrial, theAwakening);
+		link(theDesolation, portal);
+		//---------------TheAwakening-----------------
 		
 		
-		//---------------LEVEL 2---------------------
+		//---------------The Trial---------------------
 		//TOWN SQUARE
 		Room townSquare = new Room("TownSquare", "You are in a sunny and spacious town square. \n" +
 				"There is a pedestal at the center of the cobblestone turnabout, but no statue on it. \n" +
@@ -341,10 +361,10 @@ public class Game {
 	
 	public ArrayList<String> getLocationNames()
 	{
-		ArrayList<String> locations = new ArrayList<String>();
+		ArrayList<String> activities = new ArrayList<String>();
 		for (Room r: this.currentRoom.getChildren())
-			locations.add(r.getName());
-		return locations;
+			activities.add(r.getName());
+		return activities;
 	}
 	
 	public ArrayList<String> getItemNames()
@@ -357,7 +377,7 @@ public class Game {
 	
 	public ArrayList<String> getCurrentLSList(){
 		ArrayList<String> lsList = new ArrayList<String>();
-		lsList.add("Locations:");
+		lsList.add("Activities:");
 		lsList.addAll(getLocationNames());
 		lsList.add("Items:");
 		lsList.addAll(getItemNames());
