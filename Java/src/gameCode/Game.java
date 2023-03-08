@@ -74,8 +74,8 @@ public class Game {
 				Use less item to complete your tasks with items!\ ",
     			"loc_desolation.png");
 		theDesolation.addItem(new Item("gloves", " You have collected gloves! \
-You have used the gloves to strangle William- your creator's brother! \ " +
-    "You have killed William! \ " "item_gloves.png"));
+				You have used the gloves to strangle William- your creator's brother! \ " +
+    			"You have killed William! \ " "item_gloves.png"));
 	
 		theDesolation.addItem(new Item("knife", "Are you sure this is the correct item to use? "));
 
