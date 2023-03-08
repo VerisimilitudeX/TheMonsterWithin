@@ -72,37 +72,58 @@ public class Game {
 		// Learn how humans act( The desolation)
 		Room theDesolation = new Room("theDesolation", "You have succesfuly obtained the required knowledge to learn how humans act \
 				Use less item to complete your tasks with items!\ ",
-    			"loc_desolate.png");
+    			"loc_desolation.png");
 		theDesolation.addItem(new Item("gloves", " You have collected gloves! \
-You have used the gloves to strangle William- your creator's brother! \n\ " +
-    "You have killed William! \n\ " "item_gloves.png"));
+You have used the gloves to strangle William- your creator's brother! \ " +
+    "You have killed William! \ " "item_gloves.png"));
 	
 		theDesolation.addItem(new Item("knife", "Are you sure this is the correct item to use? "));
 
+		// Learn how humans read( The cottage)
+		Room theCottage = new Room("theCottage",
+        "You have been fleed to the Cottage. \
+    Which items are used in theCottage? \ " ,
+        "loc_cottage.png");
+        theCottage.addItem(new Item("book",
+        "You have used the book to learn how to read succesfuly. \
+    You have learned how to read! \ "));
+        theCottage.addItem(new Item("headphones",
+        "You have used the headphones to listen to music. \
+    You have listened to music but they have not helped you learn how to read! \
+    Lyrics to the song:" ));
+    
+        theCottage.addItem(new Item("friendliness potion",
+        "You used the friendliness potion to attempt to make friends with the family in the cottage. \" \
+    You have been recieved with extreme hate and beatings! \ "));
 		// The Trial of Justine
     	Room theTrial = new Room("theTrial",
         "You have been transported to the Trial. \
-        Which item will you use to hide in the corner? \n\ " +
+        Which item will you use to hide in the corner? \ " +
         "loc_trial.png");
         
         theTrial.addItem(new Item("cloak",
-        "You have used the cloak to hide in the corner succesfuly. \
-        Justine has been convicted and she will expire later. \n\ "));
+        "You have used the cloak to hide in the corner succesfuly. \ 
+        Justine has been convicted and she will expire later. \ "));
 
         theTrial.addItem(new Item("cape",
         "Hmmm, Are you sure this is the correct item? \
-        Use less and the correct item to complete the objective and try again. \n\ "));
+        Use less and the correct item to complete the objective and try again. \ "));
 		//PORTAL (to bring you to the next level
 		Room portal = new Room("Portal", "You have been transported through time...\n", "item_portal");
 
 		link(home, wes);
 		link(theAwakening, theDesolation);
 		link(theAwakening, theTrial);
-		link(theDesolation, theTrial);
+		link(theAwakening, theCottage);
+		link(theDesolation, theCottage);
 		link(theDesolation, theAwakening);
+		link(theDesolation, theTrial);
+		link(theCottage, theTrial);
+		link(theCottage, theDesolation);
+		link(theCottage, theAwakening);
 		link(theTrial, theDesolation);
 		link(theTrial, theAwakening);
-		link(theDesolation, portal);
+		link(theTrial, theCottage);
 		//---------------TheAwakening-----------------
 		
 		

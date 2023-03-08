@@ -253,7 +253,7 @@ public class Emulator
 						if (tokens[1].equals("cd")){
 							output = "The old man's voice echoes in your head as if from a great distance: \n" +
 									"(Choose Destination) \n" +
-									"Use �cd� to move about the world. \n\n" +
+									"Use �cd� to move about the world. \n" +
 									"Command Input: cd Location/Activity \n Rememberrrrrr...";
 						} else if (tokens[1].equals("ls")){
 							output = "The old man's voice echoes in your head as if from a great distance: \n" +

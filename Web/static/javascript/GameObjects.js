@@ -16,42 +16,58 @@ var Home = new Room("Home",
     "Look at your surroundings with the command \"ls\". \n" +
     "Move to a new location with the command \"cd Location/Activity\" \n" +
     "You can backtrack with the command \"cd ..\". \n" +
-    "Interact with items in the world with the command \"less ITEM\" \n\n" +
-    "If you forget where you are, type \"pwd\" \n\n" + 
+    "Interact with items in the world with the command \"less ITEM\" \n" +
+    "If you forget where you are, type \"pwd\" \n" + 
     "Go ahead, explore. We hope you enjoy what you find. Do cd or ls as your first command.\n",
     "item_home.gif");
 
 //first comment the awakening
     var TheAwakening = new Room("TheAwakening",
         "Clink CLink- You have Awaken! \
-    Welcome to the Awakening! \
-    You wake up and look at your creator. \
-    Interact with items using the command \"less ITEM\". \ ",
+        Welcome to the Awakening! \
+        You wake up and look at your creator. \
+        Interact with items using the command \"less ITEM\". \ ",
         "loc_awake.png");
     // The Desolation
     var theDesolation = new Room("theDesolation",
-        "Use the command less ITEM to select the correct item to kill William, your creator's brother. \n" +
+        "Use the command less ITEM to select the correct item to kill William, your creator's brother. ",
         "loc_desolation.png");
     theDesolation.addItem(new Item("gloves",
         " You have collected gloves! \
-    You have used the gloves to strangle William- your creator's brother! \n\ " +
-        "You have killed William! \n\ "));
+        You have used the gloves to strangle William- your creator's brother! \ " +
+        "You have killed William! \ "));
     theDesolation.addItem(new Item("knife",
         "Hmmm, Are you sure this is the correct item? \
-    Use less and the correct item to complete the objective and try again. \n\ "));
-    // The Trial of Justine
+        Use less and the correct item to complete the objective and try again. \ "));
+    // The Cottage
+    var theCottage = new Room("theCottage",
+        "You have been fleed to the Cottage. \
+        Which items are used in theCottage? \ " ,
+        "loc_cottage.png");
+        theCottage.addItem(new Item("book",
+        "You have used the book to learn how to read succesfuly. \
+    You have learned how to read! \ "));
+        theCottage.addItem(new Item("headphones",
+        "You have used the headphones to listen to music. \
+    You have listened to music but they have not helped you learn how to read! \
+    Lyrics to the song:" ));
+    
+        theCottage.addItem(new Item("friendliness potion",
+        "You used the friendliness potion to attempt to make friends with the family in the cottage. \" \
+    You have been recieved with extreme hate and beatings! \ "));
+    // The Trial
     var theTrial = new Room("theTrial",
         "You have been transported to the Trial. \
-        Which item will you use to hide in the corner? \n\ " +
+        Which item will you use to hide in the corner? \ " +
         "loc_trial.png");
         
         theTrial.addItem(new Item("cloak",
         "You have used the cloak to hide in the corner succesfuly. \
-        Justine has been convicted and she will expire later. \n\ "));
+        Justine has been convicted and she will expire later. \ "));
 
         theTrial.addItem(new Item("cape",
         "Hmmm, Are you sure this is the correct item? \
-        Use less and the correct item to complete the objective and try again. \n\ "));
+        Use less and the correct item to complete the objective and try again. \ "));
     //PORTAL (to bring you to the next level
     var Portal = new Room("Portal",
         "You have been transported through time...",
@@ -146,7 +162,7 @@ Library.addItem(new Item("HistoryOfTerminus",
     "It looks like an interesting book, but it's way too long and the print is too tiny. \
 Here is an excerpt:\n \
 DarkWizard', '...old tales tell of a DarkWizard who will fragment the land...\n \
-...only the world-maker can stop the DarkWizard's virus from...\n\
+...only the world-maker can stop the DarkWizard's virus from...\
 ...that the power of \"sudo\" may be the DarkWizard's only weakness...\n",
     "item_historybook.gif"));
 Library.addItem(new Item("NostalgiaForHome",
@@ -176,7 +192,7 @@ BackRoom.addItem(new Item("Grep",
 \"Greeeeeep,\" he says sullenly.",
     "grep.gif"));
 BackRoom.addItem(new Item("PracticeBook",
-    "Sally picked a peck\nOf seashelled peppers.\nA seashore of pickled pickles\n\
+    "Sally picked a peck\nOf seashelled peppers.\nA seashore of pickled pickles\
 did Peter and Sally pick."));
 var Librarian = new Item("Librarian",
     "\"Hm? Oh, hello. I apologize for the mess, but I'm very busy \
@@ -230,12 +246,12 @@ ArtisanShop.addItem(ClockworkDragon);
 var Artisan = new Item("Artisan",
     "The Artisan lifts up her goggles and peers at you in \
 surprise. \"Are you the new assistant? You're late! ...  \
-\n\
+\
 You say you aren't my assistant? \
 Well, that doesn't mean you can't make yourself useful. I need some gears, quickly! \
-\n\
+\
 ... \
-\n\
+\
 You don't even know how to make things? Hmph. Some assistant you are. Just \
 say \"touch ITEM\" alright? Where ITEM is the name of the thing you want to create. \
 Now make me a Gear! Then come back.\"",
@@ -279,12 +295,12 @@ var CryingMan = new Item("CryingMan",
     "\"You! You're a magic-user! I can tell, you've got that look. \
 Come to finish the job, have you? Well, go ahead, do your worst there's nothing else you \
 can take from me. Not since the rest of you were here a few days ago.\" \
-\n\n\
+\n\
 \"What happened? You DARE to ask-- you know perfectly well what happened. \
 Your friends, the wizard's minions, destroyed my house and kidnapped my poor \
 daughter, that's what! My wife even went into town to look for help, and I haven't \
 heard from her since!\" \
-\n\n\
+\n\
 \"Hm? Well, I guess it's true that you don't look like one of the wizard's minions. Still, \
 I don't trust you magicfolk. If you really are who you say you are, then prove your \
 good intentions by making me a new House!\"",
@@ -343,7 +359,7 @@ var Certificate = new Item("Certificate", "You must read the Certificate with th
 KernelFiles.addItem(Certificate);
 var Instructions = new Item("Instructions", "You've learned how to make use of your friend grep I see. \
 If you haven't it might be wise for you to go back to the Library again to do some reading. \
-Because here, you'll need to use him to help you. Here is your task: \n\
+Because here, you'll need to use him to help you. Here is your task: \
 There are a lot of items in the MoreKernelFiles room and one of them contains the sudo password. This \
 password is very powerful password that lets you do absolutely anything in the world. \
 It lets you cast a spell on any item that is protected in any way. You know the password \
@@ -354,1160 +370,1160 @@ Type 'sudo' before the command you want to run, like so: \
 'sudo cp ITEM_A ITEM_B'. You will then be prompted for the sudo password. \
 Type the password, and the spell that comes after sudo will be cast. If you open \
 the Certificate in Paradise with sudo, you will have truly found Paradise.");
-var L_txt = new Item("L_txt", "Alice was beginning to get very tired of sitting by her \n\
-sister on the bank, and of having nothing to do: once or twice she had peeped into the \n\
-book her sister was reading, but it had no pictures or conversations in it, 'and what is \n\
-the use of a book,' thought Alice 'without pictures or conversation?' \n\n\
-So she was considering in her own mind (as well as she could, for the hot day \n\
-made her feel very sleepy and stupid), whether the pleasure of making a \n\
-daisy-chain would be worth the trouble of getting up and picking the daisies, \n\
-when suddenly a White Rabbit with pink eyes ran close by her.\n\n\
-There was nothing so VERY remarkable in that; nor did Alice think it \n\
-so VERY much out of the way to hear the Rabbit say to itself, \n\
-'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \n\
-it occurred to her that she ought to have wondered at this, but at the \n\
-time it all seemed quite natural); but when the Rabbit actually TOOK A \n\
-WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \n\
-Alice started to her feet, for it flashed across her mind that she had \n\
-never before seen a rabbit with either a waistcoat-pocket, or a watch \n\
-to take out of it, and burning with curiosity, she ran across the \n\
-field after it, and fortunately was just in time to see it pop down \n\
-a large rabbit-hole under the hedge. \n\n\
-In another moment down went Alice after it, never once considering how \n\
-in the world she was to get out again. \n\n\
-The rabbit-hole went straight on like a tunnel for some way, and then \n\
-dipped suddenly down, so suddenly that Alice had not a moment to think \n\
-about stopping herself before she found herself falling down a very deep well.\n\n\
-Either the well was very deep, or she fell very slowly, for she had \n\
-plenty of time as she went down to look about her and to wonder what \n\
-was going to happen next. First, she tried to look down and make out what \n\
-she was coming to, but it was too dark to see anything; then she looked at \n\
-the sides of the well, and noticed that they were filled with cupboards and \n\
-book-shelves; here and there she saw maps and pictures hung upon pegs. She \n\
-took down a jar from one of the shelves as she passed; it was labelled \n\
-'ORANGE MARMALADE', but to her great disappointment it was empty: she did \n\
-not like to drop the jar for fear of killing somebody, so managed to put it \n\
-into one of the cupboards as she fell past it. \n\n\
-'Well!' thought Alice to herself, 'after such a fall as this, I shall \n\
-think nothing of tumbling down stairs! How brave they'll all think me \n\
-at home! Why, I wouldn't say anything about it, even if I fell off the \n\
-top of the house!' (Which was very likely true.)\n\n\
-Down, down, down. Would the fall NEVER come to an end! 'I wonder how \n\
-many miles I've fallen by this time?' she said aloud. 'I must be getting \n\
-somewhere near the centre of the earth. Let me see: that would be four \n\
-thousand miles down, I think—' (for, you see, Alice had learnt several \n\
-things of this sort in her lessons in the schoolroom, and though this \n\
-was not a VERY good opportunity for showing off her knowledge, as \n\
-there was no one to listen to her, still it was good practice to say it \n\
-over) '—yes, that's about the right distance—but then I wonder what \n\
-Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \n\
-or Longitude either, but thought they were nice grand words to say.)\n\n\
-Presently she began again. 'I wonder if I shall fall right THROUGH the \n\
-earth! How funny it'll seem to come out among the people that walk with \n\
-their heads downward! The Antipathies, I think—' (she was rather glad \n\
-there WAS no one listening, this time, as it didn't sound at all the \n\
-right word) '—but I shall have to ask them what the name of the country is, \n\
-you know. Please, Ma'am, is this New Zealand or Australia?' (and she \n\
-tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \n\
-the air! Do you think you could manage it?) 'And what an ignorant little \n\
-girl she'll think me for asking! No, it'll never do to ask: perhaps I \n\
-shall see it written up somewhere.' \n\n\
-Down, down, down. There was nothing else to do, so Alice soon began \n\
-talking again. 'Dinah'll miss me very much to-night, I should think!' \n\
-(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \n\
-tea-time. Dinah my dear! I wish you were down here with me! There are \n\
-no mice in the air, I'm afraid, but you might catch a bat, and that's \n\
-very like a mouse, you know. But do cats eat bats, I wonder?' And here \n\
-Alice began to get rather sleepy, and went on saying to herself, in a \n\
-dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \n\
-'Do bats eat cats?' for, you see, as she couldn't answer either question, \n\
-it didn't much matter which way she put it. She felt that she was \n\
-dozing off, and had just begun to dream that she was walking hand \n\
-in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \n\
-tell me the truth: did you ever eat a bat?' when suddenly, thump! \n\
-thump! down she came upon a heap of sticks and dry leaves, and the \n\
-fall was over.\n\n\
-Alice was not a bit hurt, and she jumped up on to her feet in a moment: \n\
-she looked up, but it was all dark overhead; before her was another \n\
-long passage, and the White Rabbit was still in sight, hurrying down \n\
-it. There was not a moment to be lost: away went Alice like the wind, \n\
-and was just in time to hear it say, as it turned a corner, 'Oh my \n\
-ears and whiskers, how late it's getting!' She was close behind it \n\
-when she turned the corner, but the Rabbit was no longer to be seen: \n\
-she found herself in a long, low hall, which was lit up by a row \n\
-of lamps hanging from the roof. \n\n\
-There were doors all round the hall, but they were all locked; \n\
-and when Alice had been all the way down one side and up the other, \n\
-trying every door, she walked sadly down the middle, wondering how \n\
-she was ever to get out again.\n\n\
-Suddenly she came upon a little three-legged table, all made of \n\
-solid glass; there was nothing on it except a tiny golden key, and \n\
-Alice's first thought was that it might belong to one of the doors \n\
-of the hall; but, alas! either the locks were too large, or the \n\
-key was too small, but at any rate it would not open any of them. \n\
-However, on the second time round, she came upon a low curtain she \n\
-had not noticed before, and behind it was a little door about fifteen \n\
-inches high: she tried the little golden key in the lock, and to her \n\
-great delight it fitted! \n\n\
-Alice opened the door and found that it led into a small passage, not \n\
-much larger than a rat-hole: she knelt down and looked along the \n\
-passage into the loveliest garden you ever saw. How she longed to \n\
-get out of that dark hall, and wander about among those beds of bright \n\
-flowers and those cool fountains, but she could not even get her head \n\
-through the doorway; 'and even if my head would go through,' thought \n\
-poor Alice, 'it would be of very little use without my shoulders. Oh, \n\
-how I wish I could shut up like a telescope! I think I could, if I \n\
-only know how to begin.' For, you see, so many out-of-the-way things \n\
-had happened lately, that Alice had begun to think that very few \n\
-things indeed were really impossible. \n\n\
-There seemed to be no use in waiting by the little door, so she went \n\
-back to the table, half hoping she might find another key on it, or at \n\
-any rate a book of rules for shutting people up like telescopes: this \n\
-time she found a little bottle on it, ('which certainly was not here \n\
-before,' said Alice,) and round the neck of the bottle was a paper \n\
-label, with the words 'DRINK ME' beautifully printed on it in large \n\
-letters.\n\n\
-It was all very well to say 'Drink me,' but the wise little Alice was \n\
-not going to do THAT in a hurry. 'No, I'll look first,' she said, \n\
-'and see whether it's marked \"poison\" or not'; for she had read \n\
-several nice little histories about children who had got burnt, \n\
-and eaten up by wild beasts and other unpleasant things, all because \n\
-they WOULD not remember the simple rules their friends had taught \n\
-them: such as, that a red-hot poker will burn you if you hold it \n\
-too long; and that if you cut your finger VERY deeply with a knife, \n\
-it usually bleeds; and she had never forgotten that, if you drink \n\
-much from a bottle marked 'poison,' it is almost certain to \n\
-disagree with you, sooner or later. \n\n\
-However, this bottle was NOT marked 'poison,' so Alice ventured to \n\
-taste it, and finding it very nice, (it had, in fact, a sort of mixed \n\
-flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \n\
+var L_txt = new Item("L_txt", "Alice was beginning to get very tired of sitting by her \
+sister on the bank, and of having nothing to do: once or twice she had peeped into the \
+book her sister was reading, but it had no pictures or conversations in it, 'and what is \
+the use of a book,' thought Alice 'without pictures or conversation?' \n\
+So she was considering in her own mind (as well as she could, for the hot day \
+made her feel very sleepy and stupid), whether the pleasure of making a \
+daisy-chain would be worth the trouble of getting up and picking the daisies, \
+when suddenly a White Rabbit with pink eyes ran close by her.\n\
+There was nothing so VERY remarkable in that; nor did Alice think it \
+so VERY much out of the way to hear the Rabbit say to itself, \
+'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \
+it occurred to her that she ought to have wondered at this, but at the \
+time it all seemed quite natural); but when the Rabbit actually TOOK A \
+WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \
+Alice started to her feet, for it flashed across her mind that she had \
+never before seen a rabbit with either a waistcoat-pocket, or a watch \
+to take out of it, and burning with curiosity, she ran across the \
+field after it, and fortunately was just in time to see it pop down \
+a large rabbit-hole under the hedge. \n\
+In another moment down went Alice after it, never once considering how \
+in the world she was to get out again. \n\
+The rabbit-hole went straight on like a tunnel for some way, and then \
+dipped suddenly down, so suddenly that Alice had not a moment to think \
+about stopping herself before she found herself falling down a very deep well.\n\
+Either the well was very deep, or she fell very slowly, for she had \
+plenty of time as she went down to look about her and to wonder what \
+was going to happen next. First, she tried to look down and make out what \
+she was coming to, but it was too dark to see anything; then she looked at \
+the sides of the well, and noticed that they were filled with cupboards and \
+book-shelves; here and there she saw maps and pictures hung upon pegs. She \
+took down a jar from one of the shelves as she passed; it was labelled \
+'ORANGE MARMALADE', but to her great disappointment it was empty: she did \
+not like to drop the jar for fear of killing somebody, so managed to put it \
+into one of the cupboards as she fell past it. \n\
+'Well!' thought Alice to herself, 'after such a fall as this, I shall \
+think nothing of tumbling down stairs! How brave they'll all think me \
+at home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the house!' (Which was very likely true.)\n\
+Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
+many miles I've fallen by this time?' she said aloud. 'I must be getting \
+somewhere near the centre of the earth. Let me see: that would be four \
+thousand miles down, I think—' (for, you see, Alice had learnt several \
+things of this sort in her lessons in the schoolroom, and though this \
+was not a VERY good opportunity for showing off her knowledge, as \
+there was no one to listen to her, still it was good practice to say it \
+over) '—yes, that's about the right distance—but then I wonder what \
+Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \
+or Longitude either, but thought they were nice grand words to say.)\n\
+Presently she began again. 'I wonder if I shall fall right THROUGH the \
+earth! How funny it'll seem to come out among the people that walk with \
+their heads downward! The Antipathies, I think—' (she was rather glad \
+there WAS no one listening, this time, as it didn't sound at all the \
+right word) '—but I shall have to ask them what the name of the country is, \
+you know. Please, Ma'am, is this New Zealand or Australia?' (and she \
+tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \
+the air! Do you think you could manage it?) 'And what an ignorant little \
+girl she'll think me for asking! No, it'll never do to ask: perhaps I \
+shall see it written up somewhere.' \n\
+Down, down, down. There was nothing else to do, so Alice soon began \
+talking again. 'Dinah'll miss me very much to-night, I should think!' \
+(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \
+tea-time. Dinah my dear! I wish you were down here with me! There are \
+no mice in the air, I'm afraid, but you might catch a bat, and that's \
+very like a mouse, you know. But do cats eat bats, I wonder?' And here \
+Alice began to get rather sleepy, and went on saying to herself, in a \
+dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \
+'Do bats eat cats?' for, you see, as she couldn't answer either question, \
+it didn't much matter which way she put it. She felt that she was \
+dozing off, and had just begun to dream that she was walking hand \
+in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \
+tell me the truth: did you ever eat a bat?' when suddenly, thump! \
+thump! down she came upon a heap of sticks and dry leaves, and the \
+fall was over.\n\
+Alice was not a bit hurt, and she jumped up on to her feet in a moment: \
+she looked up, but it was all dark overhead; before her was another \
+long passage, and the White Rabbit was still in sight, hurrying down \
+it. There was not a moment to be lost: away went Alice like the wind, \
+and was just in time to hear it say, as it turned a corner, 'Oh my \
+ears and whiskers, how late it's getting!' She was close behind it \
+when she turned the corner, but the Rabbit was no longer to be seen: \
+she found herself in a long, low hall, which was lit up by a row \
+of lamps hanging from the roof. \n\
+There were doors all round the hall, but they were all locked; \
+and when Alice had been all the way down one side and up the other, \
+trying every door, she walked sadly down the middle, wondering how \
+she was ever to get out again.\n\
+Suddenly she came upon a little three-legged table, all made of \
+solid glass; there was nothing on it except a tiny golden key, and \
+Alice's first thought was that it might belong to one of the doors \
+of the hall; but, alas! either the locks were too large, or the \
+key was too small, but at any rate it would not open any of them. \
+However, on the second time round, she came upon a low curtain she \
+had not noticed before, and behind it was a little door about fifteen \
+inches high: she tried the little golden key in the lock, and to her \
+great delight it fitted! \n\
+Alice opened the door and found that it led into a small passage, not \
+much larger than a rat-hole: she knelt down and looked along the \
+passage into the loveliest garden you ever saw. How she longed to \
+get out of that dark hall, and wander about among those beds of bright \
+flowers and those cool fountains, but she could not even get her head \
+through the doorway; 'and even if my head would go through,' thought \
+poor Alice, 'it would be of very little use without my shoulders. Oh, \
+how I wish I could shut up like a telescope! I think I could, if I \
+only know how to begin.' For, you see, so many out-of-the-way things \
+had happened lately, that Alice had begun to think that very few \
+things indeed were really impossible. \n\
+There seemed to be no use in waiting by the little door, so she went \
+back to the table, half hoping she might find another key on it, or at \
+any rate a book of rules for shutting people up like telescopes: this \
+time she found a little bottle on it, ('which certainly was not here \
+before,' said Alice,) and round the neck of the bottle was a paper \
+label, with the words 'DRINK ME' beautifully printed on it in large \
+letters.\n\
+It was all very well to say 'Drink me,' but the wise little Alice was \
+not going to do THAT in a hurry. 'No, I'll look first,' she said, \
+'and see whether it's marked \"poison\" or not'; for she had read \
+several nice little histories about children who had got burnt, \
+and eaten up by wild beasts and other unpleasant things, all because \
+they WOULD not remember the simple rules their friends had taught \
+them: such as, that a red-hot poker will burn you if you hold it \
+too long; and that if you cut your finger VERY deeply with a knife, \
+it usually bleeds; and she had never forgotten that, if you drink \
+much from a bottle marked 'poison,' it is almost certain to \
+disagree with you, sooner or later. \n\
+However, this bottle was NOT marked 'poison,' so Alice ventured to \
+taste it, and finding it very nice, (it had, in fact, a sort of mixed \
+flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \
 and hot buttered toast,) she very soon finished it off.");
-var M_txt = new Item("M_txt", "Alice was beginning to get very tired of sitting by her \n\
-sister on the bank, and of having nothing to do: once or twice she had peeped into the \n\
-book her sister was reading, but it had no pictures or conversations in it, 'and what is \n\
-the use of a book,' thought Alice 'without pictures or conversation?' \n\n\
-So she was considering in her own mind (as well as she could, for the hot day \n\
-made her feel very sleepy and stupid), whether the pleasure of making a \n\
-daisy-chain would be worth the trouble of getting up and picking the daisies, \n\
-when suddenly a White Rabbit with pink eyes ran close by her.\n\n\
-There was nothing so VERY remarkable in that; nor did Alice think it \n\
-so VERY much out of the way to hear the Rabbit say to itself, \n\
-'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \n\
-it occurred to her that she ought to have wondered at this, but at the \n\
-time it all seemed quite natural); but when the Rabbit actually TOOK A \n\
-WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \n\
-Alice started to her feet, for it flashed across her mind that she had \n\
-never before seen a rabbit with either a waistcoat-pocket, or a watch \n\
-to take out of it, and burning with curiosity, she ran across the \n\
-field after it, and fortunately was just in time to see it pop down \n\
-a large rabbit-hole under the hedge. \n\n\
-In another moment down went Alice after it, never once considering how \n\
-in the world she was to get out again. \n\n\
-The rabbit-hole went straight on like a tunnel for some way, and then \n\
-dipped suddenly down, so suddenly that Alice had not a moment to think \n\
-about stopping herself before she found herself falling down a very deep well.\n\n\
-Either the well was very deep, or she fell very slowly, for she had \n\
-plenty of time as she went down to look about her and to wonder what \n\
-was going to happen next. First, she tried to look down and make out what \n\
-she was coming to, but it was too dark to see anything; then she looked at \n\
-the sides of the well, and noticed that they were filled with cupboards and \n\
-book-shelves; here and there she saw maps and pictures hung upon pegs. She \n\
-took down a jar from one of the shelves as she passed; it was labelled \n\
-'ORANGE MARMALADE', but to her great disappointment it was empty: she did \n\
-not like to drop the jar for fear of killing somebody, so managed to put it \n\
-into one of the cupboards as she fell past it. \n\n\
-'Well!' thought Alice to herself, 'after such a fall as this, I shall \n\
-think nothing of tumbling down stairs! How brave they'll all think me \n\
-at home! Why, I wouldn't say anything about it, even if I fell off the \n\
-top of the house!' (Which was very likely true.)\n\n\
-Down, down, down. Would the fall NEVER come to an end! 'I wonder how \n\
-many miles I've fallen by this time?' she said aloud. 'I must be getting \n\
-somewhere near the centre of the earth. Let me see: that would be four \n\
-thousand miles down, I think—' (for, you see, Alice had learnt several \n\
-things of this sort in her lessons in the schoolroom, and though this \n\
-was not a VERY good opportunity for showing off her knowledge, as \n\
-there was no one to listen to her, still it was good practice to say it \n\
-over) '—yes, that's about the right distance—but then I wonder what \n\
-Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \n\
-or Longitude either, but thought they were nice grand words to say.)\n\n\
-Presently she began again. 'I wonder if I shall fall right THROUGH the \n\
-earth! How funny it'll seem to come out among the people that walk with \n\
-their heads downward! The Antipathies, I think—' (she was rather glad \n\
-there WAS no one listening, this time, as it didn't sound at all the \n\
-right word) '—but I shall have to ask them what the name of the country is, \n\
-you know. Please, Ma'am, is this New Zealand or Australia?' (and she \n\
-tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \n\
-the air! Do you think you could manage it?) 'And what an ignorant little \n\
-girl she'll think me for asking! No, it'll never do to ask: perhaps I \n\
-shall see it written up somewhere.' \n\n\
-Down, down, down. There was nothing else to do, so Alice soon began \n\
-talking again. 'Dinah'll miss me very much to-night, I should think!' \n\
-(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \n\
-tea-time. Dinah my dear! I wish you were down here with me! There are \n\
-no mice in the air, I'm afraid, but you might catch a bat, and that's \n\
-very like a mouse, you know. But do cats eat bats, I wonder?' And here \n\
-Alice began to get rather sleepy, and went on saying to herself, in a \n\
-dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \n\
-'Do bats eat cats?' for, you see, as she couldn't answer either question, \n\
-it didn't much matter which way she put it. She felt that she was \n\
-dozing off, and had just begun to dream that she was walking hand \n\
-in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \n\
-tell me the truth: did you ever eat a bat?' when suddenly, thump! \n\
-thump! down she came upon a heap of sticks and dry leaves, and the \n\
-fall was over.\n\n\
-Alice was not a bit hurt, and she jumped up on to her feet in a moment: \n\
-she looked up, but it was all dark overhead; before her was another \n\
-long passage, and the White Rabbit was still in sight, hurrying down \n\
-it. There was not a moment to be lost: away went Alice like the wind, \n\
-and was just in time to hear it say, as it turned a corner, 'Oh my \n\
-ears and whiskers, how late it's getting!' She was close behind it \n\
-when she turned the corner, but the Rabbit was no longer to be seen: \n\
-she found herself in a long, low hall, which was lit up by a row \n\
-of lamps hanging from the roof. \n\n\
-There were doors all round the hall, but they were all locked; \n\
-and when Alice had been all the way down one side and up the other, \n\
-trying every door, she walked sadly down the middle, wondering how \n\
-she was ever to get out again.\n\n\
-Suddenly she came upon a little three-legged table, all made of \n\
-solid glass; there was nothing on it except a tiny golden key, and \n\
-Alice's first thought was that it might belong to one of the doors \n\
-of the hall; but, alas! either the locks were too large, or the \n\
-key was too small, but at any rate it would not open any of them. \n\
-However, on the second time round, she came upon a low curtain she \n\
-had not noticed before, and behind it was a little door about fifteen \n\
-inches high: she tried the little golden key in the lock, and to her \n\
-great delight it fitted! \n\n\
-Alice opened the door and found that it led into a small passage, not \n\
-much larger than a rat-hole: she knelt down and looked along the \n\
-passage into the loveliest garden you ever saw. How she longed to \n\
-get out of that dark hall, and wander about among those beds of bright \n\
-flowers and those cool fountains, but she could not even get her head \n\
-through the doorway; 'and even if my head would go through,' thought \n\
-poor Alice, 'it would be of very little use without my shoulders. Oh, \n\
-how I wish I could shut up like a telescope! I think I could, if I \n\
-only know how to begin.' For, you see, so many out-of-the-way things \n\
-had happened lately, that Alice had begun to think that very few \n\
-things indeed were really impossible. \n\n\
-There seemed to be no use in waiting by the little door, so she went \n\
-back to the table, half hoping she might find another key on it, or at \n\
-any rate a book of rules for shutting people up like telescopes: this \n\
-time she found a little bottle on it, ('which certainly was not here \n\
-before,' said Alice,) and round the neck of the bottle was a paper \n\
-label, with the words 'DRINK ME' beautifully printed on it in large \n\
-letters.\n\n\
-It was all very well to say 'Drink me,' but the wise little Alice was \n\
-not going to do THAT in a hurry. 'No, I'll look first,' she said, \n\
-'and see whether it's marked \"poison\" or not'; for she had read \n\
-several nice little histories about children who had got burnt, \n\
-and eaten up by wild beasts and other unpleasant things, all because \n\
-they WOULD not remember the simple rules their friends had taught \n\
-them: such as, that a red-hot poker will burn you if you hold it \n\
-too long; and that if you cut your finger VERY deeply with a knife, \n\
-it usually bleeds; and she had never forgotten that, if you drink \n\
-much from a bottle marked 'poison,' it is almost certain to \n\
-disagree with you, sooner or later. \n\n\
-However, this bottle was NOT marked 'poison,' so Alice ventured to \n\
-taste it, and finding it very nice, (it had, in fact, a sort of mixed \n\
-flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \n\
+var M_txt = new Item("M_txt", "Alice was beginning to get very tired of sitting by her \
+sister on the bank, and of having nothing to do: once or twice she had peeped into the \
+book her sister was reading, but it had no pictures or conversations in it, 'and what is \
+the use of a book,' thought Alice 'without pictures or conversation?' \n\
+So she was considering in her own mind (as well as she could, for the hot day \
+made her feel very sleepy and stupid), whether the pleasure of making a \
+daisy-chain would be worth the trouble of getting up and picking the daisies, \
+when suddenly a White Rabbit with pink eyes ran close by her.\n\
+There was nothing so VERY remarkable in that; nor did Alice think it \
+so VERY much out of the way to hear the Rabbit say to itself, \
+'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \
+it occurred to her that she ought to have wondered at this, but at the \
+time it all seemed quite natural); but when the Rabbit actually TOOK A \
+WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \
+Alice started to her feet, for it flashed across her mind that she had \
+never before seen a rabbit with either a waistcoat-pocket, or a watch \
+to take out of it, and burning with curiosity, she ran across the \
+field after it, and fortunately was just in time to see it pop down \
+a large rabbit-hole under the hedge. \n\
+In another moment down went Alice after it, never once considering how \
+in the world she was to get out again. \n\
+The rabbit-hole went straight on like a tunnel for some way, and then \
+dipped suddenly down, so suddenly that Alice had not a moment to think \
+about stopping herself before she found herself falling down a very deep well.\n\
+Either the well was very deep, or she fell very slowly, for she had \
+plenty of time as she went down to look about her and to wonder what \
+was going to happen next. First, she tried to look down and make out what \
+she was coming to, but it was too dark to see anything; then she looked at \
+the sides of the well, and noticed that they were filled with cupboards and \
+book-shelves; here and there she saw maps and pictures hung upon pegs. She \
+took down a jar from one of the shelves as she passed; it was labelled \
+'ORANGE MARMALADE', but to her great disappointment it was empty: she did \
+not like to drop the jar for fear of killing somebody, so managed to put it \
+into one of the cupboards as she fell past it. \n\
+'Well!' thought Alice to herself, 'after such a fall as this, I shall \
+think nothing of tumbling down stairs! How brave they'll all think me \
+at home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the house!' (Which was very likely true.)\n\
+Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
+many miles I've fallen by this time?' she said aloud. 'I must be getting \
+somewhere near the centre of the earth. Let me see: that would be four \
+thousand miles down, I think—' (for, you see, Alice had learnt several \
+things of this sort in her lessons in the schoolroom, and though this \
+was not a VERY good opportunity for showing off her knowledge, as \
+there was no one to listen to her, still it was good practice to say it \
+over) '—yes, that's about the right distance—but then I wonder what \
+Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \
+or Longitude either, but thought they were nice grand words to say.)\n\
+Presently she began again. 'I wonder if I shall fall right THROUGH the \
+earth! How funny it'll seem to come out among the people that walk with \
+their heads downward! The Antipathies, I think—' (she was rather glad \
+there WAS no one listening, this time, as it didn't sound at all the \
+right word) '—but I shall have to ask them what the name of the country is, \
+you know. Please, Ma'am, is this New Zealand or Australia?' (and she \
+tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \
+the air! Do you think you could manage it?) 'And what an ignorant little \
+girl she'll think me for asking! No, it'll never do to ask: perhaps I \
+shall see it written up somewhere.' \n\
+Down, down, down. There was nothing else to do, so Alice soon began \
+talking again. 'Dinah'll miss me very much to-night, I should think!' \
+(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \
+tea-time. Dinah my dear! I wish you were down here with me! There are \
+no mice in the air, I'm afraid, but you might catch a bat, and that's \
+very like a mouse, you know. But do cats eat bats, I wonder?' And here \
+Alice began to get rather sleepy, and went on saying to herself, in a \
+dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \
+'Do bats eat cats?' for, you see, as she couldn't answer either question, \
+it didn't much matter which way she put it. She felt that she was \
+dozing off, and had just begun to dream that she was walking hand \
+in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \
+tell me the truth: did you ever eat a bat?' when suddenly, thump! \
+thump! down she came upon a heap of sticks and dry leaves, and the \
+fall was over.\n\
+Alice was not a bit hurt, and she jumped up on to her feet in a moment: \
+she looked up, but it was all dark overhead; before her was another \
+long passage, and the White Rabbit was still in sight, hurrying down \
+it. There was not a moment to be lost: away went Alice like the wind, \
+and was just in time to hear it say, as it turned a corner, 'Oh my \
+ears and whiskers, how late it's getting!' She was close behind it \
+when she turned the corner, but the Rabbit was no longer to be seen: \
+she found herself in a long, low hall, which was lit up by a row \
+of lamps hanging from the roof. \n\
+There were doors all round the hall, but they were all locked; \
+and when Alice had been all the way down one side and up the other, \
+trying every door, she walked sadly down the middle, wondering how \
+she was ever to get out again.\n\
+Suddenly she came upon a little three-legged table, all made of \
+solid glass; there was nothing on it except a tiny golden key, and \
+Alice's first thought was that it might belong to one of the doors \
+of the hall; but, alas! either the locks were too large, or the \
+key was too small, but at any rate it would not open any of them. \
+However, on the second time round, she came upon a low curtain she \
+had not noticed before, and behind it was a little door about fifteen \
+inches high: she tried the little golden key in the lock, and to her \
+great delight it fitted! \n\
+Alice opened the door and found that it led into a small passage, not \
+much larger than a rat-hole: she knelt down and looked along the \
+passage into the loveliest garden you ever saw. How she longed to \
+get out of that dark hall, and wander about among those beds of bright \
+flowers and those cool fountains, but she could not even get her head \
+through the doorway; 'and even if my head would go through,' thought \
+poor Alice, 'it would be of very little use without my shoulders. Oh, \
+how I wish I could shut up like a telescope! I think I could, if I \
+only know how to begin.' For, you see, so many out-of-the-way things \
+had happened lately, that Alice had begun to think that very few \
+things indeed were really impossible. \n\
+There seemed to be no use in waiting by the little door, so she went \
+back to the table, half hoping she might find another key on it, or at \
+any rate a book of rules for shutting people up like telescopes: this \
+time she found a little bottle on it, ('which certainly was not here \
+before,' said Alice,) and round the neck of the bottle was a paper \
+label, with the words 'DRINK ME' beautifully printed on it in large \
+letters.\n\
+It was all very well to say 'Drink me,' but the wise little Alice was \
+not going to do THAT in a hurry. 'No, I'll look first,' she said, \
+'and see whether it's marked \"poison\" or not'; for she had read \
+several nice little histories about children who had got burnt, \
+and eaten up by wild beasts and other unpleasant things, all because \
+they WOULD not remember the simple rules their friends had taught \
+them: such as, that a red-hot poker will burn you if you hold it \
+too long; and that if you cut your finger VERY deeply with a knife, \
+it usually bleeds; and she had never forgotten that, if you drink \
+much from a bottle marked 'poison,' it is almost certain to \
+disagree with you, sooner or later. \n\
+However, this bottle was NOT marked 'poison,' so Alice ventured to \
+taste it, and finding it very nice, (it had, in fact, a sort of mixed \
+flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \
 and hot buttered toast,) she very soon finished it off.");
 // var N_txt = new Item("N_txt", "INSERT SOME LONG TEXT");
 // var O_txt = new Item("O_txt", "INSERT SOME LONG TEXT");
 // var P_txt = new Item("P_txt", "INSERT SOME LONG TEXT");
-var Q_txt = new Item("Q_txt", "Alice was beginning to get very tired of sitting by her \n\
-sister on the bank, and of having nothing to do: once or twice she had peeped into the \n\
-book her sister was reading, but it had no pictures or conversations in it, 'and what is \n\
-the use of a book,' thought Alice 'without pictures or conversation?' \n\n\
-So she was considering in her own mind (as well as she could, for the hot day \n\
-made her feel very sleepy and stupid), whether the pleasure of making a \n\
-daisy-chain would be worth the trouble of getting up and picking the daisies, \n\
-when suddenly a White Rabbit with pink eyes ran close by her.\n\n\
-There was nothing so VERY remarkable in that; nor did Alice think it \n\
-so VERY much out of the way to hear the Rabbit say to itself, \n\
-'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \n\
-it occurred to her that she ought to have wondered at this, but at the \n\
-time it all seemed quite natural); but when the Rabbit actually TOOK A \n\
-WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \n\
-Alice started to her feet, for it flashed across her mind that she had \n\
-never before seen a rabbit with either a waistcoat-pocket, or a watch \n\
-to take out of it, and burning with curiosity, she ran across the \n\
-field after it, and fortunately was just in time to see it pop down \n\
-a large rabbit-hole under the hedge. \n\n\
-In another moment down went Alice after it, never once considering how \n\
-in the world she was to get out again. \n\n\
-The rabbit-hole went straight on like a tunnel for some way, and then \n\
-dipped suddenly down, so suddenly that Alice had not a moment to think \n\
-about stopping herself before she found herself falling down a very deep well.\n\n\
-Either the well was very deep, or she fell very slowly, for she had \n\
-plenty of time as she went down to look about her and to wonder what \n\
-was going to happen next. First, she tried to look down and make out what \n\
-she was coming to, but it was too dark to see anything; then she looked at \n\
-the sides of the well, and noticed that they were filled with cupboards and \n\
-book-shelves; here and there she saw maps and pictures hung upon pegs. She \n\
-took down a jar from one of the shelves as she passed; it was labelled \n\
-'ORANGE MARMALADE', but to her great disappointment it was empty: she did \n\
-not like to drop the jar for fear of killing somebody, so managed to put it \n\
-into one of the cupboards as she fell past it. \n\n\
-'Well!' thought Alice to herself, 'after such a fall as this, I shall \n\
-think nothing of tumbling down stairs! How brave they'll all think me \n\
-at home! Why, I wouldn't say anything about it, even if I fell off the \n\
-top of the house!' (Which was very likely true.)\n\n\
-Down, down, down. Would the fall NEVER come to an end! 'I wonder how \n\
-many miles I've fallen by this time?' she said aloud. 'I must be getting \n\
-somewhere near the centre of the earth. Let me see: that would be four \n\
-thousand miles down, I think—' (for, you see, Alice had learnt several \n\
-things of this sort in her lessons in the schoolroom, and though this \n\
-was not a VERY good opportunity for showing off her knowledge, as \n\
-there was no one to listen to her, still it was good practice to say it \n\
-over) '—yes, that's about the right distance—but then I wonder what \n\
-Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \n\
-or Longitude either, but thought they were nice grand words to say.)\n\n\
-Presently she began again. 'I wonder if I shall fall right THROUGH the \n\
-earth! How funny it'll seem to come out among the people that walk with \n\
-their heads downward! The Antipathies, I think—' (she was rather glad \n\
-there WAS no one listening, this time, as it didn't sound at all the \n\
-right word) '—but I shall have to ask them what the name of the country is, \n\
-you know. Please, Ma'am, is this New Zealand or Australia?' (and she \n\
-tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \n\
-the air! Do you think you could manage it?) 'And what an ignorant little \n\
-girl she'll think me for asking! No, it'll never do to ask: perhaps I \n\
-shall see it written up somewhere.' \n\n\
-Down, down, down. There was nothing else to do, so Alice soon began \n\
-talking again. 'Dinah'll miss me very much to-night, I should think!' \n\
-(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \n\
-tea-time. Dinah my dear! I wish you were down here with me! There are \n\
-no mice in the air, I'm afraid, but you might catch a bat, and that's \n\
-very like a mouse, you know. But do cats eat bats, I wonder?' And here \n\
-Alice began to get rather sleepy, and went on saying to herself, in a \n\
-dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \n\
-'Do bats eat cats?' for, you see, as she couldn't answer either question, \n\
-it didn't much matter which way she put it. She felt that she was \n\
-dozing off, and had just begun to dream that she was walking hand \n\
-in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \n\
-tell me the truth: did you ever eat a bat?' when suddenly, thump! \n\
-thump! down she came upon a heap of sticks and dry leaves, and the \n\
-fall was over.\n\n\
-Alice was not a bit hurt, and she jumped up on to her feet in a moment: \n\
-she looked up, but it was all dark overhead; before her was another \n\
-long passage, and the White Rabbit was still in sight, hurrying down \n\
-it. There was not a moment to be lost: away went Alice like the wind, \n\
-and was just in time to hear it say, as it turned a corner, 'Oh my \n\
-ears and whiskers, how late it's getting!' She was close behind it \n\
-when she turned the corner, but the Rabbit was no longer to be seen: \n\
-she found herself in a long, low hall, which was lit up by a row \n\
-of lamps hanging from the roof. \n\n\
-There were doors all round the hall, but they were all locked; \n\
-and when Alice had been all the way down one side and up the other, \n\
-trying every door, she walked sadly down the middle, wondering how \n\
-she was ever to get out again.\n\n\
-Suddenly she came upon a little three-legged table, all made of \n\
-solid glass; there was nothing on it except a tiny golden key, and \n\
-Alice's first thought was that it might belong to one of the doors \n\
-of the hall; but, alas! either the locks were too large, or the \n\
-key was too small, but at any rate it would not open any of them. \n\
-However, on the second time round, she came upon a low curtain she \n\
-had not noticed before, and behind it was a little door about fifteen \n\
-inches high: she tried the little golden key in the lock, and to her \n\
-great delight it fitted! \n\n\
-Alice opened the door and found that it led into a small passage, not \n\
-much larger than a rat-hole: she knelt down and looked along the \n\
-passage into the loveliest garden you ever saw. How she longed to \n\
-get out of that dark hall, and wander about among those beds of bright \n\
-flowers and those cool fountains, but she could not even get her head \n\
-through the doorway; 'and even if my head would go through,' thought \n\
-poor Alice, 'it would be of very little use without my shoulders. Oh, \n\
-how I wish I could shut up like a telescope! I think I could, if I \n\
-only know how to begin.' For, you see, so many out-of-the-way things \n\
-had happened lately, that Alice had begun to think that very few \n\
-things indeed were really impossible. \n\n\
-There seemed to be no use in waiting by the little door, so she went \n\
-back to the table, half hoping she might find another key on it, or at \n\
-any rate a book of rules for shutting people up like telescopes: this \n\
-time she found a little bottle on it, ('which certainly was not here \n\
-before,' said Alice,) and round the neck of the bottle was a paper \n\
-label, with the words 'DRINK ME' beautifully printed on it in large \n\
-letters.\n\n\
-It was all very well to say 'Drink me,' but the wise little Alice was \n\
-not going to do THAT in a hurry. 'No, I'll look first,' she said, \n\
-'and see whether it's marked \"poison\" or not'; for she had read \n\
-several nice little histories about children who had got burnt, \n\
-and eaten up by wild beasts and other unpleasant things, all because \n\
-they WOULD not remember the simple rules their friends had taught \n\
-them: such as, that a red-hot poker will burn you if you hold it \n\
-too long; and that if you cut your finger VERY deeply with a knife, \n\
-it usually bleeds; and she had never forgotten that, if you drink \n\
-much from a bottle marked 'poison,' it is almost certain to \n\
-disagree with you, sooner or later. \n\n\
-However, this bottle was NOT marked 'poison,' so Alice ventured to \n\
-taste it, and finding it very nice, (it had, in fact, a sort of mixed \n\
-flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \n\
+var Q_txt = new Item("Q_txt", "Alice was beginning to get very tired of sitting by her \
+sister on the bank, and of having nothing to do: once or twice she had peeped into the \
+book her sister was reading, but it had no pictures or conversations in it, 'and what is \
+the use of a book,' thought Alice 'without pictures or conversation?' \n\
+So she was considering in her own mind (as well as she could, for the hot day \
+made her feel very sleepy and stupid), whether the pleasure of making a \
+daisy-chain would be worth the trouble of getting up and picking the daisies, \
+when suddenly a White Rabbit with pink eyes ran close by her.\n\
+There was nothing so VERY remarkable in that; nor did Alice think it \
+so VERY much out of the way to hear the Rabbit say to itself, \
+'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \
+it occurred to her that she ought to have wondered at this, but at the \
+time it all seemed quite natural); but when the Rabbit actually TOOK A \
+WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \
+Alice started to her feet, for it flashed across her mind that she had \
+never before seen a rabbit with either a waistcoat-pocket, or a watch \
+to take out of it, and burning with curiosity, she ran across the \
+field after it, and fortunately was just in time to see it pop down \
+a large rabbit-hole under the hedge. \n\
+In another moment down went Alice after it, never once considering how \
+in the world she was to get out again. \n\
+The rabbit-hole went straight on like a tunnel for some way, and then \
+dipped suddenly down, so suddenly that Alice had not a moment to think \
+about stopping herself before she found herself falling down a very deep well.\n\
+Either the well was very deep, or she fell very slowly, for she had \
+plenty of time as she went down to look about her and to wonder what \
+was going to happen next. First, she tried to look down and make out what \
+she was coming to, but it was too dark to see anything; then she looked at \
+the sides of the well, and noticed that they were filled with cupboards and \
+book-shelves; here and there she saw maps and pictures hung upon pegs. She \
+took down a jar from one of the shelves as she passed; it was labelled \
+'ORANGE MARMALADE', but to her great disappointment it was empty: she did \
+not like to drop the jar for fear of killing somebody, so managed to put it \
+into one of the cupboards as she fell past it. \n\
+'Well!' thought Alice to herself, 'after such a fall as this, I shall \
+think nothing of tumbling down stairs! How brave they'll all think me \
+at home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the house!' (Which was very likely true.)\n\
+Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
+many miles I've fallen by this time?' she said aloud. 'I must be getting \
+somewhere near the centre of the earth. Let me see: that would be four \
+thousand miles down, I think—' (for, you see, Alice had learnt several \
+things of this sort in her lessons in the schoolroom, and though this \
+was not a VERY good opportunity for showing off her knowledge, as \
+there was no one to listen to her, still it was good practice to say it \
+over) '—yes, that's about the right distance—but then I wonder what \
+Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \
+or Longitude either, but thought they were nice grand words to say.)\n\
+Presently she began again. 'I wonder if I shall fall right THROUGH the \
+earth! How funny it'll seem to come out among the people that walk with \
+their heads downward! The Antipathies, I think—' (she was rather glad \
+there WAS no one listening, this time, as it didn't sound at all the \
+right word) '—but I shall have to ask them what the name of the country is, \
+you know. Please, Ma'am, is this New Zealand or Australia?' (and she \
+tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \
+the air! Do you think you could manage it?) 'And what an ignorant little \
+girl she'll think me for asking! No, it'll never do to ask: perhaps I \
+shall see it written up somewhere.' \n\
+Down, down, down. There was nothing else to do, so Alice soon began \
+talking again. 'Dinah'll miss me very much to-night, I should think!' \
+(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \
+tea-time. Dinah my dear! I wish you were down here with me! There are \
+no mice in the air, I'm afraid, but you might catch a bat, and that's \
+very like a mouse, you know. But do cats eat bats, I wonder?' And here \
+Alice began to get rather sleepy, and went on saying to herself, in a \
+dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \
+'Do bats eat cats?' for, you see, as she couldn't answer either question, \
+it didn't much matter which way she put it. She felt that she was \
+dozing off, and had just begun to dream that she was walking hand \
+in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \
+tell me the truth: did you ever eat a bat?' when suddenly, thump! \
+thump! down she came upon a heap of sticks and dry leaves, and the \
+fall was over.\n\
+Alice was not a bit hurt, and she jumped up on to her feet in a moment: \
+she looked up, but it was all dark overhead; before her was another \
+long passage, and the White Rabbit was still in sight, hurrying down \
+it. There was not a moment to be lost: away went Alice like the wind, \
+and was just in time to hear it say, as it turned a corner, 'Oh my \
+ears and whiskers, how late it's getting!' She was close behind it \
+when she turned the corner, but the Rabbit was no longer to be seen: \
+she found herself in a long, low hall, which was lit up by a row \
+of lamps hanging from the roof. \n\
+There were doors all round the hall, but they were all locked; \
+and when Alice had been all the way down one side and up the other, \
+trying every door, she walked sadly down the middle, wondering how \
+she was ever to get out again.\n\
+Suddenly she came upon a little three-legged table, all made of \
+solid glass; there was nothing on it except a tiny golden key, and \
+Alice's first thought was that it might belong to one of the doors \
+of the hall; but, alas! either the locks were too large, or the \
+key was too small, but at any rate it would not open any of them. \
+However, on the second time round, she came upon a low curtain she \
+had not noticed before, and behind it was a little door about fifteen \
+inches high: she tried the little golden key in the lock, and to her \
+great delight it fitted! \n\
+Alice opened the door and found that it led into a small passage, not \
+much larger than a rat-hole: she knelt down and looked along the \
+passage into the loveliest garden you ever saw. How she longed to \
+get out of that dark hall, and wander about among those beds of bright \
+flowers and those cool fountains, but she could not even get her head \
+through the doorway; 'and even if my head would go through,' thought \
+poor Alice, 'it would be of very little use without my shoulders. Oh, \
+how I wish I could shut up like a telescope! I think I could, if I \
+only know how to begin.' For, you see, so many out-of-the-way things \
+had happened lately, that Alice had begun to think that very few \
+things indeed were really impossible. \n\
+There seemed to be no use in waiting by the little door, so she went \
+back to the table, half hoping she might find another key on it, or at \
+any rate a book of rules for shutting people up like telescopes: this \
+time she found a little bottle on it, ('which certainly was not here \
+before,' said Alice,) and round the neck of the bottle was a paper \
+label, with the words 'DRINK ME' beautifully printed on it in large \
+letters.\n\
+It was all very well to say 'Drink me,' but the wise little Alice was \
+not going to do THAT in a hurry. 'No, I'll look first,' she said, \
+'and see whether it's marked \"poison\" or not'; for she had read \
+several nice little histories about children who had got burnt, \
+and eaten up by wild beasts and other unpleasant things, all because \
+they WOULD not remember the simple rules their friends had taught \
+them: such as, that a red-hot poker will burn you if you hold it \
+too long; and that if you cut your finger VERY deeply with a knife, \
+it usually bleeds; and she had never forgotten that, if you drink \
+much from a bottle marked 'poison,' it is almost certain to \
+disagree with you, sooner or later. \n\
+However, this bottle was NOT marked 'poison,' so Alice ventured to \
+taste it, and finding it very nice, (it had, in fact, a sort of mixed \
+flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \
 and hot buttered toast,) she very soon finished it off.");
-var R_txt = new Item("R_txt", "Alice was beginning to get very tired of sitting by her \n\
-sister on the bank, and of having nothing to do: once or twice she had peeped into the \n\
-book her sister was reading, but it had no pictures or conversations in it, 'and what is \n\
-the use of a book,' thought Alice 'without pictures or conversation?' \n\n\
-So she was considering in her own mind (as well as she could, for the hot day \n\
-made her feel very sleepy and stupid), whether the pleasure of making a \n\
-daisy-chain would be worth the trouble of getting up and picking the daisies, \n\
-when suddenly a White Rabbit with pink eyes ran close by her.\n\n\
-There was nothing so VERY remarkable in that; nor did Alice think it \n\
-so VERY much out of the way to hear the Rabbit say to itself, \n\
-'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \n\
-it occurred to her that she ought to have wondered at this, but at the \n\
-time it all seemed quite natural); but when the Rabbit actually TOOK A \n\
-WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \n\
-Alice started to her feet, for it flashed across her mind that she had \n\
-never before seen a rabbit with either a waistcoat-pocket, or a watch \n\
-to take out of it, and burning with curiosity, she ran across the \n\
-field after it, and fortunately was just in time to see it pop down \n\
-a large rabbit-hole under the hedge. \n\n\
-In another moment down went Alice after it, never once considering how \n\
-in the world she was to get out again. \n\n\
-The rabbit-hole went straight on like a tunnel for some way, and then \n\
-dipped suddenly down, so suddenly that Alice had not a moment to think \n\
-about stopping herself before she found herself falling down a very deep well.\n\n\
-Either the well was very deep, or she fell very slowly, for she had \n\
-plenty of time as she went down to look about her and to wonder what \n\
-was going to happen next. First, she tried to look down and make out what \n\
-she was coming to, but it was too dark to see anything; then she looked at \n\
-the sides of the well, and noticed that they were filled with cupboards and \n\
-book-shelves; here and there she saw maps and pictures hung upon pegs. She \n\
-took down a jar from one of the shelves as she passed; it was labelled \n\
-'ORANGE MARMALADE', but to her great disappointment it was empty: she did \n\
-not like to drop the jar for fear of killing somebody, so managed to put it \n\
-into one of the cupboards as she fell past it. \n\n\
-'Well!' thought Alice to herself, 'after such a fall as this, I shall \n\
-think nothing of tumbling down stairs! How brave they'll all think me \n\
-at home! Why, I wouldn't say anything about it, even if I fell off the \n\
-top of the house!' (Which was very likely true.)\n\n\
-Down, down, down. Would the fall NEVER come to an end! 'I wonder how \n\
-many miles I've fallen by this time?' she said aloud. 'I must be getting \n\
-somewhere near the centre of the earth. Let me see: that would be four \n\
-thousand miles down, I think—' (for, you see, Alice had learnt several \n\
-things of this sort in her lessons in the schoolroom, and though this \n\
-was not a VERY good opportunity for showing off her knowledge, as \n\
-there was no one to listen to her, still it was good practice to say it \n\
-over) '—yes, that's about the right distance—but then I wonder what \n\
-Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \n\
-or Longitude either, but thought they were nice grand words to say.)\n\n\
-Presently she began again. 'I wonder if I shall fall right THROUGH the \n\
-earth! How funny it'll seem to come out among the people that walk with \n\
-their heads downward! The Antipathies, I think—' (she was rather glad \n\
-there WAS no one listening, this time, as it didn't sound at all the \n\
-right word) '—but I shall have to ask them what the name of the country is, \n\
-you know. Please, Ma'am, is this New Zealand or Australia?' (and she \n\
-tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \n\
-the air! Do you think you could manage it?) 'And what an ignorant little \n\
-girl she'll think me for asking! No, it'll never do to ask: perhaps I \n\
-shall see it written up somewhere.' \n\n\
-Down, down, down. There was nothing else to do, so Alice soon began \n\
-talking again. 'Dinah'll miss me very much to-night, I should think!' \n\
-(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \n\
-tea-time. Dinah my dear! I wish you were down here with me! There are \n\
-no mice in the air, I'm afraid, but you might catch a bat, and that's \n\
-very like a mouse, you know. But do cats eat bats, I wonder?' And here \n\
-Alice began to get rather sleepy, and went on saying to herself, in a \n\
-dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \n\
-'Do bats eat cats?' for, you see, as she couldn't answer either question, \n\
-it didn't much matter which way she put it. She felt that she was \n\
-dozing off, and had just begun to dream that she was walking hand \n\
-in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \n\
-tell me the truth: did you ever eat a bat?' when suddenly, thump! \n\
-thump! down she came upon a heap of sticks and dry leaves, and the \n\
-fall was over.\n\n\
-Alice was not a bit hurt, and she jumped up on to her feet in a moment: \n\
-she looked up, but it was all dark overhead; before her was another \n\
-long passage, and the White Rabbit was still in sight, hurrying down \n\
-it. There was not a moment to be lost: away went Alice like the wind, \n\
-and was just in time to hear it say, as it turned a corner, 'Oh my \n\
-ears and whiskers, how late it's getting!' She was close behind it \n\
-when she turned the corner, but the Rabbit was no longer to be seen: \n\
-she found herself in a long, low hall, which was lit up by a row \n\
-of lamps hanging from the roof. \n\n\
-There were doors all round the hall, but they were all locked; \n\
-and when Alice had been all the way down one side and up the other, \n\
-trying every door, she walked sadly down the middle, wondering how \n\
-she was ever to get out again.\n\n\
-Suddenly she came upon a little three-legged table, all made of \n\
-solid glass; there was nothing on it except a tiny golden key, and \n\
-Alice's first thought was that it might belong to one of the doors \n\
-of the hall; but, alas! either the locks were too large, or the \n\
-key was too small, but at any rate it would not open any of them. \n\
-However, on the second time round, she came upon a low curtain she \n\
-had not noticed before, and behind it was a little door about fifteen \n\
-inches high: she tried the little golden key in the lock, and to her \n\
-great delight it fitted! \n\n\
-Alice opened the door and found that it led into a small passage, not \n\
-much larger than a rat-hole: she knelt down and looked along the \n\
-passage into the loveliest garden you ever saw. How she longed to \n\
-get out of that dark hall, and wander about among those beds of bright \n\
-flowers and those cool fountains, but she could not even get her head \n\
-through the doorway; 'and even if my head would go through,' thought \n\
-poor Alice, 'it would be of very little use without my shoulders. Oh, \n\
-how I wish I could shut up like a telescope! I think I could, if I \n\
-only know how to begin.' For, you see, so many out-of-the-way things \n\
-had happened lately, that Alice had begun to think that very few \n\
-things indeed were really impossible. \n\n\
-There seemed to be no use in waiting by the little door, so she went \n\
-back to the table, half hoping she might find another key on it, or at \n\
-any rate a book of rules for shutting people up like telescopes: this \n\
-time she found a little bottle on it, ('which certainly was not here \n\
-before,' said Alice,) and round the neck of the bottle was a paper \n\
-label, with the words 'DRINK ME' beautifully printed on it in large \n\
-letters.\n\n\
-It was all very well to say 'Drink me,' but the wise little Alice was \n\
-not going to do THAT in a hurry. 'No, I'll look first,' she said, \n\
-'and see whether it's marked \"poison\" or not'; for she had read \n\
-several nice little histories about children who had got burnt, \n\
-and eaten up by wild beasts and other unpleasant things, all because \n\
-they WOULD not remember the simple rules their friends had taught \n\
-them: such as, that a red-hot poker will burn you if you hold it \n\
-too long; and that if you cut your finger VERY deeply with a knife, \n\
-it usually bleeds; and she had never forgotten that, if you drink \n\
-much from a bottle marked 'poison,' it is almost certain to \n\
-disagree with you, sooner or later. \n\n\
-However, this bottle was NOT marked 'poison,' so Alice ventured to \n\
-taste it, and finding it very nice, (it had, in fact, a sort of mixed \n\
-flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \n\
+var R_txt = new Item("R_txt", "Alice was beginning to get very tired of sitting by her \
+sister on the bank, and of having nothing to do: once or twice she had peeped into the \
+book her sister was reading, but it had no pictures or conversations in it, 'and what is \
+the use of a book,' thought Alice 'without pictures or conversation?' \n\
+So she was considering in her own mind (as well as she could, for the hot day \
+made her feel very sleepy and stupid), whether the pleasure of making a \
+daisy-chain would be worth the trouble of getting up and picking the daisies, \
+when suddenly a White Rabbit with pink eyes ran close by her.\n\
+There was nothing so VERY remarkable in that; nor did Alice think it \
+so VERY much out of the way to hear the Rabbit say to itself, \
+'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \
+it occurred to her that she ought to have wondered at this, but at the \
+time it all seemed quite natural); but when the Rabbit actually TOOK A \
+WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \
+Alice started to her feet, for it flashed across her mind that she had \
+never before seen a rabbit with either a waistcoat-pocket, or a watch \
+to take out of it, and burning with curiosity, she ran across the \
+field after it, and fortunately was just in time to see it pop down \
+a large rabbit-hole under the hedge. \n\
+In another moment down went Alice after it, never once considering how \
+in the world she was to get out again. \n\
+The rabbit-hole went straight on like a tunnel for some way, and then \
+dipped suddenly down, so suddenly that Alice had not a moment to think \
+about stopping herself before she found herself falling down a very deep well.\n\
+Either the well was very deep, or she fell very slowly, for she had \
+plenty of time as she went down to look about her and to wonder what \
+was going to happen next. First, she tried to look down and make out what \
+she was coming to, but it was too dark to see anything; then she looked at \
+the sides of the well, and noticed that they were filled with cupboards and \
+book-shelves; here and there she saw maps and pictures hung upon pegs. She \
+took down a jar from one of the shelves as she passed; it was labelled \
+'ORANGE MARMALADE', but to her great disappointment it was empty: she did \
+not like to drop the jar for fear of killing somebody, so managed to put it \
+into one of the cupboards as she fell past it. \n\
+'Well!' thought Alice to herself, 'after such a fall as this, I shall \
+think nothing of tumbling down stairs! How brave they'll all think me \
+at home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the house!' (Which was very likely true.)\n\
+Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
+many miles I've fallen by this time?' she said aloud. 'I must be getting \
+somewhere near the centre of the earth. Let me see: that would be four \
+thousand miles down, I think—' (for, you see, Alice had learnt several \
+things of this sort in her lessons in the schoolroom, and though this \
+was not a VERY good opportunity for showing off her knowledge, as \
+there was no one to listen to her, still it was good practice to say it \
+over) '—yes, that's about the right distance—but then I wonder what \
+Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \
+or Longitude either, but thought they were nice grand words to say.)\n\
+Presently she began again. 'I wonder if I shall fall right THROUGH the \
+earth! How funny it'll seem to come out among the people that walk with \
+their heads downward! The Antipathies, I think—' (she was rather glad \
+there WAS no one listening, this time, as it didn't sound at all the \
+right word) '—but I shall have to ask them what the name of the country is, \
+you know. Please, Ma'am, is this New Zealand or Australia?' (and she \
+tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \
+the air! Do you think you could manage it?) 'And what an ignorant little \
+girl she'll think me for asking! No, it'll never do to ask: perhaps I \
+shall see it written up somewhere.' \n\
+Down, down, down. There was nothing else to do, so Alice soon began \
+talking again. 'Dinah'll miss me very much to-night, I should think!' \
+(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \
+tea-time. Dinah my dear! I wish you were down here with me! There are \
+no mice in the air, I'm afraid, but you might catch a bat, and that's \
+very like a mouse, you know. But do cats eat bats, I wonder?' And here \
+Alice began to get rather sleepy, and went on saying to herself, in a \
+dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \
+'Do bats eat cats?' for, you see, as she couldn't answer either question, \
+it didn't much matter which way she put it. She felt that she was \
+dozing off, and had just begun to dream that she was walking hand \
+in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \
+tell me the truth: did you ever eat a bat?' when suddenly, thump! \
+thump! down she came upon a heap of sticks and dry leaves, and the \
+fall was over.\n\
+Alice was not a bit hurt, and she jumped up on to her feet in a moment: \
+she looked up, but it was all dark overhead; before her was another \
+long passage, and the White Rabbit was still in sight, hurrying down \
+it. There was not a moment to be lost: away went Alice like the wind, \
+and was just in time to hear it say, as it turned a corner, 'Oh my \
+ears and whiskers, how late it's getting!' She was close behind it \
+when she turned the corner, but the Rabbit was no longer to be seen: \
+she found herself in a long, low hall, which was lit up by a row \
+of lamps hanging from the roof. \n\
+There were doors all round the hall, but they were all locked; \
+and when Alice had been all the way down one side and up the other, \
+trying every door, she walked sadly down the middle, wondering how \
+she was ever to get out again.\n\
+Suddenly she came upon a little three-legged table, all made of \
+solid glass; there was nothing on it except a tiny golden key, and \
+Alice's first thought was that it might belong to one of the doors \
+of the hall; but, alas! either the locks were too large, or the \
+key was too small, but at any rate it would not open any of them. \
+However, on the second time round, she came upon a low curtain she \
+had not noticed before, and behind it was a little door about fifteen \
+inches high: she tried the little golden key in the lock, and to her \
+great delight it fitted! \n\
+Alice opened the door and found that it led into a small passage, not \
+much larger than a rat-hole: she knelt down and looked along the \
+passage into the loveliest garden you ever saw. How she longed to \
+get out of that dark hall, and wander about among those beds of bright \
+flowers and those cool fountains, but she could not even get her head \
+through the doorway; 'and even if my head would go through,' thought \
+poor Alice, 'it would be of very little use without my shoulders. Oh, \
+how I wish I could shut up like a telescope! I think I could, if I \
+only know how to begin.' For, you see, so many out-of-the-way things \
+had happened lately, that Alice had begun to think that very few \
+things indeed were really impossible. \n\
+There seemed to be no use in waiting by the little door, so she went \
+back to the table, half hoping she might find another key on it, or at \
+any rate a book of rules for shutting people up like telescopes: this \
+time she found a little bottle on it, ('which certainly was not here \
+before,' said Alice,) and round the neck of the bottle was a paper \
+label, with the words 'DRINK ME' beautifully printed on it in large \
+letters.\n\
+It was all very well to say 'Drink me,' but the wise little Alice was \
+not going to do THAT in a hurry. 'No, I'll look first,' she said, \
+'and see whether it's marked \"poison\" or not'; for she had read \
+several nice little histories about children who had got burnt, \
+and eaten up by wild beasts and other unpleasant things, all because \
+they WOULD not remember the simple rules their friends had taught \
+them: such as, that a red-hot poker will burn you if you hold it \
+too long; and that if you cut your finger VERY deeply with a knife, \
+it usually bleeds; and she had never forgotten that, if you drink \
+much from a bottle marked 'poison,' it is almost certain to \
+disagree with you, sooner or later. \n\
+However, this bottle was NOT marked 'poison,' so Alice ventured to \
+taste it, and finding it very nice, (it had, in fact, a sort of mixed \
+flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \
 and hot buttered toast,) she very soon finished it off.");
-var S_txt = new Item("S_txt", "Alice was beginning to get very tired of sitting by her \n\
-sister on the bank, and of having nothing to do: once or twice she had peeped into the \n\
-book her sister was reading, but it had no pictures or conversations in it, 'and what is \n\
-the use of a book,' thought Alice 'without pictures or conversation?' \n\n\
-So she was considering in her own mind (as well as she could, for the hot day \n\
-made her feel very sleepy and stupid), whether the pleasure of making a \n\
-daisy-chain would be worth the trouble of getting up and picking the daisies, \n\
-when suddenly a White Rabbit with pink eyes ran close by her.\n\n\
-There was nothing so VERY remarkable in that; nor did Alice think it \n\
-so VERY much out of the way to hear the Rabbit say to itself, \n\
-'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \n\
-it occurred to her that she ought to have wondered at this, but at the \n\
-time it all seemed quite natural); but when the Rabbit actually TOOK A \n\
-WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \n\
-Alice started to her feet, for it flashed across her mind that she had \n\
-never before seen a rabbit with either a waistcoat-pocket, or a watch \n\
-to take out of it, and burning with curiosity, she ran across the \n\
-field after it, and fortunately was just in time to see it pop down \n\
-a large rabbit-hole under the hedge. \n\n\
-In another moment down went Alice after it, never once considering how \n\
-in the world she was to get out again. \n\n\
-The rabbit-hole went straight on like a tunnel for some way, and then \n\
-dipped suddenly down, so suddenly that Alice had not a moment to think \n\
-about stopping herself before she found herself falling down a very deep well.\n\n\
-Either the well was very deep, or she fell very slowly, for she had \n\
-plenty of time as she went down to look about her and to wonder what \n\
-was going to happen next. First, she tried to look down and make out what \n\
-she was coming to, but it was too dark to see anything; then she looked at \n\
-the sides of the well, and noticed that they were filled with cupboards and \n\
-book-shelves; here and there she saw maps and pictures hung upon pegs. She \n\
-took down a jar from one of the shelves as she passed; it was labelled \n\
-'ORANGE MARMALADE', but to her great disappointment it was empty: she did \n\
-not like to drop the jar for fear of killing somebody, so managed to put it \n\
-into one of the cupboards as she fell past it. \n\n\
-'Well!' thought Alice to herself, 'after such a fall as this, I shall \n\
-think nothing of tumbling down stairs! How brave they'll all think me \n\
-at home! Why, I wouldn't say anything about it, even if I fell off the \n\
-top of the house!' (Which was very likely true.)\n\n\
-Down, down, down. Would the fall NEVER come to an end! 'I wonder how \n\
-many miles I've fallen by this time?' she said aloud. 'I must be getting \n\
-somewhere near the centre of the earth. Let me see: that would be four \n\
-thousand miles down, I think—' (for, you see, Alice had learnt several \n\
-things of this sort in her lessons in the schoolroom, and though this \n\
-was not a VERY good opportunity for showing off her knowledge, as \n\
-there was no one to listen to her, still it was good practice to say it \n\
-over) '—yes, that's about the right distance—but then I wonder what \n\
-Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \n\
-or Longitude either, but thought they were nice grand words to say.)\n\n\
-Presently she began again. 'I wonder if I shall fall right THROUGH the \n\
-earth! How funny it'll seem to come out among the people that walk with \n\
-their heads downward! The Antipathies, I think—' (she was rather glad \n\
-there WAS no one listening, this time, as it didn't sound at all the \n\
-right word) '—but I shall have to ask them what the name of the country is, \n\
-you know. Please, Ma'am, is this New Zealand or Australia?' (and she \n\
-tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \n\
-the air! Do you think you could manage it?) 'And what an ignorant little \n\
-girl she'll think me for asking! No, it'll never do to ask: perhaps I \n\
-shall see it written up somewhere.' \n\n\
-Down, down, down. There was nothing else to do, so Alice soon began \n\
-talking again. 'Dinah'll miss me very much to-night, I should think!' \n\
-(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \n\
-tea-time. Dinah my dear! I wish you were down here with me! There are \n\
-no mice in the air, I'm afraid, but you might catch a bat, and that's \n\
-very like a mouse, you know. But do cats eat bats, I wonder?' And here \n\
-Alice began to get rather sleepy, and went on saying to herself, in a \n\
-dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \n\
-'Do bats eat cats?' for, you see, as she couldn't answer either question, \n\
-it didn't much matter which way she put it. She felt that she was \n\
-dozing off, and had just begun to dream that she was walking hand \n\
-in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \n\
-tell me the truth: did you ever eat a bat?' when suddenly, thump! \n\
-thump! down she came upon a heap of sticks and dry leaves, and the \n\
-fall was over.\n\n\
-Alice was not a bit hurt, and she jumped up on to her feet in a moment: \n\
-she looked up, but it was all dark overhead; before her was another \n\
-long passage, and the White Rabbit was still in sight, hurrying down \n\
-it. There was not a moment to be lost: away went Alice like the wind, \n\
-and was just in time to hear it say, as it turned a corner, 'Oh my \n\
-ears and whiskers, how late it's getting!' She was close behind it \n\
-when she turned the corner, but the Rabbit was no longer to be seen: \n\
-she found herself in a long, low hall, which was lit up by a row \n\
-of lamps hanging from the roof. \n\n\
-There were doors all round the hall, but they were all locked; \n\
-and when Alice had been all the way down one side and up the other, \n\
-trying every door, she walked sadly down the middle, wondering how \n\
-she was ever to get out again.\n\n\
-Suddenly she came upon a little three-legged table, all made of \n\
-solid glass; there was nothing on it except a tiny golden key, and \n\
-Alice's first thought was that it might belong to one of the doors \n\
-of the hall; but, alas! either the locks were too large, or the \n\
-key was too small, but at any rate it would not open any of them. \n\
-However, on the second time round, she came upon a low curtain she \n\
-had not noticed before, and behind it was a little door about fifteen \n\
-inches high: she tried the little golden key in the lock, and to her \n\
-great delight it fitted! \n\n\
-Alice opened the door and found that it led into a small passage, not \n\
-much larger than a rat-hole: she knelt down and looked along the \n\
-passage into the loveliest garden you ever saw. How she longed to \n\
-get out of that dark hall, and wander about among those beds of bright \n\
-flowers and those cool fountains, but she could not even get her head \n\
-through the doorway; 'and even if my head would go through,' thought \n\
-poor Alice, 'it would be of very little use without my shoulders. Oh, \n\
-how I wish I could shut up like a telescope! I think I could, if I \n\
-only know how to begin.' For, you see, so many out-of-the-way things \n\
-had happened lately, that Alice had begun to think that very few \n\
-things indeed were really impossible. \n\n\
-There seemed to be no use in waiting by the little door, so she went \n\
-back to the table, half hoping she might find another key on it, or at \n\
-any rate a book of rules for shutting people up like telescopes: this \n\
-time she found a little bottle on it, ('which certainly was not here \n\
-before,' said Alice,) and round the neck of the bottle was a paper \n\
-label, with the words 'DRINK ME' beautifully printed on it in large \n\
-letters.\n\n\
-It was all very well to say 'Drink me,' but the wise little Alice was \n\
-not going to do THAT in a hurry. 'No, I'll look first,' she said, \n\
-'and see whether it's marked \"poison\" or not'; for she had read \n\
-several nice little histories about children who had got burnt, \n\
-and eaten up by wild beasts and other unpleasant things, all because \n\
-they WOULD not remember the simple rules their friends had taught \n\
-them: such as, that a red-hot poker will burn you if you hold it \n\
-too long; and that if you cut your finger VERY deeply with a knife, \n\
-it usually bleeds; and she had never forgotten that, if you drink \n\
-much from a bottle marked 'poison,' it is almost certain to \n\
-disagree with you, sooner or later. \n\n\
-However, this bottle was NOT marked 'poison,' so Alice ventured to \n\
-taste it, and finding it very nice, (it had, in fact, a sort of mixed \n\
-flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \n\
+var S_txt = new Item("S_txt", "Alice was beginning to get very tired of sitting by her \
+sister on the bank, and of having nothing to do: once or twice she had peeped into the \
+book her sister was reading, but it had no pictures or conversations in it, 'and what is \
+the use of a book,' thought Alice 'without pictures or conversation?' \n\
+So she was considering in her own mind (as well as she could, for the hot day \
+made her feel very sleepy and stupid), whether the pleasure of making a \
+daisy-chain would be worth the trouble of getting up and picking the daisies, \
+when suddenly a White Rabbit with pink eyes ran close by her.\n\
+There was nothing so VERY remarkable in that; nor did Alice think it \
+so VERY much out of the way to hear the Rabbit say to itself, \
+'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \
+it occurred to her that she ought to have wondered at this, but at the \
+time it all seemed quite natural); but when the Rabbit actually TOOK A \
+WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \
+Alice started to her feet, for it flashed across her mind that she had \
+never before seen a rabbit with either a waistcoat-pocket, or a watch \
+to take out of it, and burning with curiosity, she ran across the \
+field after it, and fortunately was just in time to see it pop down \
+a large rabbit-hole under the hedge. \n\
+In another moment down went Alice after it, never once considering how \
+in the world she was to get out again. \n\
+The rabbit-hole went straight on like a tunnel for some way, and then \
+dipped suddenly down, so suddenly that Alice had not a moment to think \
+about stopping herself before she found herself falling down a very deep well.\n\
+Either the well was very deep, or she fell very slowly, for she had \
+plenty of time as she went down to look about her and to wonder what \
+was going to happen next. First, she tried to look down and make out what \
+she was coming to, but it was too dark to see anything; then she looked at \
+the sides of the well, and noticed that they were filled with cupboards and \
+book-shelves; here and there she saw maps and pictures hung upon pegs. She \
+took down a jar from one of the shelves as she passed; it was labelled \
+'ORANGE MARMALADE', but to her great disappointment it was empty: she did \
+not like to drop the jar for fear of killing somebody, so managed to put it \
+into one of the cupboards as she fell past it. \n\
+'Well!' thought Alice to herself, 'after such a fall as this, I shall \
+think nothing of tumbling down stairs! How brave they'll all think me \
+at home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the house!' (Which was very likely true.)\n\
+Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
+many miles I've fallen by this time?' she said aloud. 'I must be getting \
+somewhere near the centre of the earth. Let me see: that would be four \
+thousand miles down, I think—' (for, you see, Alice had learnt several \
+things of this sort in her lessons in the schoolroom, and though this \
+was not a VERY good opportunity for showing off her knowledge, as \
+there was no one to listen to her, still it was good practice to say it \
+over) '—yes, that's about the right distance—but then I wonder what \
+Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \
+or Longitude either, but thought they were nice grand words to say.)\n\
+Presently she began again. 'I wonder if I shall fall right THROUGH the \
+earth! How funny it'll seem to come out among the people that walk with \
+their heads downward! The Antipathies, I think—' (she was rather glad \
+there WAS no one listening, this time, as it didn't sound at all the \
+right word) '—but I shall have to ask them what the name of the country is, \
+you know. Please, Ma'am, is this New Zealand or Australia?' (and she \
+tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \
+the air! Do you think you could manage it?) 'And what an ignorant little \
+girl she'll think me for asking! No, it'll never do to ask: perhaps I \
+shall see it written up somewhere.' \n\
+Down, down, down. There was nothing else to do, so Alice soon began \
+talking again. 'Dinah'll miss me very much to-night, I should think!' \
+(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \
+tea-time. Dinah my dear! I wish you were down here with me! There are \
+no mice in the air, I'm afraid, but you might catch a bat, and that's \
+very like a mouse, you know. But do cats eat bats, I wonder?' And here \
+Alice began to get rather sleepy, and went on saying to herself, in a \
+dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \
+'Do bats eat cats?' for, you see, as she couldn't answer either question, \
+it didn't much matter which way she put it. She felt that she was \
+dozing off, and had just begun to dream that she was walking hand \
+in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \
+tell me the truth: did you ever eat a bat?' when suddenly, thump! \
+thump! down she came upon a heap of sticks and dry leaves, and the \
+fall was over.\n\
+Alice was not a bit hurt, and she jumped up on to her feet in a moment: \
+she looked up, but it was all dark overhead; before her was another \
+long passage, and the White Rabbit was still in sight, hurrying down \
+it. There was not a moment to be lost: away went Alice like the wind, \
+and was just in time to hear it say, as it turned a corner, 'Oh my \
+ears and whiskers, how late it's getting!' She was close behind it \
+when she turned the corner, but the Rabbit was no longer to be seen: \
+she found herself in a long, low hall, which was lit up by a row \
+of lamps hanging from the roof. \n\
+There were doors all round the hall, but they were all locked; \
+and when Alice had been all the way down one side and up the other, \
+trying every door, she walked sadly down the middle, wondering how \
+she was ever to get out again.\n\
+Suddenly she came upon a little three-legged table, all made of \
+solid glass; there was nothing on it except a tiny golden key, and \
+Alice's first thought was that it might belong to one of the doors \
+of the hall; but, alas! either the locks were too large, or the \
+key was too small, but at any rate it would not open any of them. \
+However, on the second time round, she came upon a low curtain she \
+had not noticed before, and behind it was a little door about fifteen \
+inches high: she tried the little golden key in the lock, and to her \
+great delight it fitted! \n\
+Alice opened the door and found that it led into a small passage, not \
+much larger than a rat-hole: she knelt down and looked along the \
+passage into the loveliest garden you ever saw. How she longed to \
+get out of that dark hall, and wander about among those beds of bright \
+flowers and those cool fountains, but she could not even get her head \
+through the doorway; 'and even if my head would go through,' thought \
+poor Alice, 'it would be of very little use without my shoulders. Oh, \
+how I wish I could shut up like a telescope! I think I could, if I \
+only know how to begin.' For, you see, so many out-of-the-way things \
+had happened lately, that Alice had begun to think that very few \
+things indeed were really impossible. \n\
+There seemed to be no use in waiting by the little door, so she went \
+back to the table, half hoping she might find another key on it, or at \
+any rate a book of rules for shutting people up like telescopes: this \
+time she found a little bottle on it, ('which certainly was not here \
+before,' said Alice,) and round the neck of the bottle was a paper \
+label, with the words 'DRINK ME' beautifully printed on it in large \
+letters.\n\
+It was all very well to say 'Drink me,' but the wise little Alice was \
+not going to do THAT in a hurry. 'No, I'll look first,' she said, \
+'and see whether it's marked \"poison\" or not'; for she had read \
+several nice little histories about children who had got burnt, \
+and eaten up by wild beasts and other unpleasant things, all because \
+they WOULD not remember the simple rules their friends had taught \
+them: such as, that a red-hot poker will burn you if you hold it \
+too long; and that if you cut your finger VERY deeply with a knife, \
+it usually bleeds; and she had never forgotten that, if you drink \
+much from a bottle marked 'poison,' it is almost certain to \
+disagree with you, sooner or later. \n\
+However, this bottle was NOT marked 'poison,' so Alice ventured to \
+taste it, and finding it very nice, (it had, in fact, a sort of mixed \
+flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \
 and hot buttered toast,) she very soon finished it off.");
-var T_txt = new Item("T_txt", "Alice was beginning to get very tired of sitting by her \n\
-sister on the bank, and of having nothing to do: once or twice she had peeped into the \n\
-book her sister was reading, but it had no pictures or conversations in it, 'and what is \n\
-the use of a book,' thought Alice 'without pictures or conversation?' \n\n\
-So she was considering in her own mind (as well as she could, for the hot day \n\
-made her feel very sleepy and stupid), whether the pleasure of making a \n\
-daisy-chain would be worth the trouble of getting up and picking the daisies, \n\
-when suddenly a White Rabbit with pink eyes ran close by her.\n\n\
-There was nothing so VERY remarkable in that; nor did Alice think it \n\
-so VERY much out of the way to hear the Rabbit say to itself, \n\
-'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \n\
-it occurred to her that she ought to have wondered at this, but at the \n\
-time it all seemed quite natural); but when the Rabbit actually TOOK A \n\
-WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \n\
-Alice started to her feet, for it flashed across her mind that she had \n\
-never before seen a rabbit with either a waistcoat-pocket, or a watch \n\
-to take out of it, and burning with curiosity, she ran across the \n\
-field after it, and fortunately was just in time to see it pop down \n\
-a large rabbit-hole under the hedge. \n\n\
-In another moment down went Alice after it, never once considering how \n\
-in the world she was to get out again. \n\n\
-The rabbit-hole went straight on like a tunnel for some way, and then \n\
-dipped suddenly down, so suddenly that Alice had not a moment to think \n\
-about stopping herself before she found herself falling down a very deep well.\n\n\
-Either the well was very deep, or she fell very slowly, for she had \n\
-plenty of time as she went down to look about her and to wonder what \n\
-was going to happen next. First, she tried to look down and make out what \n\
-she was coming to, but it was too dark to see anything; then she looked at \n\
-the sides of the well, and noticed that they were filled with cupboards and \n\
-book-shelves; here and there she saw maps and pictures hung upon pegs. She \n\
-took down a jar from one of the shelves as she passed; it was labelled \n\
-'ORANGE MARMALADE', but to her great disappointment it was empty: she did \n\
-not like to drop the jar for fear of killing somebody, so managed to put it \n\
-into one of the cupboards as she fell past it. \n\n\
-'Well!' thought Alice to herself, 'after such a fall as this, I shall \n\
-think nothing of tumbling down stairs! How brave they'll all think me \n\
-at home! Why, I wouldn't say anything about it, even if I fell off the \n\
-top of the house!' (Which was very likely true.)\n\n\
-Down, down, down. Would the fall NEVER come to an end! 'I wonder how \n\
-many miles I've fallen by this time?' she said aloud. 'I must be getting \n\
-somewhere near the centre of the earth. Let me see: that would be four \n\
-thousand miles down, I think—' (for, you see, Alice had learnt several \n\
-things of this sort in her lessons in the schoolroom, and though this \n\
-was not a VERY good opportunity for showing off her knowledge, as \n\
-there was no one to listen to her, still it was good practice to say it \n\
-over) '—yes, that's about the right distance—but then I wonder what \n\
-Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \n\
-or Longitude either, but thought they were nice grand words to say.)\n\n\
-Presently she began again. 'I wonder if I shall fall right THROUGH the \n\
-earth! How funny it'll seem to come out among the people that walk with \n\
-their heads downward! The Antipathies, I think—' (she was rather glad \n\
-there WAS no one listening, this time, as it didn't sound at all the \n\
-right word) '—but I shall have to ask them what the name of the country is, \n\
-you know. Please, Ma'am, is this New Zealand or Australia?' (and she \n\
-tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \n\
-the air! Do you think you could manage it?) 'And what an ignorant little \n\
-girl she'll think me for asking! No, it'll never do to ask: perhaps I \n\
-shall see it written up somewhere.' \n\n\
-Down, down, down. There was nothing else to do, so Alice soon began \n\
-talking again. 'Dinah'll miss me very much to-night, I should think!' \n\
-(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \n\
-tea-time. Dinah my dear! I wish you were down here with me! There are \n\
-no mice in the air, I'm afraid, but you might catch a bat, and that's \n\
-very like a mouse, you know. But do cats eat bats, I wonder?' And here \n\
-Alice began to get rather sleepy, and went on saying to herself, in a \n\
-dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \n\
-'Do bats eat cats?' for, you see, as she couldn't answer either question, \n\
-it didn't much matter which way she put it. She felt that she was \n\
-dozing off, and had just begun to dream that she was walking hand \n\
-in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \n\
-tell me the truth: did you ever eat a bat?' when suddenly, thump! \n\
-thump! down she came upon a heap of sticks and dry leaves, and the \n\
-fall was over.\n\n\
-Alice was not a bit hurt, and she jumped up on to her feet in a moment: \n\
-she looked up, but it was all dark overhead; before her was another \n\
-long passage, and the White Rabbit was still in sight, hurrying down \n\
-it. There was not a moment to be lost: away went Alice like the wind, \n\
-and was just in time to hear it say, as it turned a corner, 'Oh my \n\
-ears and whiskers, how late it's getting!' She was close behind it \n\
-when she turned the corner, but the Rabbit was no longer to be seen: \n\
-she found herself in a long, low hall, which was lit up by a row \n\
-of lamps hanging from the roof. \n\n\
-There were doors all round the hall, but they were all locked; \n\
-and when Alice had been all the way down one side and up the other, \n\
-trying every door, she walked sadly down the middle, wondering how \n\
-she was ever to get out again.\n\n\
-Suddenly she came upon a little three-legged table, all made of \n\
-solid glass; there was nothing on it except a tiny golden key, and \n\
-Alice's first thought was that it might belong to one of the doors \n\
-of the hall; but, alas! either the locks were too large, or the \n\
-key was too small, but at any rate it would not open any of them. \n\
-However, on the second time round, she came upon a low curtain she \n\
-had not noticed before, and behind it was a little door about fifteen \n\
-inches high: she tried the little golden key in the lock, and to her \n\
-great delight it fitted! \n\n\
-Alice opened the door and found that it led into a small passage, not \n\
-much larger than a rat-hole: she knelt down and looked along the \n\
-passage into the loveliest garden you ever saw. How she longed to \n\
-get out of that dark hall, and wander about among those beds of bright \n\
-flowers and those cool fountains, but she could not even get her head \n\
-through the doorway; 'and even if my head would go through,' thought \n\
-poor Alice, 'it would be of very little use without my shoulders. Oh, \n\
-how I wish I could shut up like a telescope! I think I could, if I \n\
-only know how to begin.' For, you see, so many out-of-the-way things \n\
-had happened lately, that Alice had begun to think that very few \n\
-things indeed were really impossible. \n\n\
-There seemed to be no use in waiting by the little door, so she went \n\
-back to the table, half hoping she might find another key on it, or at \n\
-any rate a book of rules for shutting people up like telescopes: this \n\
-time she found a little bottle on it, ('which certainly was not here \n\
-before,' said Alice,) and round the neck of the bottle was a paper \n\
-label, with the words 'DRINK ME' beautifully printed on it in large \n\
-letters.\n\n\
-It was all very well to say 'Drink me,' but the wise little Alice was \n\
-not going to do THAT in a hurry. 'No, I'll look first,' she said, \n\
-'and see whether it's marked \"poison\" or not'; for she had read \n\
-several nice little histories about children who had got burnt, \n\
-and eaten up by wild beasts and other unpleasant things, all because \n\
-they WOULD not remember the simple rules their friends had taught \n\
-them: such as, that a red-hot poker will burn you if you hold it \n\
-too long; and that if you cut your finger VERY deeply with a knife, \n\
-it usually bleeds; and she had never forgotten that, if you drink \n\
-much from a bottle marked 'poison,' it is almost certain to \n\
-disagree with you, sooner or later. \n\n\
-However, this bottle was NOT marked 'poison,' so Alice ventured to \n\
-taste it, and finding it very nice, (it had, in fact, a sort of mixed \n\
-flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \n\
+var T_txt = new Item("T_txt", "Alice was beginning to get very tired of sitting by her \
+sister on the bank, and of having nothing to do: once or twice she had peeped into the \
+book her sister was reading, but it had no pictures or conversations in it, 'and what is \
+the use of a book,' thought Alice 'without pictures or conversation?' \n\
+So she was considering in her own mind (as well as she could, for the hot day \
+made her feel very sleepy and stupid), whether the pleasure of making a \
+daisy-chain would be worth the trouble of getting up and picking the daisies, \
+when suddenly a White Rabbit with pink eyes ran close by her.\n\
+There was nothing so VERY remarkable in that; nor did Alice think it \
+so VERY much out of the way to hear the Rabbit say to itself, \
+'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \
+it occurred to her that she ought to have wondered at this, but at the \
+time it all seemed quite natural); but when the Rabbit actually TOOK A \
+WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \
+Alice started to her feet, for it flashed across her mind that she had \
+never before seen a rabbit with either a waistcoat-pocket, or a watch \
+to take out of it, and burning with curiosity, she ran across the \
+field after it, and fortunately was just in time to see it pop down \
+a large rabbit-hole under the hedge. \n\
+In another moment down went Alice after it, never once considering how \
+in the world she was to get out again. \n\
+The rabbit-hole went straight on like a tunnel for some way, and then \
+dipped suddenly down, so suddenly that Alice had not a moment to think \
+about stopping herself before she found herself falling down a very deep well.\n\
+Either the well was very deep, or she fell very slowly, for she had \
+plenty of time as she went down to look about her and to wonder what \
+was going to happen next. First, she tried to look down and make out what \
+she was coming to, but it was too dark to see anything; then she looked at \
+the sides of the well, and noticed that they were filled with cupboards and \
+book-shelves; here and there she saw maps and pictures hung upon pegs. She \
+took down a jar from one of the shelves as she passed; it was labelled \
+'ORANGE MARMALADE', but to her great disappointment it was empty: she did \
+not like to drop the jar for fear of killing somebody, so managed to put it \
+into one of the cupboards as she fell past it. \n\
+'Well!' thought Alice to herself, 'after such a fall as this, I shall \
+think nothing of tumbling down stairs! How brave they'll all think me \
+at home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the house!' (Which was very likely true.)\n\
+Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
+many miles I've fallen by this time?' she said aloud. 'I must be getting \
+somewhere near the centre of the earth. Let me see: that would be four \
+thousand miles down, I think—' (for, you see, Alice had learnt several \
+things of this sort in her lessons in the schoolroom, and though this \
+was not a VERY good opportunity for showing off her knowledge, as \
+there was no one to listen to her, still it was good practice to say it \
+over) '—yes, that's about the right distance—but then I wonder what \
+Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \
+or Longitude either, but thought they were nice grand words to say.)\n\
+Presently she began again. 'I wonder if I shall fall right THROUGH the \
+earth! How funny it'll seem to come out among the people that walk with \
+their heads downward! The Antipathies, I think—' (she was rather glad \
+there WAS no one listening, this time, as it didn't sound at all the \
+right word) '—but I shall have to ask them what the name of the country is, \
+you know. Please, Ma'am, is this New Zealand or Australia?' (and she \
+tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \
+the air! Do you think you could manage it?) 'And what an ignorant little \
+girl she'll think me for asking! No, it'll never do to ask: perhaps I \
+shall see it written up somewhere.' \n\
+Down, down, down. There was nothing else to do, so Alice soon began \
+talking again. 'Dinah'll miss me very much to-night, I should think!' \
+(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \
+tea-time. Dinah my dear! I wish you were down here with me! There are \
+no mice in the air, I'm afraid, but you might catch a bat, and that's \
+very like a mouse, you know. But do cats eat bats, I wonder?' And here \
+Alice began to get rather sleepy, and went on saying to herself, in a \
+dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \
+'Do bats eat cats?' for, you see, as she couldn't answer either question, \
+it didn't much matter which way she put it. She felt that she was \
+dozing off, and had just begun to dream that she was walking hand \
+in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \
+tell me the truth: did you ever eat a bat?' when suddenly, thump! \
+thump! down she came upon a heap of sticks and dry leaves, and the \
+fall was over.\n\
+Alice was not a bit hurt, and she jumped up on to her feet in a moment: \
+she looked up, but it was all dark overhead; before her was another \
+long passage, and the White Rabbit was still in sight, hurrying down \
+it. There was not a moment to be lost: away went Alice like the wind, \
+and was just in time to hear it say, as it turned a corner, 'Oh my \
+ears and whiskers, how late it's getting!' She was close behind it \
+when she turned the corner, but the Rabbit was no longer to be seen: \
+she found herself in a long, low hall, which was lit up by a row \
+of lamps hanging from the roof. \n\
+There were doors all round the hall, but they were all locked; \
+and when Alice had been all the way down one side and up the other, \
+trying every door, she walked sadly down the middle, wondering how \
+she was ever to get out again.\n\
+Suddenly she came upon a little three-legged table, all made of \
+solid glass; there was nothing on it except a tiny golden key, and \
+Alice's first thought was that it might belong to one of the doors \
+of the hall; but, alas! either the locks were too large, or the \
+key was too small, but at any rate it would not open any of them. \
+However, on the second time round, she came upon a low curtain she \
+had not noticed before, and behind it was a little door about fifteen \
+inches high: she tried the little golden key in the lock, and to her \
+great delight it fitted! \n\
+Alice opened the door and found that it led into a small passage, not \
+much larger than a rat-hole: she knelt down and looked along the \
+passage into the loveliest garden you ever saw. How she longed to \
+get out of that dark hall, and wander about among those beds of bright \
+flowers and those cool fountains, but she could not even get her head \
+through the doorway; 'and even if my head would go through,' thought \
+poor Alice, 'it would be of very little use without my shoulders. Oh, \
+how I wish I could shut up like a telescope! I think I could, if I \
+only know how to begin.' For, you see, so many out-of-the-way things \
+had happened lately, that Alice had begun to think that very few \
+things indeed were really impossible. \n\
+There seemed to be no use in waiting by the little door, so she went \
+back to the table, half hoping she might find another key on it, or at \
+any rate a book of rules for shutting people up like telescopes: this \
+time she found a little bottle on it, ('which certainly was not here \
+before,' said Alice,) and round the neck of the bottle was a paper \
+label, with the words 'DRINK ME' beautifully printed on it in large \
+letters.\n\
+It was all very well to say 'Drink me,' but the wise little Alice was \
+not going to do THAT in a hurry. 'No, I'll look first,' she said, \
+'and see whether it's marked \"poison\" or not'; for she had read \
+several nice little histories about children who had got burnt, \
+and eaten up by wild beasts and other unpleasant things, all because \
+they WOULD not remember the simple rules their friends had taught \
+them: such as, that a red-hot poker will burn you if you hold it \
+too long; and that if you cut your finger VERY deeply with a knife, \
+it usually bleeds; and she had never forgotten that, if you drink \
+much from a bottle marked 'poison,' it is almost certain to \
+disagree with you, sooner or later. \n\
+However, this bottle was NOT marked 'poison,' so Alice ventured to \
+taste it, and finding it very nice, (it had, in fact, a sort of mixed \
+flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \
 and hot buttered toast,) she very soon finished it off.");
-var U_txt = new Item("U_txt", "Alice was beginning to get very tired of sitting by her \n\
-sister on the bank, and of having nothing to do: once or twice she had peeped into the \n\
-book her sister was reading, but it had no pictures or conversations in it, 'and what is \n\
-the use of a book,' thought Alice 'without pictures or conversation?' \n\n\
-So she was considering in her own mind (as well as she could, for the hot day \n\
-made her feel very sleepy and stupid), whether the pleasure of making a \n\
-daisy-chain would be worth the trouble of getting up and picking the daisies, \n\
-when suddenly a White Rabbit with pink eyes ran close by her.\n\n\
-There was nothing so VERY remarkable in that; nor did Alice think it \n\
-so VERY much out of the way to hear the Rabbit say to itself, \n\
-'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \n\
-it occurred to her that she ought to have wondered at this, but at the \n\
-time it all seemed quite natural); but when the Rabbit actually TOOK A \n\
-WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \n\
-Alice started to her feet, for it flashed across her mind that she had \n\
-never before seen a rabbit with either a waistcoat-pocket, or a watch \n\
-to take out of it, and burning with curiosity, she ran across the \n\
-field after it, and fortunately was just in time to see it pop down \n\
-a large rabbit-hole under the hedge. \n\n\
-In another moment down went Alice after it, never once considering how \n\
-in the world she was to get out again. \n\n\
-The rabbit-hole went straight on like a tunnel for some way, and then \n\
-dipped suddenly down, so suddenly that Alice had not a moment to think \n\
-about stopping herself before she found herself falling down a very deep well.\n\n\
-Either the well was very deep, or she fell very slowly, for she had \n\
-plenty of time as she went down to look about her and to wonder what \n\
-was going to happen next. First, she tried to look down and make out what \n\
-she was coming to, but it was too dark to see anything; then she looked at \n\
-the sides of the well, and noticed that they were filled with cupboards and \n\
-book-shelves; here and there she saw maps and pictures hung upon pegs. She \n\
-took down a jar from one of the shelves as she passed; it was labelled \n\
-'ORANGE MARMALADE', but to her great disappointment it was empty: she did \n\
-not like to drop the jar for fear of killing somebody, so managed to put it \n\
-into one of the cupboards as she fell past it. \n\n\
-'Well!' thought Alice to herself, 'after such a fall as this, I shall \n\
-think nothing of tumbling down stairs! How brave they'll all think me \n\
-at home! Why, I wouldn't say anything about it, even if I fell off the \n\
-top of the house!' (Which was very likely true.)\n\n\
-Down, down, down. Would the fall NEVER come to an end! 'I wonder how \n\
-many miles I've fallen by this time?' she said aloud. 'I must be getting \n\
-somewhere near the centre of the earth. Let me see: that would be four \n\
-thousand miles down, I think—' (for, you see, Alice had learnt several \n\
-things of this sort in her lessons in the schoolroom, and though this \n\
-was not a VERY good opportunity for showing off her knowledge, as \n\
-there was no one to listen to her, still it was good practice to say it \n\
-over) '—yes, that's about the right distance—but then I wonder what \n\
-Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \n\
-or Longitude either, but thought they were nice grand words to say.)\n\n\
-Presently she began again. 'I wonder if I shall fall right THROUGH the \n\
-earth! How funny it'll seem to come out among the people that walk with \n\
-their heads downward! The Antipathies, I think—' (she was rather glad \n\
-there WAS no one listening, this time, as it didn't sound at all the \n\
-right word) '—but I shall have to ask them what the name of the country is, \n\
-you know. Please, Ma'am, is this New Zealand or Australia?' (and she \n\
-tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \n\
-the air! Do you think you could manage it?) 'And what an ignorant little \n\
-girl she'll think me for asking! No, it'll never do to ask: perhaps I \n\
-shall see it written up somewhere.' \n\n\
-Down, down, down. There was nothing else to do, so Alice soon began \n\
-talking again. 'Dinah'll miss me very much to-night, I should think!' \n\
-(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \n\
-tea-time. Dinah my dear! I wish you were down here with me! There are \n\
-no mice in the air, I'm afraid, but you might catch a bat, and that's \n\
-very like a mouse, you know. But do cats eat bats, I wonder?' And here \n\
-Alice began to get rather sleepy, and went on saying to herself, in a \n\
-dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \n\
-'Do bats eat cats?' for, you see, as she couldn't answer either question, \n\
-it didn't much matter which way she put it. She felt that she was \n\
-dozing off, and had just begun to dream that she was walking hand \n\
-in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \n\
-tell me the truth: did you ever eat a bat?' when suddenly, thump! \n\
-thump! down she came upon a heap of sticks and dry leaves, and the \n\
-fall was over.\n\n\
-Alice was not a bit hurt, and she jumped up on to her feet in a moment: \n\
-she looked up, but it was all dark overhead; before her was another \n\
-long passage, and the White Rabbit was still in sight, hurrying down \n\
-it. There was not a moment to be lost: away went Alice like the wind, \n\
-and was just in time to hear it say, as it turned a corner, 'Oh my \n\
-ears and whiskers, how late it's getting!' She was close behind it \n\
-when she turned the corner, but the Rabbit was no longer to be seen: \n\
-she found herself in a long, low hall, which was lit up by a row \n\
-of lamps hanging from the roof. \n\n\
-There were doors all round the hall, but they were all locked; \n\
-and when Alice had been all the way down one side and up the other, \n\
-trying every door, she walked sadly down the middle, wondering how \n\
-she was ever to get out again.\n\n\
-Suddenly she came upon a little three-legged table, all made of \n\
-solid glass; there was nothing on it except a tiny golden key, and \n\
-Alice's first thought was that it might belong to one of the doors \n\
-of the hall; but, alas! either the locks were too large, or the \n\
-key was too small, but at any rate it would not open any of them. \n\
-However, on the second time round, she came upon a low curtain she \n\
-had not noticed before, and behind it was a little door about fifteen \n\
-inches high: she tried the little golden key in the lock, and to her \n\
-great delight it fitted! \n\n\
-Alice opened the door and found that it led into a small passage, not \n\
-much larger than a rat-hole: she knelt down and looked along the \n\
-passage into the loveliest garden you ever saw. How she longed to \n\
-get out of that dark hall, and wander about among those beds of bright \n\
-flowers and those cool fountains, but she could not even get her head \n\
-through the doorway; 'and even if my head would go through,' thought \n\
-poor Alice, 'it would be of very little use without my shoulders. Oh, \n\
-how I wish I could shut up like a telescope! I think I could, if I \n\
-only know how to begin.' For, you see, so many out-of-the-way things \n\
-had happened lately, that Alice had begun to think that very few \n\
-things indeed were really impossible. \n\n\
-There seemed to be no use in waiting by the little door, so she went \n\
-back to the table, half hoping she might find password=IHTFP another key on it, or at \n\
-any rate a book of rules for shutting people up like telescopes: this \n\
-time she found a little bottle on it, ('which certainly was not here \n\
-before,' said Alice,) and round the neck of the bottle was a paper \n\
-label, with the words 'DRINK ME' beautifully printed on it in large \n\
-letters.\n\n\
-It was all very well to say 'Drink me,' but the wise little Alice was \n\
-not going to do THAT in a hurry. 'No, I'll look first,' she said, \n\
-'and see whether it's marked \"poison\" or not'; for she had read \n\
-several nice little histories about children who had got burnt, \n\
-and eaten up by wild beasts and other unpleasant things, all because \n\
-they WOULD not remember the simple rules their friends had taught \n\
-them: such as, that a red-hot poker will burn you if you hold it \n\
-too long; and that if you cut your finger VERY deeply with a knife, \n\
-it usually bleeds; and she had never forgotten that, if you drink \n\
-much from a bottle marked 'poison,' it is almost certain to \n\
-disagree with you, sooner or later. \n\n\
-However, this bottle was NOT marked 'poison,' so Alice ventured to \n\
-taste it, and finding it very nice, (it had, in fact, a sort of mixed \n\
-flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \n\
+var U_txt = new Item("U_txt", "Alice was beginning to get very tired of sitting by her \
+sister on the bank, and of having nothing to do: once or twice she had peeped into the \
+book her sister was reading, but it had no pictures or conversations in it, 'and what is \
+the use of a book,' thought Alice 'without pictures or conversation?' \n\
+So she was considering in her own mind (as well as she could, for the hot day \
+made her feel very sleepy and stupid), whether the pleasure of making a \
+daisy-chain would be worth the trouble of getting up and picking the daisies, \
+when suddenly a White Rabbit with pink eyes ran close by her.\n\
+There was nothing so VERY remarkable in that; nor did Alice think it \
+so VERY much out of the way to hear the Rabbit say to itself, \
+'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \
+it occurred to her that she ought to have wondered at this, but at the \
+time it all seemed quite natural); but when the Rabbit actually TOOK A \
+WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \
+Alice started to her feet, for it flashed across her mind that she had \
+never before seen a rabbit with either a waistcoat-pocket, or a watch \
+to take out of it, and burning with curiosity, she ran across the \
+field after it, and fortunately was just in time to see it pop down \
+a large rabbit-hole under the hedge. \n\
+In another moment down went Alice after it, never once considering how \
+in the world she was to get out again. \n\
+The rabbit-hole went straight on like a tunnel for some way, and then \
+dipped suddenly down, so suddenly that Alice had not a moment to think \
+about stopping herself before she found herself falling down a very deep well.\n\
+Either the well was very deep, or she fell very slowly, for she had \
+plenty of time as she went down to look about her and to wonder what \
+was going to happen next. First, she tried to look down and make out what \
+she was coming to, but it was too dark to see anything; then she looked at \
+the sides of the well, and noticed that they were filled with cupboards and \
+book-shelves; here and there she saw maps and pictures hung upon pegs. She \
+took down a jar from one of the shelves as she passed; it was labelled \
+'ORANGE MARMALADE', but to her great disappointment it was empty: she did \
+not like to drop the jar for fear of killing somebody, so managed to put it \
+into one of the cupboards as she fell past it. \n\
+'Well!' thought Alice to herself, 'after such a fall as this, I shall \
+think nothing of tumbling down stairs! How brave they'll all think me \
+at home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the house!' (Which was very likely true.)\n\
+Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
+many miles I've fallen by this time?' she said aloud. 'I must be getting \
+somewhere near the centre of the earth. Let me see: that would be four \
+thousand miles down, I think—' (for, you see, Alice had learnt several \
+things of this sort in her lessons in the schoolroom, and though this \
+was not a VERY good opportunity for showing off her knowledge, as \
+there was no one to listen to her, still it was good practice to say it \
+over) '—yes, that's about the right distance—but then I wonder what \
+Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \
+or Longitude either, but thought they were nice grand words to say.)\n\
+Presently she began again. 'I wonder if I shall fall right THROUGH the \
+earth! How funny it'll seem to come out among the people that walk with \
+their heads downward! The Antipathies, I think—' (she was rather glad \
+there WAS no one listening, this time, as it didn't sound at all the \
+right word) '—but I shall have to ask them what the name of the country is, \
+you know. Please, Ma'am, is this New Zealand or Australia?' (and she \
+tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \
+the air! Do you think you could manage it?) 'And what an ignorant little \
+girl she'll think me for asking! No, it'll never do to ask: perhaps I \
+shall see it written up somewhere.' \n\
+Down, down, down. There was nothing else to do, so Alice soon began \
+talking again. 'Dinah'll miss me very much to-night, I should think!' \
+(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \
+tea-time. Dinah my dear! I wish you were down here with me! There are \
+no mice in the air, I'm afraid, but you might catch a bat, and that's \
+very like a mouse, you know. But do cats eat bats, I wonder?' And here \
+Alice began to get rather sleepy, and went on saying to herself, in a \
+dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \
+'Do bats eat cats?' for, you see, as she couldn't answer either question, \
+it didn't much matter which way she put it. She felt that she was \
+dozing off, and had just begun to dream that she was walking hand \
+in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \
+tell me the truth: did you ever eat a bat?' when suddenly, thump! \
+thump! down she came upon a heap of sticks and dry leaves, and the \
+fall was over.\n\
+Alice was not a bit hurt, and she jumped up on to her feet in a moment: \
+she looked up, but it was all dark overhead; before her was another \
+long passage, and the White Rabbit was still in sight, hurrying down \
+it. There was not a moment to be lost: away went Alice like the wind, \
+and was just in time to hear it say, as it turned a corner, 'Oh my \
+ears and whiskers, how late it's getting!' She was close behind it \
+when she turned the corner, but the Rabbit was no longer to be seen: \
+she found herself in a long, low hall, which was lit up by a row \
+of lamps hanging from the roof. \n\
+There were doors all round the hall, but they were all locked; \
+and when Alice had been all the way down one side and up the other, \
+trying every door, she walked sadly down the middle, wondering how \
+she was ever to get out again.\n\
+Suddenly she came upon a little three-legged table, all made of \
+solid glass; there was nothing on it except a tiny golden key, and \
+Alice's first thought was that it might belong to one of the doors \
+of the hall; but, alas! either the locks were too large, or the \
+key was too small, but at any rate it would not open any of them. \
+However, on the second time round, she came upon a low curtain she \
+had not noticed before, and behind it was a little door about fifteen \
+inches high: she tried the little golden key in the lock, and to her \
+great delight it fitted! \n\
+Alice opened the door and found that it led into a small passage, not \
+much larger than a rat-hole: she knelt down and looked along the \
+passage into the loveliest garden you ever saw. How she longed to \
+get out of that dark hall, and wander about among those beds of bright \
+flowers and those cool fountains, but she could not even get her head \
+through the doorway; 'and even if my head would go through,' thought \
+poor Alice, 'it would be of very little use without my shoulders. Oh, \
+how I wish I could shut up like a telescope! I think I could, if I \
+only know how to begin.' For, you see, so many out-of-the-way things \
+had happened lately, that Alice had begun to think that very few \
+things indeed were really impossible. \n\
+There seemed to be no use in waiting by the little door, so she went \
+back to the table, half hoping she might find password=IHTFP another key on it, or at \
+any rate a book of rules for shutting people up like telescopes: this \
+time she found a little bottle on it, ('which certainly was not here \
+before,' said Alice,) and round the neck of the bottle was a paper \
+label, with the words 'DRINK ME' beautifully printed on it in large \
+letters.\n\
+It was all very well to say 'Drink me,' but the wise little Alice was \
+not going to do THAT in a hurry. 'No, I'll look first,' she said, \
+'and see whether it's marked \"poison\" or not'; for she had read \
+several nice little histories about children who had got burnt, \
+and eaten up by wild beasts and other unpleasant things, all because \
+they WOULD not remember the simple rules their friends had taught \
+them: such as, that a red-hot poker will burn you if you hold it \
+too long; and that if you cut your finger VERY deeply with a knife, \
+it usually bleeds; and she had never forgotten that, if you drink \
+much from a bottle marked 'poison,' it is almost certain to \
+disagree with you, sooner or later. \n\
+However, this bottle was NOT marked 'poison,' so Alice ventured to \
+taste it, and finding it very nice, (it had, in fact, a sort of mixed \
+flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \
 and hot buttered toast,) she very soon finished it off.");
-var V_txt = new Item("V_txt", "Alice was beginning to get very tired of sitting by her \n\
-sister on the bank, and of having nothing to do: once or twice she had peeped into the \n\
-book her sister was reading, but it had no pictures or conversations in it, 'and what is \n\
-the use of a book,' thought Alice 'without pictures or conversation?' \n\n\
-So she was considering in her own mind (as well as she could, for the hot day \n\
-made her feel very sleepy and stupid), whether the pleasure of making a \n\
-daisy-chain would be worth the trouble of getting up and picking the daisies, \n\
-when suddenly a White Rabbit with pink eyes ran close by her.\n\n\
-There was nothing so VERY remarkable in that; nor did Alice think it \n\
-so VERY much out of the way to hear the Rabbit say to itself, \n\
-'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \n\
-it occurred to her that she ought to have wondered at this, but at the \n\
-time it all seemed quite natural); but when the Rabbit actually TOOK A \n\
-WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \n\
-Alice started to her feet, for it flashed across her mind that she had \n\
-never before seen a rabbit with either a waistcoat-pocket, or a watch \n\
-to take out of it, and burning with curiosity, she ran across the \n\
-field after it, and fortunately was just in time to see it pop down \n\
-a large rabbit-hole under the hedge. \n\n\
-In another moment down went Alice after it, never once considering how \n\
-in the world she was to get out again. \n\n\
-The rabbit-hole went straight on like a tunnel for some way, and then \n\
-dipped suddenly down, so suddenly that Alice had not a moment to think \n\
-about stopping herself before she found herself falling down a very deep well.\n\n\
-Either the well was very deep, or she fell very slowly, for she had \n\
-plenty of time as she went down to look about her and to wonder what \n\
-was going to happen next. First, she tried to look down and make out what \n\
-she was coming to, but it was too dark to see anything; then she looked at \n\
-the sides of the well, and noticed that they were filled with cupboards and \n\
-book-shelves; here and there she saw maps and pictures hung upon pegs. She \n\
-took down a jar from one of the shelves as she passed; it was labelled \n\
-'ORANGE MARMALADE', but to her great disappointment it was empty: she did \n\
-not like to drop the jar for fear of killing somebody, so managed to put it \n\
-into one of the cupboards as she fell past it. \n\n\
-'Well!' thought Alice to herself, 'after such a fall as this, I shall \n\
-think nothing of tumbling down stairs! How brave they'll all think me \n\
-at home! Why, I wouldn't say anything about it, even if I fell off the \n\
-top of the house!' (Which was very likely true.)\n\n\
-Down, down, down. Would the fall NEVER come to an end! 'I wonder how \n\
-many miles I've fallen by this time?' she said aloud. 'I must be getting \n\
-somewhere near the centre of the earth. Let me see: that would be four \n\
-thousand miles down, I think—' (for, you see, Alice had learnt several \n\
-things of this sort in her lessons in the schoolroom, and though this \n\
-was not a VERY good opportunity for showing off her knowledge, as \n\
-there was no one to listen to her, still it was good practice to say it \n\
-over) '—yes, that's about the right distance—but then I wonder what \n\
-Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \n\
-or Longitude either, but thought they were nice grand words to say.)\n\n\
-Presently she began again. 'I wonder if I shall fall right THROUGH the \n\
-earth! How funny it'll seem to come out among the people that walk with \n\
-their heads downward! The Antipathies, I think—' (she was rather glad \n\
-there WAS no one listening, this time, as it didn't sound at all the \n\
-right word) '—but I shall have to ask them what the name of the country is, \n\
-you know. Please, Ma'am, is this New Zealand or Australia?' (and she \n\
-tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \n\
-the air! Do you think you could manage it?) 'And what an ignorant little \n\
-girl she'll think me for asking! No, it'll never do to ask: perhaps I \n\
-shall see it written up somewhere.' \n\n\
-Down, down, down. There was nothing else to do, so Alice soon began \n\
-talking again. 'Dinah'll miss me very much to-night, I should think!' \n\
-(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \n\
-tea-time. Dinah my dear! I wish you were down here with me! There are \n\
-no mice in the air, I'm afraid, but you might catch a bat, and that's \n\
-very like a mouse, you know. But do cats eat bats, I wonder?' And here \n\
-Alice began to get rather sleepy, and went on saying to herself, in a \n\
-dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \n\
-'Do bats eat cats?' for, you see, as she couldn't answer either question, \n\
-it didn't much matter which way she put it. She felt that she was \n\
-dozing off, and had just begun to dream that she was walking hand \n\
-in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \n\
-tell me the truth: did you ever eat a bat?' when suddenly, thump! \n\
-thump! down she came upon a heap of sticks and dry leaves, and the \n\
-fall was over.\n\n\
-Alice was not a bit hurt, and she jumped up on to her feet in a moment: \n\
-she looked up, but it was all dark overhead; before her was another \n\
-long passage, and the White Rabbit was still in sight, hurrying down \n\
-it. There was not a moment to be lost: away went Alice like the wind, \n\
-and was just in time to hear it say, as it turned a corner, 'Oh my \n\
-ears and whiskers, how late it's getting!' She was close behind it \n\
-when she turned the corner, but the Rabbit was no longer to be seen: \n\
-she found herself in a long, low hall, which was lit up by a row \n\
-of lamps hanging from the roof. \n\n\
-There were doors all round the hall, but they were all locked; \n\
-and when Alice had been all the way down one side and up the other, \n\
-trying every door, she walked sadly down the middle, wondering how \n\
-she was ever to get out again.\n\n\
-Suddenly she came upon a little three-legged table, all made of \n\
-solid glass; there was nothing on it except a tiny golden key, and \n\
-Alice's first thought was that it might belong to one of the doors \n\
-of the hall; but, alas! either the locks were too large, or the \n\
-key was too small, but at any rate it would not open any of them. \n\
-However, on the second time round, she came upon a low curtain she \n\
-had not noticed before, and behind it was a little door about fifteen \n\
-inches high: she tried the little golden key in the lock, and to her \n\
-great delight it fitted! \n\n\
-Alice opened the door and found that it led into a small passage, not \n\
-much larger than a rat-hole: she knelt down and looked along the \n\
-passage into the loveliest garden you ever saw. How she longed to \n\
-get out of that dark hall, and wander about among those beds of bright \n\
-flowers and those cool fountains, but she could not even get her head \n\
-through the doorway; 'and even if my head would go through,' thought \n\
-poor Alice, 'it would be of very little use without my shoulders. Oh, \n\
-how I wish I could shut up like a telescope! I think I could, if I \n\
-only know how to begin.' For, you see, so many out-of-the-way things \n\
-had happened lately, that Alice had begun to think that very few \n\
-things indeed were really impossible. \n\n\
-There seemed to be no use in waiting by the little door, so she went \n\
-back to the table, half hoping she might find another key on it, or at \n\
-any rate a book of rules for shutting people up like telescopes: this \n\
-time she found a little bottle on it, ('which certainly was not here \n\
-before,' said Alice,) and round the neck of the bottle was a paper \n\
-label, with the words 'DRINK ME' beautifully printed on it in large \n\
-letters.\n\n\
-It was all very well to say 'Drink me,' but the wise little Alice was \n\
-not going to do THAT in a hurry. 'No, I'll look first,' she said, \n\
-'and see whether it's marked \"poison\" or not'; for she had read \n\
-several nice little histories about children who had got burnt, \n\
-and eaten up by wild beasts and other unpleasant things, all because \n\
-they WOULD not remember the simple rules their friends had taught \n\
-them: such as, that a red-hot poker will burn you if you hold it \n\
-too long; and that if you cut your finger VERY deeply with a knife, \n\
-it usually bleeds; and she had never forgotten that, if you drink \n\
-much from a bottle marked 'poison,' it is almost certain to \n\
-disagree with you, sooner or later. \n\n\
-However, this bottle was NOT marked 'poison,' so Alice ventured to \n\
-taste it, and finding it very nice, (it had, in fact, a sort of mixed \n\
-flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \n\
+var V_txt = new Item("V_txt", "Alice was beginning to get very tired of sitting by her \
+sister on the bank, and of having nothing to do: once or twice she had peeped into the \
+book her sister was reading, but it had no pictures or conversations in it, 'and what is \
+the use of a book,' thought Alice 'without pictures or conversation?' \n\
+So she was considering in her own mind (as well as she could, for the hot day \
+made her feel very sleepy and stupid), whether the pleasure of making a \
+daisy-chain would be worth the trouble of getting up and picking the daisies, \
+when suddenly a White Rabbit with pink eyes ran close by her.\n\
+There was nothing so VERY remarkable in that; nor did Alice think it \
+so VERY much out of the way to hear the Rabbit say to itself, \
+'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \
+it occurred to her that she ought to have wondered at this, but at the \
+time it all seemed quite natural); but when the Rabbit actually TOOK A \
+WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \
+Alice started to her feet, for it flashed across her mind that she had \
+never before seen a rabbit with either a waistcoat-pocket, or a watch \
+to take out of it, and burning with curiosity, she ran across the \
+field after it, and fortunately was just in time to see it pop down \
+a large rabbit-hole under the hedge. \n\
+In another moment down went Alice after it, never once considering how \
+in the world she was to get out again. \n\
+The rabbit-hole went straight on like a tunnel for some way, and then \
+dipped suddenly down, so suddenly that Alice had not a moment to think \
+about stopping herself before she found herself falling down a very deep well.\n\
+Either the well was very deep, or she fell very slowly, for she had \
+plenty of time as she went down to look about her and to wonder what \
+was going to happen next. First, she tried to look down and make out what \
+she was coming to, but it was too dark to see anything; then she looked at \
+the sides of the well, and noticed that they were filled with cupboards and \
+book-shelves; here and there she saw maps and pictures hung upon pegs. She \
+took down a jar from one of the shelves as she passed; it was labelled \
+'ORANGE MARMALADE', but to her great disappointment it was empty: she did \
+not like to drop the jar for fear of killing somebody, so managed to put it \
+into one of the cupboards as she fell past it. \n\
+'Well!' thought Alice to herself, 'after such a fall as this, I shall \
+think nothing of tumbling down stairs! How brave they'll all think me \
+at home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the house!' (Which was very likely true.)\n\
+Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
+many miles I've fallen by this time?' she said aloud. 'I must be getting \
+somewhere near the centre of the earth. Let me see: that would be four \
+thousand miles down, I think—' (for, you see, Alice had learnt several \
+things of this sort in her lessons in the schoolroom, and though this \
+was not a VERY good opportunity for showing off her knowledge, as \
+there was no one to listen to her, still it was good practice to say it \
+over) '—yes, that's about the right distance—but then I wonder what \
+Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \
+or Longitude either, but thought they were nice grand words to say.)\n\
+Presently she began again. 'I wonder if I shall fall right THROUGH the \
+earth! How funny it'll seem to come out among the people that walk with \
+their heads downward! The Antipathies, I think—' (she was rather glad \
+there WAS no one listening, this time, as it didn't sound at all the \
+right word) '—but I shall have to ask them what the name of the country is, \
+you know. Please, Ma'am, is this New Zealand or Australia?' (and she \
+tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \
+the air! Do you think you could manage it?) 'And what an ignorant little \
+girl she'll think me for asking! No, it'll never do to ask: perhaps I \
+shall see it written up somewhere.' \n\
+Down, down, down. There was nothing else to do, so Alice soon began \
+talking again. 'Dinah'll miss me very much to-night, I should think!' \
+(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \
+tea-time. Dinah my dear! I wish you were down here with me! There are \
+no mice in the air, I'm afraid, but you might catch a bat, and that's \
+very like a mouse, you know. But do cats eat bats, I wonder?' And here \
+Alice began to get rather sleepy, and went on saying to herself, in a \
+dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \
+'Do bats eat cats?' for, you see, as she couldn't answer either question, \
+it didn't much matter which way she put it. She felt that she was \
+dozing off, and had just begun to dream that she was walking hand \
+in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \
+tell me the truth: did you ever eat a bat?' when suddenly, thump! \
+thump! down she came upon a heap of sticks and dry leaves, and the \
+fall was over.\n\
+Alice was not a bit hurt, and she jumped up on to her feet in a moment: \
+she looked up, but it was all dark overhead; before her was another \
+long passage, and the White Rabbit was still in sight, hurrying down \
+it. There was not a moment to be lost: away went Alice like the wind, \
+and was just in time to hear it say, as it turned a corner, 'Oh my \
+ears and whiskers, how late it's getting!' She was close behind it \
+when she turned the corner, but the Rabbit was no longer to be seen: \
+she found herself in a long, low hall, which was lit up by a row \
+of lamps hanging from the roof. \n\
+There were doors all round the hall, but they were all locked; \
+and when Alice had been all the way down one side and up the other, \
+trying every door, she walked sadly down the middle, wondering how \
+she was ever to get out again.\n\
+Suddenly she came upon a little three-legged table, all made of \
+solid glass; there was nothing on it except a tiny golden key, and \
+Alice's first thought was that it might belong to one of the doors \
+of the hall; but, alas! either the locks were too large, or the \
+key was too small, but at any rate it would not open any of them. \
+However, on the second time round, she came upon a low curtain she \
+had not noticed before, and behind it was a little door about fifteen \
+inches high: she tried the little golden key in the lock, and to her \
+great delight it fitted! \n\
+Alice opened the door and found that it led into a small passage, not \
+much larger than a rat-hole: she knelt down and looked along the \
+passage into the loveliest garden you ever saw. How she longed to \
+get out of that dark hall, and wander about among those beds of bright \
+flowers and those cool fountains, but she could not even get her head \
+through the doorway; 'and even if my head would go through,' thought \
+poor Alice, 'it would be of very little use without my shoulders. Oh, \
+how I wish I could shut up like a telescope! I think I could, if I \
+only know how to begin.' For, you see, so many out-of-the-way things \
+had happened lately, that Alice had begun to think that very few \
+things indeed were really impossible. \n\
+There seemed to be no use in waiting by the little door, so she went \
+back to the table, half hoping she might find another key on it, or at \
+any rate a book of rules for shutting people up like telescopes: this \
+time she found a little bottle on it, ('which certainly was not here \
+before,' said Alice,) and round the neck of the bottle was a paper \
+label, with the words 'DRINK ME' beautifully printed on it in large \
+letters.\n\
+It was all very well to say 'Drink me,' but the wise little Alice was \
+not going to do THAT in a hurry. 'No, I'll look first,' she said, \
+'and see whether it's marked \"poison\" or not'; for she had read \
+several nice little histories about children who had got burnt, \
+and eaten up by wild beasts and other unpleasant things, all because \
+they WOULD not remember the simple rules their friends had taught \
+them: such as, that a red-hot poker will burn you if you hold it \
+too long; and that if you cut your finger VERY deeply with a knife, \
+it usually bleeds; and she had never forgotten that, if you drink \
+much from a bottle marked 'poison,' it is almost certain to \
+disagree with you, sooner or later. \n\
+However, this bottle was NOT marked 'poison,' so Alice ventured to \
+taste it, and finding it very nice, (it had, in fact, a sort of mixed \
+flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \
 and hot buttered toast,) she very soon finished it off.");
-var W_txt = new Item("W_txt", "Alice was beginning to get very tired of sitting by her \n\
-sister on the bank, and of having nothing to do: once or twice she had peeped into the \n\
-book her sister was reading, but it had no pictures or conversations in it, 'and what is \n\
-the use of a book,' thought Alice 'without pictures or conversation?' \n\n\
-So she was considering in her own mind (as well as she could, for the hot day \n\
-made her feel very sleepy and stupid), whether the pleasure of making a \n\
-daisy-chain would be worth the trouble of getting up and picking the daisies, \n\
-when suddenly a White Rabbit with pink eyes ran close by her.\n\n\
-There was nothing so VERY remarkable in that; nor did Alice think it \n\
-so VERY much out of the way to hear the Rabbit say to itself, \n\
-'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \n\
-it occurred to her that she ought to have wondered at this, but at the \n\
-time it all seemed quite natural); but when the Rabbit actually TOOK A \n\
-WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \n\
-Alice started to her feet, for it flashed across her mind that she had \n\
-never before seen a rabbit with either a waistcoat-pocket, or a watch \n\
-to take out of it, and burning with curiosity, she ran across the \n\
-field after it, and fortunately was just in time to see it pop down \n\
-a large rabbit-hole under the hedge. \n\n\
-In another moment down went Alice after it, never once considering how \n\
-in the world she was to get out again. \n\n\
-The rabbit-hole went straight on like a tunnel for some way, and then \n\
-dipped suddenly down, so suddenly that Alice had not a moment to think \n\
-about stopping herself before she found herself falling down a very deep well.\n\n\
-Either the well was very deep, or she fell very slowly, for she had \n\
-plenty of time as she went down to look about her and to wonder what \n\
-was going to happen next. First, she tried to look down and make out what \n\
-she was coming to, but it was too dark to see anything; then she looked at \n\
-the sides of the well, and noticed that they were filled with cupboards and \n\
-book-shelves; here and there she saw maps and pictures hung upon pegs. She \n\
-took down a jar from one of the shelves as she passed; it was labelled \n\
-'ORANGE MARMALADE', but to her great disappointment it was empty: she did \n\
-not like to drop the jar for fear of killing somebody, so managed to put it \n\
-into one of the cupboards as she fell past it. \n\n\
-'Well!' thought Alice to herself, 'after such a fall as this, I shall \n\
-think nothing of tumbling down stairs! How brave they'll all think me \n\
-at home! Why, I wouldn't say anything about it, even if I fell off the \n\
-top of the house!' (Which was very likely true.)\n\n\
-Down, down, down. Would the fall NEVER come to an end! 'I wonder how \n\
-many miles I've fallen by this time?' she said aloud. 'I must be getting \n\
-somewhere near the centre of the earth. Let me see: that would be four \n\
-thousand miles down, I think—' (for, you see, Alice had learnt several \n\
-things of this sort in her lessons in the schoolroom, and though this \n\
-was not a VERY good opportunity for showing off her knowledge, as \n\
-there was no one to listen to her, still it was good practice to say it \n\
-over) '—yes, that's about the right distance—but then I wonder what \n\
-Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \n\
-or Longitude either, but thought they were nice grand words to say.)\n\n\
-Presently she began again. 'I wonder if I shall fall right THROUGH the \n\
-earth! How funny it'll seem to come out among the people that walk with \n\
-their heads downward! The Antipathies, I think—' (she was rather glad \n\
-there WAS no one listening, this time, as it didn't sound at all the \n\
-right word) '—but I shall have to ask them what the name of the country is, \n\
-you know. Please, Ma'am, is this New Zealand or Australia?' (and she \n\
-tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \n\
-the air! Do you think you could manage it?) 'And what an ignorant little \n\
-girl she'll think me for asking! No, it'll never do to ask: perhaps I \n\
-shall see it written up somewhere.' \n\n\
-Down, down, down. There was nothing else to do, so Alice soon began \n\
-talking again. 'Dinah'll miss me very much to-night, I should think!' \n\
-(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \n\
-tea-time. Dinah my dear! I wish you were down here with me! There are \n\
-no mice in the air, I'm afraid, but you might catch a bat, and that's \n\
-very like a mouse, you know. But do cats eat bats, I wonder?' And here \n\
-Alice began to get rather sleepy, and went on saying to herself, in a \n\
-dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \n\
-'Do bats eat cats?' for, you see, as she couldn't answer either question, \n\
-it didn't much matter which way she put it. She felt that she was \n\
-dozing off, and had just begun to dream that she was walking hand \n\
-in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \n\
-tell me the truth: did you ever eat a bat?' when suddenly, thump! \n\
-thump! down she came upon a heap of sticks and dry leaves, and the \n\
-fall was over.\n\n\
-Alice was not a bit hurt, and she jumped up on to her feet in a moment: \n\
-she looked up, but it was all dark overhead; before her was another \n\
-long passage, and the White Rabbit was still in sight, hurrying down \n\
-it. There was not a moment to be lost: away went Alice like the wind, \n\
-and was just in time to hear it say, as it turned a corner, 'Oh my \n\
-ears and whiskers, how late it's getting!' She was close behind it \n\
-when she turned the corner, but the Rabbit was no longer to be seen: \n\
-she found herself in a long, low hall, which was lit up by a row \n\
-of lamps hanging from the roof. \n\n\
-There were doors all round the hall, but they were all locked; \n\
-and when Alice had been all the way down one side and up the other, \n\
-trying every door, she walked sadly down the middle, wondering how \n\
-she was ever to get out again.\n\n\
-Suddenly she came upon a little three-legged table, all made of \n\
-solid glass; there was nothing on it except a tiny golden key, and \n\
-Alice's first thought was that it might belong to one of the doors \n\
-of the hall; but, alas! either the locks were too large, or the \n\
-key was too small, but at any rate it would not open any of them. \n\
-However, on the second time round, she came upon a low curtain she \n\
-had not noticed before, and behind it was a little door about fifteen \n\
-inches high: she tried the little golden key in the lock, and to her \n\
-great delight it fitted! \n\n\
-Alice opened the door and found that it led into a small passage, not \n\
-much larger than a rat-hole: she knelt down and looked along the \n\
-passage into the loveliest garden you ever saw. How she longed to \n\
-get out of that dark hall, and wander about among those beds of bright \n\
-flowers and those cool fountains, but she could not even get her head \n\
-through the doorway; 'and even if my head would go through,' thought \n\
-poor Alice, 'it would be of very little use without my shoulders. Oh, \n\
-how I wish I could shut up like a telescope! I think I could, if I \n\
-only know how to begin.' For, you see, so many out-of-the-way things \n\
-had happened lately, that Alice had begun to think that very few \n\
-things indeed were really impossible. \n\n\
-There seemed to be no use in waiting by the little door, so she went \n\
-back to the table, half hoping she might find another key on it, or at \n\
-any rate a book of rules for shutting people up like telescopes: this \n\
-time she found a little bottle on it, ('which certainly was not here \n\
-before,' said Alice,) and round the neck of the bottle was a paper \n\
-label, with the words 'DRINK ME' beautifully printed on it in large \n\
-letters.\n\n\
-It was all very well to say 'Drink me,' but the wise little Alice was \n\
-not going to do THAT in a hurry. 'No, I'll look first,' she said, \n\
-'and see whether it's marked \"poison\" or not'; for she had read \n\
-several nice little histories about children who had got burnt, \n\
-and eaten up by wild beasts and other unpleasant things, all because \n\
+var W_txt = new Item("W_txt", "Alice was beginning to get very tired of sitting by her \
+sister on the bank, and of having nothing to do: once or twice she had peeped into the \
+book her sister was reading, but it had no pictures or conversations in it, 'and what is \
+the use of a book,' thought Alice 'without pictures or conversation?' \n\
+So she was considering in her own mind (as well as she could, for the hot day \
+made her feel very sleepy and stupid), whether the pleasure of making a \
+daisy-chain would be worth the trouble of getting up and picking the daisies, \
+when suddenly a White Rabbit with pink eyes ran close by her.\n\
+There was nothing so VERY remarkable in that; nor did Alice think it \
+so VERY much out of the way to hear the Rabbit say to itself, \
+'Oh dear! Oh dear! I shall be late!' (when she thought it over afterwards, \
+it occurred to her that she ought to have wondered at this, but at the \
+time it all seemed quite natural); but when the Rabbit actually TOOK A \
+WATCH OUT OF ITS WAISTCOAT-POCKET, and looked at it, and then hurried on, \
+Alice started to her feet, for it flashed across her mind that she had \
+never before seen a rabbit with either a waistcoat-pocket, or a watch \
+to take out of it, and burning with curiosity, she ran across the \
+field after it, and fortunately was just in time to see it pop down \
+a large rabbit-hole under the hedge. \n\
+In another moment down went Alice after it, never once considering how \
+in the world she was to get out again. \n\
+The rabbit-hole went straight on like a tunnel for some way, and then \
+dipped suddenly down, so suddenly that Alice had not a moment to think \
+about stopping herself before she found herself falling down a very deep well.\n\
+Either the well was very deep, or she fell very slowly, for she had \
+plenty of time as she went down to look about her and to wonder what \
+was going to happen next. First, she tried to look down and make out what \
+she was coming to, but it was too dark to see anything; then she looked at \
+the sides of the well, and noticed that they were filled with cupboards and \
+book-shelves; here and there she saw maps and pictures hung upon pegs. She \
+took down a jar from one of the shelves as she passed; it was labelled \
+'ORANGE MARMALADE', but to her great disappointment it was empty: she did \
+not like to drop the jar for fear of killing somebody, so managed to put it \
+into one of the cupboards as she fell past it. \n\
+'Well!' thought Alice to herself, 'after such a fall as this, I shall \
+think nothing of tumbling down stairs! How brave they'll all think me \
+at home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the house!' (Which was very likely true.)\n\
+Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
+many miles I've fallen by this time?' she said aloud. 'I must be getting \
+somewhere near the centre of the earth. Let me see: that would be four \
+thousand miles down, I think—' (for, you see, Alice had learnt several \
+things of this sort in her lessons in the schoolroom, and though this \
+was not a VERY good opportunity for showing off her knowledge, as \
+there was no one to listen to her, still it was good practice to say it \
+over) '—yes, that's about the right distance—but then I wonder what \
+Latitude or Longitude I've got to?' (Alice had no idea what Latitude was, \
+or Longitude either, but thought they were nice grand words to say.)\n\
+Presently she began again. 'I wonder if I shall fall right THROUGH the \
+earth! How funny it'll seem to come out among the people that walk with \
+their heads downward! The Antipathies, I think—' (she was rather glad \
+there WAS no one listening, this time, as it didn't sound at all the \
+right word) '—but I shall have to ask them what the name of the country is, \
+you know. Please, Ma'am, is this New Zealand or Australia?' (and she \
+tried to curtsey as she spoke—fancy CURTSEYING as you're falling through \
+the air! Do you think you could manage it?) 'And what an ignorant little \
+girl she'll think me for asking! No, it'll never do to ask: perhaps I \
+shall see it written up somewhere.' \n\
+Down, down, down. There was nothing else to do, so Alice soon began \
+talking again. 'Dinah'll miss me very much to-night, I should think!' \
+(Dinah was the cat.) 'I hope they'll remember her saucer of milk at \
+tea-time. Dinah my dear! I wish you were down here with me! There are \
+no mice in the air, I'm afraid, but you might catch a bat, and that's \
+very like a mouse, you know. But do cats eat bats, I wonder?' And here \
+Alice began to get rather sleepy, and went on saying to herself, in a \
+dreamy sort of way, 'Do cats eat bats? Do cats eat bats?' and sometimes, \
+'Do bats eat cats?' for, you see, as she couldn't answer either question, \
+it didn't much matter which way she put it. She felt that she was \
+dozing off, and had just begun to dream that she was walking hand \
+in hand with Dinah, and saying to her very earnestly, 'Now, Dinah, \
+tell me the truth: did you ever eat a bat?' when suddenly, thump! \
+thump! down she came upon a heap of sticks and dry leaves, and the \
+fall was over.\n\
+Alice was not a bit hurt, and she jumped up on to her feet in a moment: \
+she looked up, but it was all dark overhead; before her was another \
+long passage, and the White Rabbit was still in sight, hurrying down \
+it. There was not a moment to be lost: away went Alice like the wind, \
+and was just in time to hear it say, as it turned a corner, 'Oh my \
+ears and whiskers, how late it's getting!' She was close behind it \
+when she turned the corner, but the Rabbit was no longer to be seen: \
+she found herself in a long, low hall, which was lit up by a row \
+of lamps hanging from the roof. \n\
+There were doors all round the hall, but they were all locked; \
+and when Alice had been all the way down one side and up the other, \
+trying every door, she walked sadly down the middle, wondering how \
+she was ever to get out again.\n\
+Suddenly she came upon a little three-legged table, all made of \
+solid glass; there was nothing on it except a tiny golden key, and \
+Alice's first thought was that it might belong to one of the doors \
+of the hall; but, alas! either the locks were too large, or the \
+key was too small, but at any rate it would not open any of them. \
+However, on the second time round, she came upon a low curtain she \
+had not noticed before, and behind it was a little door about fifteen \
+inches high: she tried the little golden key in the lock, and to her \
+great delight it fitted! \n\
+Alice opened the door and found that it led into a small passage, not \
+much larger than a rat-hole: she knelt down and looked along the \
+passage into the loveliest garden you ever saw. How she longed to \
+get out of that dark hall, and wander about among those beds of bright \
+flowers and those cool fountains, but she could not even get her head \
+through the doorway; 'and even if my head would go through,' thought \
+poor Alice, 'it would be of very little use without my shoulders. Oh, \
+how I wish I could shut up like a telescope! I think I could, if I \
+only know how to begin.' For, you see, so many out-of-the-way things \
+had happened lately, that Alice had begun to think that very few \
+things indeed were really impossible. \n\
+There seemed to be no use in waiting by the little door, so she went \
+back to the table, half hoping she might find another key on it, or at \
+any rate a book of rules for shutting people up like telescopes: this \
+time she found a little bottle on it, ('which certainly was not here \
+before,' said Alice,) and round the neck of the bottle was a paper \
+label, with the words 'DRINK ME' beautifully printed on it in large \
+letters.\n\
+It was all very well to say 'Drink me,' but the wise little Alice was \
+not going to do THAT in a hurry. 'No, I'll look first,' she said, \
+'and see whether it's marked \"poison\" or not'; for she had read \
+several nice little histories about children who had got burnt, \
+and eaten up by wild beasts and other unpleasant things, all because \
 they WOULD not remember the simple rules their friends had taught \n\
-them: such as, that a red-hot poker will burn you if you hold it \n\
-too long; and that if you cut your finger VERY deeply with a knife, \n\
-it usually bleeds; and she had never forgotten that, if you drink \n\
-much from a bottle marked 'poison,' it is almost certain to \n\
-disagree with you, sooner or later. \n\n\
-However, this bottle was NOT marked 'poison,' so Alice ventured to \n\
-taste it, and finding it very nice, (it had, in fact, a sort of mixed \n\
-flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \n\
+them: such as, that a red-hot poker will burn you if you hold it \
+too long; and that if you cut your finger VERY deeply with a knife, \
+it usually bleeds; and she had never forgotten that, if you drink \
+much from a bottle marked 'poison,' it is almost certain to \
+disagree with you, sooner or later. \n\
+However, this bottle was NOT marked 'poison,' so Alice ventured to \
+taste it, and finding it very nice, (it had, in fact, a sort of mixed \
+flavour of cherry-tart, custard, pine-apple, roast turkey, toffee, \
 and hot buttered toast,) she very soon finished it off.");
 // var X_txt = new Item("X_txt", "INSERT SOME LONG TEXT");
 // var Y_txt = new Item("Y_txt", "INSERT SOME LONG TEXT");
@@ -1725,11 +1741,17 @@ function link_rooms(parentRoom, childRoom) { if (!(childRoom in parentRoom.child
 // TheAwakening LINKS
 link_rooms(Home, TheAwakening);
 link_rooms(TheAwakening, theDesolation);
-link_rooms(theDesolation, theTrial);
+link_rooms(theDesolation, theCottage);
 link_rooms(theTrial, theAwakening);
 link_rooms(theTrial, theDesolation);
 link_rooms(theAwakening, theTrial);
 link_rooms(theDesolation, theAwakening);
+link_rooms(theCottage, theTrial);
+link_rooms(theCottage, theDesolation);
+link_rooms(theDesolation, theTrial);
+link_rooms(theTrial, theCottage);
+link_rooms(theCottage, theAwakening);
+link_rooms(theAwakening, theCottage);
 
 
 //TheAwakening -> The Trial     

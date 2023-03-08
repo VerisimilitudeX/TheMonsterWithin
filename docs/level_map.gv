@@ -27,6 +27,14 @@ digraph level_map{
 	<tr><td align="left" port="r1">knife</td></tr>
 	</table>>];
 
+	"theCottage" [label = 
+	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">theCottage</font></td></tr><tr>
+	<td align="left" port="r0">book</td></tr>
+	<tr><td align="left" port="r1">headphones</td></tr>
+	<tr><td align="left" port="r2">friendliness potion</td><tr>
+	</table>>];
+
 	"theTrial" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
 	<td bgcolor="black" align="center" colspan="2"><font color="white">theTrial</font></td></tr><tr>
@@ -189,7 +197,13 @@ digraph level_map{
 		"TheAwakening" -> "theDesolation";
 		"TheAwakening" -> "theTrial";
 		"theDesolation" -> "portal";
+		"theDesolation" -> "theCottage";		
+		"theCottage" -> "theTrial";
+		"theCottage" -> "theDesolation";
+		"theCottage" -> "theAwakening";
 		"theDesolation" -> "theTrial";
+		"theTrial" -> "theCottage";
+		"theAwakening" -> "theCottage";
 		"theDesolation" -> "theAwakening";
 		"theTrial" -> "theAwakening";
 		"theTrial" -> "theDesolation";
@@ -226,5 +240,5 @@ digraph level_map{
 
 	"Home" -> "MagicLocker";
 
-	label = "\n\n\nItem and room map for the The Monster Within game.\nLabeled arrows represent tasks that need to be completed before advancing to the next room.\nDotted arrows are rooms that are connected but that you cannot move into.\nDashed lines mean originally hidden until a task is completed.";
+	label = "\n\nItem and room map for the The Monster Within game.\nLabeled arrows represent tasks that need to be completed before advancing to the next room.\nDotted arrows are rooms that are connected but that you cannot move into.\nDashed lines mean originally hidden until a task is completed.";
 }
