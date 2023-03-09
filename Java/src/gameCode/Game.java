@@ -59,7 +59,7 @@ public class Game {
 		// HOME
 		Room Home = new Room("Home", introText + "\n", "titlescreen");
 
-		this.currentIcon = new ImageIcon("graphic/" + Home.getIconText() + ".gif");
+		this.currentIcon = new ImageIcon("graphic/" + Home.getIconText() + ".png");
 		this.currentRoom = Home;
 
 		// ---------TheAwakening----------------------

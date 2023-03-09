@@ -12,7 +12,7 @@
 //HOME
 var Home = new Room("Home",
     "You are in the comfort of your own Home.",
-    "loc_Home.png",
+    "loc_house.png",
     "Look at your surroundings with the command \"ls\". \n" +
     "Move to a new location with the command \"cd Location/Activity\" \n" +
     "You can backtrack with the command \"cd ..\". \n" +
@@ -20,7 +20,7 @@ var Home = new Room("Home",
     "If you forget where you are, type \"pwd\" \n" +
     "Go ahead, explore. We hope you enjoy what you find. Type ls as your first command and then cd into the following rooms.\n" +
     "Did you know that you can press tab to autocomplete commands, just like a real Linux Terminal? \n" +
-    "item_Home.gif");
+    "loc_house.png");
 
 //first comment the awakening
 var TheAwakening = new Room("TheAwakening",
@@ -72,7 +72,7 @@ TheFinalPlea.addItem(new Item("SouthAmerica", "You have used the South America m
     "item_southamerica.png"));
 
 TheFinalPlea.addItem(new Item("Antarctica", "You have used the Antarctica map to plan ahead for your wife. However, you release Antarctica is way too cold even though it is far from current humanity.",
-    "item_Antarctica.png"));
+    "item_antarctica.png"));
     
 TheFinalPlea.addItem(new Item("Africa", "You have used the Africa map to plan ahead for your wife. However, you release Africa is way too hot even though it is far from current humanity.",
     "item_africa.png"));
