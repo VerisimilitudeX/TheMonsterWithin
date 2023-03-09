@@ -3,15 +3,15 @@ var state = new GameState();
 var current_room = state.getCurrentRoom();
 // var current_room = KernelFiles;
 var man_pages = {
-    "cd": "The old man's voice echoes in your head as if from a great distance: \n" +
-        "(Choose Destination) Use \"cd\" to move about the world. \n" +
+    "cd": "The old man's voice echoes in your head as if it were from a great distance away: \n" +
+        "(Choose Destination) Use \"cd\" to move around the world. \n" +
         "Command Input: cd Location/Activity \n" +
         "Rememberrrrrr...",
-    "mv": "The old man's voice echoes in your head as if from a great distance: \n" +
-        "(MoVe). \n Use \"mv\" to move an object to a new location. \n Command Input:" +
+    "mv": "The old man's voice echoes in your head as if it were from a great distance away: \n" +
+        "(Move). \n Use \"mv\" to move an object to a new location. \n Command Input:" +
         "mv OBJECT NEWLOCATION \n" +
         "Rememberrrrrr...",
-    "ls": "The old man's voice echoes in your head as if from a great distance: \n" +
+    "ls": "The old man's voice echoes in your head as if it were from a great distance away: \n" +
         "(Look at your Surroundings). \n Use \"ls\" to look at what’s in a certain location. " +
         "Either your current location or (rarely) you may have look into a location to see " +
         "what's in it. \n" +
@@ -20,7 +20,7 @@ var man_pages = {
         "-OR- \n" +
         "ls LOCATION     (for activities you that you cannot \"cd\" into)\n" +
         "Rememberrrrrr...",
-    "less": "The old man's voice echoes in your head as if from a great distance: \n" +
+    "less": "The old man's voice echoes in your head as if it were from a great distance away: \n" +
         "(Look at, Examine, or Speak to Something). \nUse \"less\" to look at what’s in a " +
         "certain location. Either your current location or (rarely) you may have look into a " +
         "location to see what is in it. \n" +
@@ -40,7 +40,7 @@ var man_pages = {
         "Command Input:\n" +
         "cp ITEM NEWNAME \n" +
         "Rememberrrrrr...",
-    "pwd": "The old man's voice echoes in your head as if from a great distance: \n" +
+    "pwd": "The old man's voice echoes in your head as if it were from a great distance away: \n" +
         "(Print Where i Do stuff) \n" +
         "To remind yourself where you currently are.\n" +
         "Command Input: \n" +
