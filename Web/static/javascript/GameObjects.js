@@ -35,7 +35,7 @@ TheDesolation.addItem(new Item("gloves",
     "item_gloves.png"));
 TheDesolation.addItem(new Item("knife",
     "Hmmm, Are you sure this is the correct item? Use less and the correct item to complete the objective and try again. \ " ,
-    "knife.png"));
+    "item_knife.png"));
 // The Cottage
 var TheCottage = new Room("TheCottage",
     "You have been fleed to the Cottage. Which items are used in TheCottage? \ ",
@@ -88,11 +88,11 @@ var TheTrial = new Room("TheTrial",
 
 TheTrial.addItem(new Item("cloak",
     "You have used the cloak to hide in the corner succesfuly. Justine has been convicted and she will expire later. ",
-    "item_cloak.png"));
+    "item_cape.png"));
 
 TheTrial.addItem(new Item("cape",
     "Hmmm, Are you sure this is the correct item?  Use less and the correct item to complete the objective and try again.",
-    "item_cape.png"));
+    "item_cloak.png"));
 
 // TheFinalPlea
 var TheFinalPlea = new Room("TheFinalPlea",
@@ -100,16 +100,16 @@ var TheFinalPlea = new Room("TheFinalPlea",
     "loc_finalplea.png");
 
 TheFinalPlea.addItem(new Item("SouthAmerica", "You have used the South America map to plan ahead for your wife.",
-    "item_southamerica.png"));
+    "FrankensteinSouthAmerica (2).png"));
 
 TheFinalPlea.addItem(new Item("Antarctica", "You have used the Antarctica map to plan ahead for your wife. However, you release Antarctica is way too cold even though it is far from current humanity.",
-    "item_antarctica.png"));
+    "FrankensteinAntarctica (2).png"));
     
 TheFinalPlea.addItem(new Item("Africa", "You have used the Africa map to plan ahead for your wife. However, you release Africa is way too hot even though it is far from current humanity.",
-    "item_africa.jpg"));
+    "FrankensteinAfrica (2).png"));
 
 TheFinalPlea.addItem(new Item("Europe", "You have used the Europe map to plan ahead for your wife. However, you release Europe is too close to your current civilization.",
-    "item_europe.png"));
+    "FrankensteinEurope (2).png"));
 // TheBrokenPromise
 var TheBrokenPromise = new Room("TheBrokenPromise",
     'our creator has broken his promise. He has killed your wife that was nearly finished, crushing your hopes and dreams while wasting the time you spent planning. You leave him saying "I shall be with you on your wedding night!" ',
