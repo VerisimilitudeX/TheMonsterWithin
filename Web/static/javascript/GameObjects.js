@@ -106,7 +106,7 @@ TheFinalPlea.addItem(new Item("Antarctica", "You have used the Antarctica map to
     "item_antarctica.png"));
     
 TheFinalPlea.addItem(new Item("Africa", "You have used the Africa map to plan ahead for your wife. However, you release Africa is way too hot even though it is far from current humanity.",
-    "item_africa.png"));
+    "item_africa.jpg"));
 
 TheFinalPlea.addItem(new Item("Europe", "You have used the Europe map to plan ahead for your wife. However, you release Europe is too close to your current civilization.",
     "item_europe.png"));
