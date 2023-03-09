@@ -11,72 +11,124 @@
 
 //HOME
 var Home = new Room("Home",
-    "You are in the comfort of your own home.",
-    "loc_home.png",
+    "You are in the comfort of your own Home.",
+    "loc_Home.png",
     "Look at your surroundings with the command \"ls\". \n" +
     "Move to a new location with the command \"cd Location/Activity\" \n" +
     "You can backtrack with the command \"cd ..\". \n" +
     "Interact with items in the world with the command \"less ITEM\" \n" +
     "If you forget where you are, type \"pwd\" \n" +
-    "Go ahead, explore. We hope you enjoy what you find. Do cd or ls as your first command.\n",
-    "item_home.gif");
+    "Go ahead, explore. We hope you enjoy what you find. Type ls as your first command and then cd into the following rooms.\n" +
+    "Did you know that you can press tab to autocomplete commands, just like a real Linux Terminal? \n" +
+    "item_Home.gif");
 
 //first comment the awakening
 var TheAwakening = new Room("TheAwakening",
-    "Clink Clink- You have Awaken! \
-        Welcome to the Awakening! \
-        You wake up and look at your creator. \
-        Interact with items using the command \"less ITEM\". \ ",
+    "Clink Clink- You have awaken! Welcome to The Awakening! You wake up and look at your creator, Victor Frankenstein. Interact with items using the command \"less ITEM\". \ ",
     "loc_awake.png");
 // The Desolation
-var theDesolation = new Room("theDesolation",
+var TheDesolation = new Room("TheDesolation",
     "Use the command less ITEM to select the correct item to kill William, your creator's brother. ",
     "loc_desolation.png");
-theDesolation.addItem(new Item("gloves",
-    " You have collected gloves! \
-        You have used the gloves to strangle William- your creator's brother! \ " +
-    "You have killed William! \ ",
+TheDesolation.addItem(new Item("gloves",
+    " You have collected gloves! You have used the gloves to strangle William- your creator's brother! You have killed William! \ ",
     "item_gloves.png"));
-theDesolation.addItem(new Item("knife",
-    "Hmmm, Are you sure this is the correct item? \
-        Use less and the correct item to complete the objective and try again. \ " +
-    "item_knife.png"));
+TheDesolation.addItem(new Item("knife",
+    "Hmmm, Are you sure this is the correct item? Use less and the correct item to complete the objective and try again. \ " ,
+    "knife.png"));
 // The Cottage
-var theCottage = new Room("theCottage",
-    "You have been fleed to the Cottage. \
-        Which items are used in theCottage? \ ",
+var TheCottage = new Room("TheCottage",
+    "You have been fleed to the Cottage. Which items are used in TheCottage? \ ",
     "loc_cottage.png");
-theCottage.addItem(new Item("book",
-    "You have used the book to learn how to read succesfuly. \
-            You have learned how to read! \ ",
-            "item_book.png"));
-theCottage.addItem(new Item("headphones",
-    "You have used the headphones to listen to music. \
-            You have listened to music but they have not helped you learn how to read! \
-            Lyrics to the song:",
-            "item_headphones.png"));
+TheCottage.addItem(new Item("book",
+    "You have used the book to learn how to read succesfuly. You have learned how to read! \ ",
+    "item_book.png"));
+TheCottage.addItem(new Item("headphones",
+    "You have used the headphones to listen to music. You have listened to music but they have not helped you learn how to read! Lyrics to the song:",
+    "item_headphones.png"));
 
-theCottage.addItem(new Item("friendliness_potion",
-    "You used the friendliness_potion to attempt to make friends with the family in the cottage. \" \
-            You have been recieved with extreme hate and beatings! \ ",
-            "item_friendliness_potion.png"));
+TheCottage.addItem(new Item("friendliness_potion",
+    "You used the friendliness_potion to attempt to make friends with the family in the cottage. You have been recieved with extreme hate and beatings! \ ",
+    "item_potion.png"));
 // The Trial
-var theTrial = new Room("theTrial",
-    "You have been transported to the Trial. \
-        Which item will you use to hide in the corner? \ " +
+var TheTrial = new Room("TheTrial",
+    "You have been transported to the Trial. Which item will you use to hide in the corner? \ ",
     "loc_trial.png");
 
-theTrial.addItem(new Item("cloak",
-    "You have used the cloak to hide in the corner succesfuly. \
-        Justine has been convicted and she will expire later. \ "));
+TheTrial.addItem(new Item("cloak",
+    "You have used the cloak to hide in the corner succesfuly. Justine has been convicted and she will expire later. ",
+    "item_cloak.png"));
 
-theTrial.addItem(new Item("cape",
-    "Hmmm, Are you sure this is the correct item? \
-        Use less and the correct item to complete the objective and try again. \ "));
+TheTrial.addItem(new Item("cape",
+    "Hmmm, Are you sure this is the correct item?  Use less and the correct item to complete the objective and try again.",
+    "item_cape.png"));
+
+// TheFinalPlea
+var TheFinalPlea = new Room("TheFinalPlea",
+    "Your final plea is for a wife similar to you who will love you. Which map will you choose to use?",
+    "loc_finalplea.png");
+
+TheFinalPlea.addItem(new Item("SouthAmerica", "You have used the South America map to plan ahead for your wife.",
+    "item_southamerica.png"));
+
+TheFinalPlea.addItem(new Item("Antarctica", "You have used the Antarctica map to plan ahead for your wife. However, you release Antarctica is way too cold even though it is far from current humanity.",
+    "item_Antarctica.png"));
+    
+TheFinalPlea.addItem(new Item("Africa", "You have used the Africa map to plan ahead for your wife. However, you release Africa is way too hot even though it is far from current humanity.",
+    "item_africa.png"));
+
+TheFinalPlea.addItem(new Item("Europe", "You have used the Europe map to plan ahead for your wife. However, you release Europe is too close to your current civilization.",
+    "item_europe.png"));
+// TheBrokenPromise
+var TheBrokenPromise = new Room("TheBrokenPromise",
+    'our creator has broken his promise. He has killed your wife that was nearly finished, crushing your hopes and dreams while wasting the time you spent planning. You leave him saying "I shall be with you on your wedding night!" ',
+    "loc_brokenpromise.png");    
+
+TheBrokenPromise.addItem(new Item("pullupbar",
+    "You have used the pullupbar to improve your grip strength and become stronger.",
+    "item_pullupbar.png"));
+TheBrokenPromise.addItem(new Item("dumbell",
+    "You have used the dumbell get jacked muscles and big hands.",
+    "item_dumbell.png"));
+
+// TheWedding
+var TheWedding = new Room("TheWedding",
+    "You have arrived to your creator's wedding. However, he is on the lookout for you. You can only choose one item as otherwise he will catch you and you will be unsuccesful in killing Elizabeth. Which item will you choose?",
+    "loc_wedding.png");
+
+    TheWedding.addItem(new Item("binoculars",
+    "You use the binoculars to look for Elizabeth in the vicinity. You have been unsuccesful in killing Elizabeth. However, you if you quickly grab the key card you will still have a chance.",
+    "item_binoculars.png"));
+
+    TheWedding.addItem(new Item("keycard",
+    "You have used the keycard to enter the hotel in which Elizabeth is residing. You have choked Elizabeth with pleasure. You have killed Elizabeth and now you are one step closing to getting your revenge!",
+    "item_keycard.png"));
+
+//  TheAlps
+    var TheAlps = new Room("TheAlps","After chocking Elizabeth to death you are one step closer to your revenge. You have been transported to the chilly Alps. You on top of a mountain plotting your final step for revenge. You have been given a choice of two items. Which item will you choose?",
+    "loc_alps.png");
+
+    TheAlps.addItem(new Item("skis",
+    "You have used the skis to ski down the mountain. When you reach the bottom you pick reach the entrance of a hotel named TheEnd. Enter the hotel to complete the game.",
+    "item_skis.png"));
+
+    TheAlps.addItem(new Item("snowshoes",
+    "You have used the snow shoes to attempt to go down the mountain. However, you realise that you are not skilled enough to walk down the steep mountain with your bodyweight. You must find another way.",
+    "item_snowshoes.png"));
+
+//TheEnd 
+var TheEnd = new Room("TheEnd", "You have entered the hotel named TheEnd. You hear from a romanticist couple that you have completed the game. They hand you a newspaper.",
+    "loc_end.png");
+
+TheEnd.addItem(new Item("newspaper",
+    "You have used the newspaper to read the news. You have been informed that you have completed the game as your creator has killed himself due to grief and misery, you realize you have caused nothing to anyone except pain and suffering. You realize you are satanic and a source of evil. With these thoughts in mind, you decide this is the right time for the end of your life, too. You choke yourself to death.",
+    "item_newspaper.png"));
+// END OF GAME    
+    
 //PORTAL (to bring you to the next level
 var Portal = new Room("Portal",
     "You have been transported through time...",
-    "item_portal.gif");
+    "item_Portal.gif");
 //---------------The Awakening-----------------
 
 //TOWN SQUARE
@@ -109,16 +161,16 @@ var Marketplace = new Room("Marketplace",
     "Vendors and their goods line the streets.",
     "loc_market.gif");
 var Vendor = new Item("Vendor",
-    "\" 'Ello there.\" The vendor smiles at you unpleasantly, \
+    "\" 'Ello there.\" The Vendor smiles at you unpleasantly, \
 revealing a mouth full of gold teeth. \"Well? Wot are you looking for?\"",
     "item_merchant.gif");
 Vendor.addCmdText("rm",
     "\"Ha! That spell doesn't work on everything, you know. I may have forgotten \
 to mention that before I sold it to you...\"");
 Marketplace.addItem(Vendor);
-//var Backpack = new Item("Backpack", "There's a beat-up looking backpack on the table with no price tag.  Its cloth looks \n" +
-//		"frayed, but sturdy. You glance quickly at the vendor, but his attention is elsewhere. \n" +
-//		"Do you take the backpack? y\\n \n", "item_backpack.gif");
+//var Backpack = new Item("Backpack", "There's a beat-up looking Backpack on the table with no price tag.  Its cloth looks \n" +
+//		"frayed, but sturdy. You glance quickly at the Vendor, but his attention is elsewhere. \n" +
+//		"Do you take the Backpack? y\\n \n", "item_Backpack.gif");
 //Marketplace.addItem(Backpack);
 var RmSpell = new Item("rmSpell",
     "\"Ah, yes, the rm spell,\" the Vendor muses. \"Simply say \"rm\" followed by the name of an item or person, \
@@ -127,7 +179,7 @@ and they will disappear from this plane... forever. D'you have the guts to use i
 
 //	"There's a spell scroll on the table labeled \"Remove.\" \n" +
 //		"Do you want to buy it for 15 gold pieces? y/n \n", "item_manuscript.gif")
-//"The vendor snatches the gold from your hand and then hands you the scroll,\n" +
+//"The Vendor snatches the gold from your hand and then hands you the scroll,\n" +
 //				"leering as he does so. \"Ah, yes, the rm spell,\" he muses. \"Simply say \"rm\" followed by the name of an item or person, \n" +
 //				"and they will disappear from this plane... forever. D'you have the guts to use it, I wonder?\"\n" +
 //				"You can now use the \"rm\" spell.\n", "Come back later.\n");
@@ -137,7 +189,7 @@ var MkdirSpell = new Item("mkdirSpell",
 never existed there before. A little finicky, though...\" the Vendor mumbles.",
     "item_manuscript.gif");
 //		"Do you want to buy it for 30 gold pieces? y\\n \n"
-//, "The vendor cackles. \"An ambitious one, eh? Very well. \n" +
+//, "The Vendor cackles. \"An ambitious one, eh? Very well. \n" +
 //				"Just say \"mkdir\" followed by any name that pleases you, and you can create a new place \n" +
 //				"that never existed there before. Ha! Not very useful, if y'ask me...\"\n" +
 //				"You can now use the \"mkdir\" spell.\n", "You leave the mkdirSpell on the table\n");
@@ -146,7 +198,7 @@ Marketplace.addItem(MkdirSpell);
 //LIBRARY
 var Library = new Room("Library",
     "The Library is dimly lit and smells like mildew. \
-Still, it's warm in here and the soft green carpet makes it seem kind of cozy.",
+Still, itLibrary in here and the soft green carpet makes it seem kind of cozy.",
     "loc_library.gif");
 Library.addItem(new Item("TotallyRadSpellbook",
     "Legends speak of a great word of power that allows the speaker to perform \
@@ -187,7 +239,7 @@ Library.ev.addListener("pullLever", function() {
 
 //BACK ROOM
 var BackRoom = new Room("BackRoom",
-    "You find a mysterious back room. You find a librarian \
+    "You find a mysterious back room. You find a Librarian \
 alone with a small elf. You hope you're not interrupting.",
     "loc_backroom.gif");
 BackRoom.addItem(new Item("Grep",
@@ -206,7 +258,7 @@ Grep eyes you balefully. \"Greeepp.\" \"To search the contents of the book, just
 \"grep PHRASE ITEM\", where PHRASE is the phrase you want to search for, \
 and ITEM is the name of the book you want to search. Try it with the PracticeBook here \
 - see if you can find the line with the word 'peppers' in it.\"",
-    "item_librarian.gif");
+    "item_Librarian.gif");
 BackRoom.addItem(Librarian);
 BackRoom.addCommand("grep");
 
@@ -214,8 +266,8 @@ BackRoom.addCommand("grep");
 var RockyPath = new Room("RockyPath",
     "The weed-choked path leads off into the fields.",
     "loc_rockypath.gif");
-var LargeBoulder = new Item("LargeBoulder", "There is an enormous boulder blocking your way.  It's much too big to move.", "item_boulder.gif");
-LargeBoulder.addCmdText("rm", "The boulder disappears with a pop.");
+var LargeBoulder = new Item("LargeBoulder", "There is an enormous Boulder blocking your way.  It's much too big to move.", "item_Boulder.gif");
+LargeBoulder.addCmdText("rm", "The Boulder disappears with a pop.");
 RockyPath.addItem(LargeBoulder);
 RockyPath.addCommand("rm");
 LargeBoulder.addValidCmd("rm");
@@ -228,7 +280,7 @@ var ArtisanShop = new Room("ArtisanShop",
     "The walls of the shop are covered in clocks, \
 all slightly out of sync. At the workbench, a woman in an enormous pair of goggles \
 is wielding a blowtorch with frightening enthusiasm.",
-    "loc_artisanshop.gif");
+    "loc_Artisanshop.gif");
 var StrangeTrinket = new Item("StrangeTrinket", "It looks like a crystal of some sort. It's very beautiful.", "item_trinket.gif");
 StrangeTrinket.addCmdText("rm",
     "Didn't your mother ever teach you that it's rude to rease other people's \
@@ -258,7 +310,7 @@ Well, that doesn't mean you can't make yourself useful. I need some gears, quick
 You don't even know how to make things? Hmph. Some assistant you are. Just \
 say \"touch ITEM\" alright? Where ITEM is the name of the thing you want to create. \
 Now make me a Gear! Then come back.\"",
-    "item_artisan.gif");
+    "item_Artisan.gif");
 ArtisanShop.addItem(Artisan);
 ArtisanShop.addCommand("touch");
 ArtisanShop.ev.addListener("touchGear", function() {
@@ -270,8 +322,8 @@ ArtisanShop.ev.addListener("FiveGearsCopied", function() {
 
 //FARM
 var Farm = new Room("Farm",
-    "There was once a farm of some sort here, but now the fields are scorched and brown.",
-    "loc_farm.gif");
+    "There was once a Farm of some sort here, but now the fields are scorched and brown.",
+    "loc_Farm.gif");
 var EarOfCorn = new Item("EarOfCorn",
     "The corn is sad and withered-looking.",
     "item_corn.gif");
@@ -282,7 +334,7 @@ var Farmer = new Item("Farmer",
     "\"Ruined! I'm ruined! Look at these crops... almost nothing \
 left! The wizard's minions were here last week... they destroyed everything. How \
 will I feed my 3 children with just one ear of corn? I could really use AnotherEarOfCorn! \"",
-    "item_farmer.gif");
+    "item_Farmer.gif");
 Farm.addItem(Farmer);
 Farm.addCommand("cp");
 Farm.ev.addListener("CornCopied", function() {
@@ -291,16 +343,16 @@ Farm.ev.addListener("CornCopied", function() {
 
 //CLEARING
 var Clearing = new Room("Clearing",
-    "There's a small grassy clearing here, with a man sitting on a \
+    "There's a small grassy Clearing here, with a man sitting on a \
 stone, weeping. Behind him is a pile of rubble.",
-    "loc_clearing.gif");
+    "loc_Clearing.gif");
 var CryingMan = new Item("CryingMan",
     "\"You! You're a magic-user! I can tell, you've got that look. \
 Come to finish the job, have you? Well, go ahead, do your worst there's nothing else you \
 can take from me. Not since the rest of you were here a few days ago.\" \
 \n\
 \"What happened? You DARE to ask-- you know perfectly well what happened. \
-Your friends, the wizard's minions, destroyed my house and kidnapped my poor \
+Your friends, the wizard's minions, destroyed my House and kidnapped my poor \
 daughter, that's what! My wife even went into town to look for help, and I haven't \
 heard from her since!\" \
 \n\
@@ -409,8 +461,8 @@ not like to drop the jar for fear of killing somebody, so managed to put it \
 into one of the cupboards as she fell past it. \n\
 'Well!' thought Alice to herself, 'after such a fall as this, I shall \
 think nothing of tumbling down stairs! How brave they'll all think me \
-at home! Why, I wouldn't say anything about it, even if I fell off the \
-top of the house!' (Which was very likely true.)\n\
+at Home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the House!' (Which was very likely true.)\n\
 Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
 many miles I've fallen by this time?' she said aloud. 'I must be getting \
 somewhere near the centre of the earth. Let me see: that would be four \
@@ -537,8 +589,8 @@ not like to drop the jar for fear of killing somebody, so managed to put it \
 into one of the cupboards as she fell past it. \n\
 'Well!' thought Alice to herself, 'after such a fall as this, I shall \
 think nothing of tumbling down stairs! How brave they'll all think me \
-at home! Why, I wouldn't say anything about it, even if I fell off the \
-top of the house!' (Which was very likely true.)\n\
+at Home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the House!' (Which was very likely true.)\n\
 Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
 many miles I've fallen by this time?' she said aloud. 'I must be getting \
 somewhere near the centre of the earth. Let me see: that would be four \
@@ -668,8 +720,8 @@ not like to drop the jar for fear of killing somebody, so managed to put it \
 into one of the cupboards as she fell past it. \n\
 'Well!' thought Alice to herself, 'after such a fall as this, I shall \
 think nothing of tumbling down stairs! How brave they'll all think me \
-at home! Why, I wouldn't say anything about it, even if I fell off the \
-top of the house!' (Which was very likely true.)\n\
+at Home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the House!' (Which was very likely true.)\n\
 Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
 many miles I've fallen by this time?' she said aloud. 'I must be getting \
 somewhere near the centre of the earth. Let me see: that would be four \
@@ -796,8 +848,8 @@ not like to drop the jar for fear of killing somebody, so managed to put it \
 into one of the cupboards as she fell past it. \n\
 'Well!' thought Alice to herself, 'after such a fall as this, I shall \
 think nothing of tumbling down stairs! How brave they'll all think me \
-at home! Why, I wouldn't say anything about it, even if I fell off the \
-top of the house!' (Which was very likely true.)\n\
+at Home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the House!' (Which was very likely true.)\n\
 Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
 many miles I've fallen by this time?' she said aloud. 'I must be getting \
 somewhere near the centre of the earth. Let me see: that would be four \
@@ -924,8 +976,8 @@ not like to drop the jar for fear of killing somebody, so managed to put it \
 into one of the cupboards as she fell past it. \n\
 'Well!' thought Alice to herself, 'after such a fall as this, I shall \
 think nothing of tumbling down stairs! How brave they'll all think me \
-at home! Why, I wouldn't say anything about it, even if I fell off the \
-top of the house!' (Which was very likely true.)\n\
+at Home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the House!' (Which was very likely true.)\n\
 Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
 many miles I've fallen by this time?' she said aloud. 'I must be getting \
 somewhere near the centre of the earth. Let me see: that would be four \
@@ -1052,8 +1104,8 @@ not like to drop the jar for fear of killing somebody, so managed to put it \
 into one of the cupboards as she fell past it. \n\
 'Well!' thought Alice to herself, 'after such a fall as this, I shall \
 think nothing of tumbling down stairs! How brave they'll all think me \
-at home! Why, I wouldn't say anything about it, even if I fell off the \
-top of the house!' (Which was very likely true.)\n\
+at Home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the House!' (Which was very likely true.)\n\
 Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
 many miles I've fallen by this time?' she said aloud. 'I must be getting \
 somewhere near the centre of the earth. Let me see: that would be four \
@@ -1180,8 +1232,8 @@ not like to drop the jar for fear of killing somebody, so managed to put it \
 into one of the cupboards as she fell past it. \n\
 'Well!' thought Alice to herself, 'after such a fall as this, I shall \
 think nothing of tumbling down stairs! How brave they'll all think me \
-at home! Why, I wouldn't say anything about it, even if I fell off the \
-top of the house!' (Which was very likely true.)\n\
+at Home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the House!' (Which was very likely true.)\n\
 Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
 many miles I've fallen by this time?' she said aloud. 'I must be getting \
 somewhere near the centre of the earth. Let me see: that would be four \
@@ -1308,8 +1360,8 @@ not like to drop the jar for fear of killing somebody, so managed to put it \
 into one of the cupboards as she fell past it. \n\
 'Well!' thought Alice to herself, 'after such a fall as this, I shall \
 think nothing of tumbling down stairs! How brave they'll all think me \
-at home! Why, I wouldn't say anything about it, even if I fell off the \
-top of the house!' (Which was very likely true.)\n\
+at Home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the House!' (Which was very likely true.)\n\
 Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
 many miles I've fallen by this time?' she said aloud. 'I must be getting \
 somewhere near the centre of the earth. Let me see: that would be four \
@@ -1436,8 +1488,8 @@ not like to drop the jar for fear of killing somebody, so managed to put it \
 into one of the cupboards as she fell past it. \n\
 'Well!' thought Alice to herself, 'after such a fall as this, I shall \
 think nothing of tumbling down stairs! How brave they'll all think me \
-at home! Why, I wouldn't say anything about it, even if I fell off the \
-top of the house!' (Which was very likely true.)\n\
+at Home! Why, I wouldn't say anything about it, even if I fell off the \
+top of the House!' (Which was very likely true.)\n\
 Down, down, down. Would the fall NEVER come to an end! 'I wonder how \
 many miles I've fallen by this time?' she said aloud. 'I must be getting \
 somewhere near the centre of the earth. Let me see: that would be four \
@@ -1581,7 +1633,7 @@ Paradise.addCmdText("ls", "There's really nothing interesting in Paradise.");
 //Room beforeCave = new Room("CaveOfDisgruntledTrolls", "A patch of thorny brambles is growing at the mouth of the cave, blocking your way.", "loc_cave");
 var CaveOfDisgruntledTrolls = new Room("CaveOfDisgruntledTrolls",
     "The cave is dark and smells like... feet? Oh, right, it's probably the trolls. \
-There's a scared-looking kid in a cage by the far wall.",
+There's a scared-looking kid in a Cage by the far wall.",
     "loc_cave.gif");
 var UglyTroll = new Item("UglyTroll",
     "He looks mad, and really ugly.",
@@ -1595,7 +1647,7 @@ UglyTroll.addCmdText("mv", "The troll looks briefly surprised, then moves away. 
 UglyTroll.addValidCmd("cp");
 UglyTroll.addCmdText("cp", "They're multiplying!");
 CaveOfDisgruntledTrolls.addItem(UglyTroll);
-//beforeCave.addItem(uglyTroll);
+//beforeCave.addItem(UglyTroll);
 var UglierTroll = new Item("UglierTroll", "He looks mad, and really, really ugly. \
 But he wants to tell you something. Between his \
 garbled grunts, you manage to understand the following: \
@@ -1608,11 +1660,11 @@ UglierTroll.addValidCmd("rm");
 UglierTroll.addCmdText("rm",
     "The troll looks briefy surprised, then vanishes with an unpleasant squelching sound.");
 CaveOfDisgruntledTrolls.addItem(UglierTroll);
-//beforeCave.addItem(uglierTroll);
-/*hideousTroll = new MoveableItem("AbsolutelyHideousTroll", "You probably don't want to look at this guy. Oops, too late. \n", "item_supertroll");
-hideousTroll.setRMText("The troll belches spectacularly, and you could swear he actually smirks. \n" +
+//beforeCave.addItem(UglierTroll);
+/*HideousTroll = new MoveableItem("AbsolutelyHideousTroll", "You probably don't want to look at this guy. Oops, too late. \n", "item_supertroll");
+HideousTroll.setRMText("The troll belches spectacularly, and you could swear he actually smirks. \n" +
 		"You won't get rid of him that easily, not without admin privileges.\n");
-hideousTroll.setMVText("If you move him out of the cave, he'll terrorize \n" +
+HideousTroll.setMVText("If you move him out of the cave, he'll terrorize \n" +
 		"the countryside. Also he will probably eat you. \n");*/
 var HideousTroll = new Item("AbsolutelyHideousTroll",
     "You probably don't want to look at this guy. Oops, too late.",
@@ -1626,7 +1678,7 @@ HideousTroll.addCmdText("mv",
     "If you move him out of the cave, he'll terrorize \
 the countryside. Also he will probably eat you.");
 CaveOfDisgruntledTrolls.addItem(HideousTroll);
-//beforeCave.addItem(hideousTroll);
+//beforeCave.addItem(HideousTroll);
 CaveOfDisgruntledTrolls.addCommand("rm");
 CaveOfDisgruntledTrolls.addCommand("mv");
 CaveOfDisgruntledTrolls.addCommand("cp");
@@ -1637,20 +1689,20 @@ CaveOfDisgruntledTrolls.ev.addListener("openSlide", function() {
 //CAGE
 var Cage = new Room("Cage",
     "There's a scared-looking kid in there.",
-    "item_cage.gif");
+    "item_Cage.gif");
 var KidnappedChild = new Item("KidnappedChild",
     "You know it's kind of mean, but you can't help but think that that is one \
 funny-looking kid.",
-    "item_cagedboy.gif");
+    "item_Cagedboy.gif");
 Cage.removeCommand("cd");
 Cage.addCmdText("cd", "You can’t squeeze through the bars. Anyway, are you crazy? \
-    Why would you want to go into a cage?");
+    Why would you want to go into a Cage?");
 KidnappedChild.addCmdText("mv",
-    "The kid looks around, dazed, surprised to find himself out of the cage. \
-You smile at him and speak in a gentle voice. 'You should probably be getting home, \
+    "The kid looks around, dazed, surprised to find himself out of the Cage. \
+You smile at him and speak in a gentle voice. 'You should probably be getting Home, \
 little boy. Someone is there waiting for you.' \
 'I'm a girl,' says the little girl smartly. Then she dashes past you, out of the cave, and \
-runs up the ominous path towards home.");
+runs up the ominous path towards Home.");
 Cage.addItem(KidnappedChild);
 
 //Athena cluster
@@ -1708,7 +1760,7 @@ magic happens here, including TAs, grad students, etc.",
     "loc_stata.gif");
 var WaryEyeOfGradStudent = new Item("WaryEyeOfGradStudent", "If you so desire, you can add \
 a new MagicLocker outside your Home. In this MagicLocker you can find some tools that \
-will be useful in your time at MIT (and beyond). There you can find portals to \
+will be useful in your time at MIT (and beyond). There you can find Portals to \
 other places, you can write notes, and you can store various items you collect in \
 your travels in the MagicLocker. But first you need to go to the AthenaCluster and \
 learn how.",
@@ -1731,7 +1783,6 @@ used (and spells that can be used) anywhere else in the game once you add \
 the locker. MIT is making updates to the locker at all times, so check back \
 frequently.", "item_comingsoon.gif");
 MagicLocker.addItem(MoreComing);
-
 /**
  * LINKS BETWEEN ROOMS
  * Fulfill parent/child relationships between rooms
@@ -1743,19 +1794,14 @@ function link_rooms(parentRoom, childRoom) { if (!(childRoom in parentRoom.child
 
 // TheAwakening LINKS
 link_rooms(Home, TheAwakening);
-link_rooms(TheAwakening, theDesolation);
-link_rooms(theDesolation, theCottage);
-link_rooms(theTrial, theAwakening);
-link_rooms(theTrial, theDesolation);
-link_rooms(theAwakening, theTrial);
-link_rooms(theDesolation, theAwakening);
-link_rooms(theCottage, theTrial);
-link_rooms(theCottage, theDesolation);
-link_rooms(theDesolation, theTrial);
-link_rooms(theTrial, theCottage);
-link_rooms(theCottage, theAwakening);
-link_rooms(theAwakening, theCottage);
-
+link_rooms(TheAwakening, TheDesolation);
+link_rooms(TheDesolation, TheCottage);
+link_rooms(TheCottage, TheTrial);
+link_rooms(TheTrial, TheFinalPlea);
+link_rooms(TheFinalPlea, TheBrokenPromise);
+link_rooms(TheBrokenPromise, TheWedding);
+link_rooms(TheWedding, TheAlps);
+link_rooms(TheAlps, TheEnd);
 
 //TheAwakening -> The Trial     
 link_rooms(Portal, TownSquare);
@@ -1765,8 +1811,8 @@ link_rooms(TownSquare, Marketplace);
 link_rooms(TownSquare, Library);
 link_rooms(TownSquare, RockyPath);
 link_rooms(TownSquare, ArtisanShop);
-link_rooms(TownSquare, BrokenBridge);
-//link(library, backRoom); 
+link_rooms(LibrarynSquare, BrokenBridge);
+//link(library, BackRoom); 
 // link_rooms(RockyPath, Farm);
 link_rooms(BrokenBridge, Clearing);
 link_rooms(Clearing, OminousLookingPath);
@@ -1776,7 +1822,3 @@ link_rooms(Slide, KernelFiles);
 link_rooms(CaveOfDisgruntledTrolls, Slide);
 link_rooms(KernelFiles, MoreKernelFiles);
 
-//MIT level links
-link_rooms(Home, MIT);
-link_rooms(MIT, StataCenter);
-link_rooms(MIT, AthenaCluster);

@@ -503,7 +503,7 @@
             }
         });
     }
-    // serialize object myself (biwascheme or prototype library do something
+    // serialize object myself (biwascheme or prototype Library do something
     // wiked with JSON serialization for Arrays)
     $.json_stringify = function(object, level) {
         var result = '',

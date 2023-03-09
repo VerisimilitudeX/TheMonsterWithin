@@ -65,7 +65,7 @@
 			],
 			[
 				"prac",
-				"practiceRoom"
+				"PracticeRoom"
 			],
 			[
 				"room",
@@ -295,7 +295,7 @@
 			"Shed",
 			"white",
 			"MIT",
-			"library",
+			"Library",
 			"toString",
 			"department",
 			"educators",
@@ -318,7 +318,7 @@
 			"cmd_text",
 			"command_text",
 			"cmd_text",
-			"rockyPath",
+			"RockyPath",
 			"};\n",
 			"){\n",
 			"args",

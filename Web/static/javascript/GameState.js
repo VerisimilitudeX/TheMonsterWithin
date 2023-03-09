@@ -19,7 +19,7 @@
  */
 
 function GameState() {
-    //game starts at home unless loaded from cookie
+    //game starts at Home unless loaded from cookie
     this.currentRoom = Home;
     this.params = {};
 };
@@ -132,10 +132,10 @@ thanks for your assistance.");
         case "HouseMade":
             if (re) Clearing.addChild(new Room("House", "This is a House"));
             Clearing.getChildFromName("House").addCmdText("cd", "You are entering the House that you made.");
-            Clearing.getChildFromName("House").addCmdText("ls", "You made this house for the man. How thoughtful of you!");
+            Clearing.getChildFromName("House").addCmdText("ls", "You made this House for the man. How thoughtful of you!");
             Clearing.removeCmdText("cd");
-            Clearing.changeIntroText("There's a small grassy clearing here, with a man sitting on a \
-stone, weeping. Behind him is a pile of rubble and a small white house.");
+            Clearing.changeIntroText("There's a small grassy Clearing here, with a man sitting on a \
+stone, weeping. Behind him is a pile of rubble and a small white House.");
             CryingMan.addCmdText("less", "Thank you for making me the House!  Why am I still crying?  These are tears of joy.  Can't a man openly express his emotions?");
             break;
         case "touchPlank":
