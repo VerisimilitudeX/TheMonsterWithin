@@ -44,7 +44,38 @@ TheCottage.addItem(new Item("book",
     "You have used the book to learn how to read succesfuly. You have learned how to read! \ ",
     "item_book.png"));
 TheCottage.addItem(new Item("headphones",
-    "You have used the headphones to listen to music. You have listened to music but they have not helped you learn how to read! Lyrics to the song:",
+    "You have used the headphones to listen to music. You have listened to music but they have not helped you learn how to read! Lyrics to the song: [Verse 1]" +
+    "\n\nI don't know what they've been told" +
+    "\nBut I'm a creature made of mold" +
+    "\nI'm hiding out in this old shack" +
+    "\nNo need to fear their attack" +
+    
+    "\n\nI'm stepping out into the snow" +
+    "\nI see a family that I know" +
+    "\nThey look so happy and so kind" +
+    "\nBut they can't see what's on my mind" +
+    
+    "\n\n[Chorus]" +
+    "\nBut I ain't worried 'bout it right now (right now)" +
+    "\nFinding peace and love, 1823, heroes" +
+    "\nI ain't worried 'bout it right now (right now)" +
+    "\nSharing bread and books, learning how to look below" +
+    "\nI ain't worried 'bout it" +
+    "\nI ain't worried 'bout it (Hey)" +
+    
+    "\n\n[Verse 2]" +
+    "\nI don't know what they've been told" +
+    "\nBut I'm a gentle soul with gold" +
+    "\nI'm living like I've found a home" +
+    "\nGot no regrets even when I'm alone, yeah" +
+    
+    "\n\n[Chorus]" +
+    "\nBut I ain't worried 'bout it right now (right now)" +
+    "\nFinding peace and love, 1823, heroes" +
+    "\nI ain't worried 'bout it right now (right now)" +
+    "\nSharing bread and books, learning how to look below" +
+    "\nI ain't worried 'bout it " +
+    "\nI ain't worried 'bout it (Hey)",
     "item_headphones.png"));
 
 TheCottage.addItem(new Item("friendliness_potion",

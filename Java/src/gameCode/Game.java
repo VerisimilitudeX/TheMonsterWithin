@@ -91,7 +91,60 @@ public class Game {
 				"You have learned how to read!", "item_book.png"));
 		TheCottage.addItem(new Item("headphones", "You have used the headphones to listen to music.",
 				"You have listened to music but they have not helped you learn how to read!",
-				"Lyrics to the song:", "item_headphones.png"));
+				"Lyrics to the song: [Verse 1]" +
+				"\nI don't know what they've been told" +
+				"But I'm a creature made of mold" +
+				"I'm hiding out in this old shack" +
+				"No need to fear their attack" +
+				
+				"\nI'm stepping out into the snow" +
+				"I see a family that I know" +
+				"They look so happy and so kind" +
+				"But they can't see what's on my mind" +
+				
+				"\n[Chorus]" +
+				"But I ain't worried 'bout it right now (right now)" +
+				"Finding peace and love, 1823, heroes" +
+				"I ain't worried 'bout it right now (right now)" +
+				"Sharing bread and books, learning how to look below" +
+				"I ain't worried 'bout it" +
+				"I ain't worried 'bout it (Hey)" +
+				
+				"\n[Verse 2]" +
+				"I don't know what they've been told" +
+				"But I'm a gentle soul with gold" +
+				"I'm living like I've found a home" +
+				"Got no regrets even when I'm alone, yeah" +
+				
+				"I'm at my best when I've got something I'm wanting to give" +
+				"Way too busy for them problems and problems to live, yeah, yeah" +
+				"No stressing, just confessing with gratitude and thrill" +
+				"I'll take it in and let it show" +
+				
+				"\n[Chorus]" +
+				"But I ain't worried 'bout it right now (right now)" +
+				"Finding peace and love, 1823, heroes" +
+				"I ain't worried 'bout it right now (right now)" +
+				"Sharing bread and books, learning how to look below" +
+				"I ain't worried 'bout it " +
+				"I ain't worried 'bout it (Hey)" +
+				
+				"\n[Bridge]" +
+				"Ooh, ooh " +
+				"I ain't worried" +
+				"Ooh, ooh " +
+				"Oh, no, no " +
+				
+				"\n[Chorus]" +
+				"But I ain't worried 'bout it right now (right now)" +
+				"Finding peace and love, 1823, heroes " +
+				"I ain't worried 'bout it right now (right now) " +
+				"Sharing bread and books, learning how to look below " +
+				"I ain't worried 'bout it (woo ooh) " +
+				"(Hey) " +
+				"I ain't worried 'bout it (woo ooh) " +
+				"(Hey) " +
+				"I ain't worried 'bout it", "item_headphones.png"));
 
 		TheCottage.addItem(new Item("friendliness_potion",
 				"You used the friendliness_potion to attempt to make friends with the family in the cottage.",
