@@ -55,10 +55,30 @@ var theTrial = new Room("theTrial",
     "loc_trial.png");
 
 theTrial.addItem(new Item("cloak",
-    "You have used the cloak to hide in the corner succesfuly. Justine has been convicted and she will expire later. \ "));
+    "You have used the cloak to hide in the corner succesfuly. Justine has been convicted and she will expire later. ",
+    "item_cloak.png"));
 
 theTrial.addItem(new Item("cape",
-    "Hmmm, Are you sure this is the correct item?  Use less and the correct item to complete the objective and try again. \ "));
+    "Hmmm, Are you sure this is the correct item?  Use less and the correct item to complete the objective and try again.",
+    "item_cape.png"));
+
+// theFinalplea
+var theFinalplea = new Room("theFinalplea",
+    "Your final plea is for a wife similar to you who will love you. Which map will you choose to use?",
+    "loc_finalplea.png");
+
+theFinalplea.addItem(new Item("SouthAmerica", "You have used the South America map to plan ahead for your wife.",
+    "item_southamerica.png"));
+
+theFinalplea.addItem(new Item("Antartica", "You have used theAntartica map to plan ahead for your wife. However, you release Antartica is way too cold even though it is far from current humanity.",
+    "item_antartica.png"));
+    
+theFinalplea.addItem(new Item("Africa", "You have used the Africa map to plan ahead for your wife. However, you release Africa is way too hot even though it is far from current humanity.",
+    "item_africa.png"));
+
+theFinalplea.addItem(new Item("Europe", "You have used the Europe map to plan ahead for your wife. However, you release Europe is too close to your current civilisation.",
+    "item_europe.png"));
+    
 //PORTAL (to bring you to the next level
 var Portal = new Room("Portal",
     "You have been transported through time...",
@@ -1717,7 +1737,6 @@ used (and spells that can be used) anywhere else in the game once you add \
 the locker. MIT is making updates to the locker at all times, so check back \
 frequently.", "item_comingsoon.gif");
 MagicLocker.addItem(MoreComing);
-
 /**
  * LINKS BETWEEN ROOMS
  * Fulfill parent/child relationships between rooms
@@ -1732,16 +1751,7 @@ link_rooms(Home, TheAwakening);
 link_rooms(TheAwakening, theDesolation);
 link_rooms(theDesolation, theCottage);
 link_rooms(theCottage, theTrial);
-link_rooms(theTrial, roomname);
-link_rooms(theAwakening, theTrial);
-link_rooms(theDesolation, theAwakening);
-link_rooms(theCottage, theTrial);
-link_rooms(theCottage, theDesolation);
-link_rooms(theDesolation, theTrial);
-link_rooms(theTrial, theCottage);
-link_rooms(theCottage, theAwakening);
-link_rooms(theAwakening, theCottage);
-
+link_rooms(theTrial, theFinalplea);
 
 //TheAwakening -> The Trial     
 link_rooms(Portal, TownSquare);
@@ -1762,7 +1772,3 @@ link_rooms(Slide, KernelFiles);
 link_rooms(CaveOfDisgruntledTrolls, Slide);
 link_rooms(KernelFiles, MoreKernelFiles);
 
-//MIT level links
-link_rooms(Home, MIT);
-link_rooms(MIT, StataCenter);
-link_rooms(MIT, AthenaCluster);

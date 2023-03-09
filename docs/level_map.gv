@@ -22,14 +22,15 @@ digraph level_map{
 
 	"theDesolation" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">theDesolation</font></td></tr><tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">theDesolation</font></td></tr><tr><br>
 	<td align="left" port="r0">gloves</td></tr>
 	<tr><td align="left" port="r1">knife</td></tr>
 	</table>>];
 
 	"theCottage" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">theCottage</font></td></tr><tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">theCottage</font></td></tr>
+	<tr><br></tr>
 	<td align="left" port="r0">book</td></tr>
 	<tr><td align="left" port="r1">headphones</td></tr>
 	<tr><td align="left" port="r2">friendliness_potion</td><tr>
@@ -48,112 +49,6 @@ digraph level_map{
 	<tr><td align="left" port="r0"></td></tr>
 	</table>>];
 
-	"TownSquare" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">TownSquare</font></td></tr>
-	<tr><td align="left" port="r0">RandomCitizen1</td></tr>
-	<tr><td align="left" port="r1">RandomCitizen2</td></tr>
-	<tr><td align="left" port="r2">DistraughtLady</td></tr>
-	</table>>];
-
-	"Marketplace" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">Marketplace</font></td></tr>
-	<tr><td align="left" port="r0">Vendor</td></tr>
-	<tr><td align="left" port="r1">rmSpell</td></tr>
-	<tr><td align="left" port="r2">mkdirSpell</td></tr>
-	</table>>];
-
-	"Library" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">Library</font></td></tr>
-	<tr><td align="left" port="r2">HistoryOfThe Monster Within</td></tr>
-	<tr><td align="left" port="r3">NostalgiaForHome</td></tr>
-	<tr><td align="left" port="r0">TotallyRadSpellbook</td></tr>
-	<tr><td align="left" port="r1">PaperbackRomance</td></tr>
-	<tr><td align="left" port="r4">InconscpicuousLever</td></tr>
-	</table>>];
-
-	"RockyPath" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">RockyPath</font></td></tr>
-	<tr><td align="left" port="r0">LargeBoulder</td></tr>
-	</table>>];
-
-	"BackRoom" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">BackRoom</font></td></tr>
-	<tr><td align="left" port="r0">Grep</td></tr>
-	<tr><td align="left" port="r1">Librarian</td></tr>
-	<tr><td align="left" port="r2">PracticeBook</td></tr>
-	</table>>];
-
-	"ArtisanShop" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">ArtisanShop</font></td></tr>
-	<tr><td align="left" port="r0">StrangeTrinket</td></tr>
-	<tr><td align="left" port="r1">ClockworkDragon</td></tr>
-	<tr><td align="left" port="r2">Artisan</td></tr>
-	<tr><td align="left" port="r3">(user adds Gears)</td></tr>
-	</table>>];
-
-	"BrokenBridge" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">BrokenBridge</font></td></tr>
-	<tr><td align="left" port="r0">(player will touch a Plank)</td></tr>
-	</table>>];
-
-	"Farm" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">Farm</font></td></tr>
-	<tr><td align="left" port="r0">EarOfCorn</td></tr>
-	<tr><td align="left" port="r1">Farmer</td></tr>
-	</table>>];
-
-	"Clearing" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">Clearing</font></td></tr>
-	<tr><td align="left" port="r0">CryingMan</td></tr>
-	</table>>];
-
-	"House" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">House</font></td></tr>
-	<tr><td align="left" port="r0"></td></tr>
-	</table>>];
-
-	"OminousLookingPath" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">OminousLookingPath</font></td></tr>
-	<tr><td align="left" port="r0">ThornyBrambles</td></tr>
-	</table>>];
-
-	"CaveOfDisgruntledTrolls" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">CaveOfDisgruntledTrolls</font></td></tr>
-	<tr><td align="left" port="r0">UglyTroll</td></tr>
-	<tr><td align="left" port="r0">UglierTroll</td></tr>
-	<tr><td align="left" port="r0">AbsolutelyHideousTroll</td></tr>
-	</table>>];
-
-	"MIT" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">MIT</font></td></tr>
-	<tr><td align="left" port="r0">AdmissionsLetter</td></tr>
-	</table>>];
-
-	"StataCenter" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">StataCenter</font></td></tr>
-	<tr><td align="left" port="r0">WaryEyeOfTheGradStudent</td></tr>
-	<tr><td align="left" port="r1">HelpfulTA</td></tr>
-	</table>>];
-
-	"AthenaCluster" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">AthenaCluster</font></td></tr>
-	<tr><td align="left" port="r0">Workstation</td></tr>
-	</table>>];
 
 	"ISnT" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
@@ -161,11 +56,6 @@ digraph level_map{
 	<tr><td align="left" port="r0"></td></tr>
 	</table>>];
 
-	"MagicLocker" [label = 
-	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">MagicLocker</font></td></tr>
-	<tr><td align="left" port="r0">Inscription</td></tr>
-	</table>>];
 
 	"Slide" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>

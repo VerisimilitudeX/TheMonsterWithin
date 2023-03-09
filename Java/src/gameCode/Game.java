@@ -102,6 +102,23 @@ public class Game {
 
         theTrial.addItem(new Item("cape", "Hmmm, Are you sure this is the correct item?",
 		"Use less and the correct item to complete the objective and try again. ","item_cape.png"));
+
+		// theFinalplea
+		Room theFinalplea = new Room("theFinalplea",
+		"Your final plea is for a wife similar to you who will love you. Which map will you choose to use?",
+		"loc_finalplea.png");
+
+		theFinalplea.addItem(new Item("SouthAmerica", "You have used the South America map to plan ahead for your wife.",
+		"item_southamerica.png"));
+
+		theFinalplea.addItem(new Item("Antartica", "You have used theAntartica map to plan ahead for your wife. However, you release Antartica is way too cold even though it is far from current humanity.",
+		"item_antartica.png"));
+
+		theFinalplea.addItem(new Item("Africa", "You have used the Africa map to plan ahead for your wife. However, you release Africa is way too hot even though it is far from current humanity.",
+		"item_africa.png"));
+
+		theFinalplea.addItem(new Item("Europe", "You have used the Europe map to plan ahead for your wife. However, you release Europe is too close to your current civilisation.",
+		"item_europe.png"));  
 		//PORTAL (to bring you to the next level)
 		Room portal = new Room("Portal", "You have been transported through time...\n", "item_portal");
 
