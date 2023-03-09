@@ -32,7 +32,7 @@ digraph level_map{
 	<td bgcolor="black" align="center" colspan="2"><font color="white">theCottage</font></td></tr><tr>
 	<td align="left" port="r0">book</td></tr>
 	<tr><td align="left" port="r1">headphones</td></tr>
-	<tr><td align="left" port="r2">friendliness potion</td><tr>
+	<tr><td align="left" port="r2">friendliness_potion</td><tr>
 	</table>>];
 
 	"theTrial" [label = 
@@ -195,18 +195,8 @@ digraph level_map{
 	subgraph cluster_level1{
 		"Home" -> "TheAwakening";
 		"TheAwakening" -> "theDesolation";
-		"TheAwakening" -> "theTrial";
-		"theDesolation" -> "portal";
 		"theDesolation" -> "theCottage";		
 		"theCottage" -> "theTrial";
-		"theCottage" -> "theDesolation";
-		"theCottage" -> "theAwakening";
-		"theDesolation" -> "theTrial";
-		"theTrial" -> "theCottage";
-		"theAwakening" -> "theCottage";
-		"theDesolation" -> "theAwakening";
-		"theTrial" -> "theAwakening";
-		"theTrial" -> "theDesolation";
 		label = "Level 1";
 	}
 
