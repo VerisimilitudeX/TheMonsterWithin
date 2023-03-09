@@ -20,43 +20,63 @@ digraph level_map{
 	<td bgcolor="black" align="center" colspan="2"><font color="white">TheAwakening</font></td></tr><tr>
 	</table>>];
 
-	"theDesolation" [label = 
+	"TheDesolation" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">theDesolation</font></td></tr><tr><br>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">TheDesolation</font></td></tr><tr><br>
 	<td align="left" port="r0">gloves</td></tr>
 	<tr><td align="left" port="r1">knife</td></tr>
 	</table>>];
 
-	"theCottage" [label = 
+	"TheCottage" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">theCottage</font></td></tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">TheCottage</font></td></tr>
 	<tr><br></tr>
 	<td align="left" port="r0">book</td></tr>
 	<tr><td align="left" port="r1">headphones</td></tr>
 	<tr><td align="left" port="r2">friendliness_potion</td><tr>
 	</table>>];
 
-	"theTrial" [label = 
+	"TheTrial" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">theTrial</font></td></tr><tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">TheTrial</font></td></tr><tr>
 	<td align="left" port="r0">cloak</td></tr>
 	<tr><td align="left" port="r1">cape</td></tr>
 	</table>>];
 
-	"theFinalplea" [label = 
+	"TheFinalPlea" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">theFinalplea</font></td></tr><tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">TheFinalPlea</font></td></tr><tr>
 	<td align="left" port="r0">SouthAmerica</td></tr>
 	<tr><td align="left" port="r1">Antarctica</td></tr>
 	<tr><td align="left" port="r2">Africa</td></tr>
 	<tr><td align="left" port="r3">Europe</td></tr>
 	</table>>];
 
-	"theBrokenpromise" [label = 
+	"TheBrokenPromise" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
-	<td bgcolor="black" align="center" colspan="2"><font color="white">theBrokenpromise</font></td></tr><tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">TheBrokenPromise</font></td></tr><tr>
 	<td align="left" port="r0">pullupbar</td></tr>
 	<tr><td align="left" port="r1">dumbell</td></tr>
+	</table>>];
+
+	"TheWedding" [label = 
+	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">TheWedding</font></td></tr><tr>
+	<td align="left" port="r0">binoculars</td></tr>
+	<tr><td align="left" port="r1">keycard</td></tr>
+	</table>>];
+
+	"TheAlps" [label = 
+	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">TheAlps</font></td></tr><tr>
+	<td align="left" port="r0">skis</td></tr>
+	<tr><td align="left" port="r1">snowshoes</td></tr>
+	</table>>];
+
+	"TheEnd" [label = 
+	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">TheAlps</font></td></tr><tr>
+	<td align="left" port="r0">newspaper</td></tr>
 	</table>>];
 
 	"Portal" [label = 
@@ -100,9 +120,14 @@ digraph level_map{
 
 	subgraph cluster_level1{
 		"Home" -> "TheAwakening";
-		"TheAwakening" -> "theDesolation";
-		"theDesolation" -> "theCottage";		
-		"theCottage" -> "theTrial";
+		"TheAwakening" -> "TheDesolation";
+		"TheDesolation" -> "TheCottage";		
+		"TheCottage" -> "TheTrial";
+		"TheTrial" -> "TheFinalPlea";
+		"TheFinalPlea" -> "TheBrokenPromise";
+		"TheBrokenPromise" -> "TheWedding";
+		"TheWedding" -> "TheAlps";
+		"TheAlps" -> "TheEnd";
 		label = "Level 1";
 	}
 

@@ -333,7 +333,7 @@ necessary.  Here is a sample; alter the names:
   Ty Coon, President of Vice
 
 This General Public License does not permit incorporating your program into
-proprietary programs.  If your program is a subroutine library, you may
+proprietary programs.  If your program is a subroutine Library, you may
 consider it more useful to permit linking proprietary applications with the
-library.  If this is what you want to do, use the GNU Lesser General
+Library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.

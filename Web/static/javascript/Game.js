@@ -53,7 +53,7 @@ var man_pages = {
         "grep WORDTOSEARCH PLACETOSEARCH \n" +
         "Rememberrrrrr...",
     "touch": "The old man's voice echoes in your head as if from a great distance:\n" +
-        "(Touch) gives you the artisan's touch to create new objects.\n" +
+        "(Touch) gives you the Artisan's touch to create new objects.\n" +
         "Use \"touch\" to create new objects in the world.\n" +
         "Command Input:\n" +
         "touch OBJECT \n" +
@@ -111,12 +111,14 @@ $(document).ready(function() {
         name: 'terminus_terminal', // Name of terminal
         // Signiture to include at top of terminal
         greetings: "Welcome! If you are new to the game, here are some tips: \n\n" +
-            "Look at your surroundings with the command \"ls\". \n" +
-            "Move to a new location with the command \"cd Location/Activity\" \n" +
-            "You can backtrack with the command \"cd ..\". \n" +
+            "Look at your surroundings with the command \"ls\". \n\n" +
+            "Move to a new location with the command \"cd Location/Activity\".\n\n" +
+            "You can backtrack with the command \"cd ..\". \n\n" +
             "Interact with things in the world with the command \"less ITEM\" \n\n" +
             "If you forget where you are, type \"pwd\" \n\n" +
-            "Go ahead, explore. We hope you enjoy what you find. Do cd or ls as your first command.\n",
+            "Go ahead, explore. We hope you enjoy what you find. Type ls as your first command.\n\n"  +
+            "Did you know that you can press tab to autocomplete commands, just like a real Linux Terminal? \n\n" +
+            "------------------------------------------------------------\n",
         exit: false, // Disable 'exit' command
         clear: true, // Disable 'clear' command
     });

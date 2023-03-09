@@ -92,7 +92,7 @@ public class Emulator
 				if (tokens[0].equals("cd")){
 					if (tokens.length > 1){
 						if(game.getCurrentRoom().getName().equals("RockyPath") && game.isRockInPath() && tokens[1].equals("Farm")){
-							output = "The large boulder is blocking your way and there are steep ravines off to either side of you.";
+							output = "The large Boulder is blocking your way and there are steep ravines off to either side of you.";
 						}else if(game.getCurrentRoom().getName().equals("BrokenBridge") && game.bridgesolved==false && tokens[1].equals("Clearing")){
 							output = "You are crazy if you set foot on that creaky old bridge! The missing Plank needs to be replaced first.";
 						}else if(game.getCurrentRoom().getName().equals("OminousLookingPath") && game.bramblessolved==false && tokens[1].equals("CaveOfDisgruntledTrolls")){
@@ -185,17 +185,17 @@ public class Emulator
 						if(tokens[1].equals("AbsolutelyHideousTroll")){
 							if(tokens[2].equals("Cage")){
 								game.moveTroll();
-								output = "You throw the troll into the cage! That'll teach him.";
+								output = "You throw the troll into the Cage! That'll teach him.";
 							} else {
 								output = "If you move him out of the cave, he'll terrorize the countryside. Also he will probably eat you.";
 							}
-						} else if(tokens[1].equals("Cage/kidnappedChild") && tokens[2].equals(".")){
+						} else if(tokens[1].equals("Cage/KidnappedChild") && tokens[2].equals(".")){
 							game.moveKid();
-							output = "The kid looks around, dazed, surprised to find himself out of the cage. \n" +
-							"You smile at him and speak in a gentle voice. 'You should probably be getting home, \n" +
+							output = "The kid looks around, dazed, surprised to find himself out of the Cage. \n" +
+							"You smile at him and speak in a gentle voice. 'You should probably be getting Home, \n" +
 							"little boy. Someone is there waiting for you.' \n" +
 							"'I'm a girl,' says the little girl smartly. Then she dashes past you, out of the cave, and \n" +
-							"runs up the ominous path towards home.\n";
+							"runs up the ominous path towards Home.\n";
 						} else {
 							output = "You can't move that there.";
 						}
@@ -233,10 +233,10 @@ public class Emulator
 							else
 								output = "You just moved " + itemToMove.getName() + " into " + box.getName();
 							if (itemToMove.getName().equals("Boulder"))
-								output = "You move the boulder into the small hole, revealing a tunnel.";
+								output = "You move the Boulder into the small hole, revealing a tunnel.";
 						} else{
 							if (tokens[2].equals("Cave")){
-								game.move(itemToMove, game.caveOfTrolls);
+								game.move(itemToMove, game.CaveOfTrolls);
 							}
 							output = "Can't move that object there \n";
 						}
@@ -303,7 +303,7 @@ public class Emulator
 									"Rememberrrrrr...";
 						} else if (tokens[1].equals("touch")){
 							output = "The old man's voice echoes in your head as if from a great distance:\n" +
-									"(Touch) gives you the artisan's touch to create new objects.\n" +
+									"(Touch) gives you the Artisan's touch to create new objects.\n" +
 									"Use \"touch\" to create new objects in the world.\n" +
 									"Command Input:\n" +
 									"touch OBJECT\n" +
@@ -361,16 +361,16 @@ public class Emulator
 						}
 						if (tokens[1].equals("LargeBoulder") && game.isRockInPath()){
 							game.rockMovedFromPath();
-							game.rockyPath.removeItem(game.boulder);
-							output = "The boulder vanishes with a pop. The way is clear now!";
+							game.RockyPath.removeItem(game.Boulder);
+							output = "The Boulder vanishes with a pop. The way is clear now!";
 						} else if (tokens[1].equals("ThornyBrambles") && game.isBramblessolved()==false){
 							game.setAwaitingPassword(true);}
 						else if (game.getCurrentRoom().getName().equals("CaveOfDisgruntledTrolls") && tokens[1].equals("UglyTroll") && game.troll1gone==false){
-							game.caveOfTrolls.removeItem(game.uglyTroll);
+							game.CaveOfTrolls.removeItem(game.UglyTroll);
 							game.troll1gone = true;
 							}
 						else if (game.getCurrentRoom().getName().equals("CaveOfDisgruntledTrolls") && tokens[1].equals("UglierTroll") && game.troll2gone==false){
-							game.caveOfTrolls.removeItem(game.uglierTroll);
+							game.CaveOfTrolls.removeItem(game.UglierTroll);
 							game.troll2gone = true;
 						}
 					} else {
@@ -443,10 +443,10 @@ public class Emulator
 				
 			}else if (tokens[0].equals("mkdir")){
 				if(tokens.length == 2){
-					if((tokens[1].equals("house") || tokens[1].equals("House")) && game.houseQuestComplete()==false){
-						output = "A charming house with a white picket fence springs up out of nowhere.";
-						Room house = new Room("House", "You made this house for the man and is family. How thoughtful of you!", "");
-						game.completeHouseQuest(house);
+					if((tokens[1].equals("House") || tokens[1].equals("House")) && game.HouseQuestComplete()==false){
+						output = "A charming House with a white picket fence springs up out of nowhere.";
+						Room House = new Room("House", "You made this House for the man and is family. How thoughtful of you!", "");
+						game.completeHouseQuest(House);
 					} else if (game.getCurrentRoom().getName().equals("Clearing")){
 						output = "The man scowls. 'That isn't what I asked for!'";
 					} else {
@@ -458,7 +458,7 @@ public class Emulator
 		} else if(game.isAwaitingPassword()){
 			if (tokens[0].equals("brambles_b_gone")){
 				output = "The brambles catch fire, choking you with a thick black smoke. When the smoke clears, they're gone.";
-				game.ominousPath.removeItem(game.thornybrambles);
+				game.OminousPath.removeItem(game.ThornyBrambles);
 				game.setBramblessolved(true);
 			} else{
 				output = "Red sparks arc across the brambles before fizzling out. They are definitely still there. Nice try though.";
@@ -475,13 +475,13 @@ public class Emulator
 			if(game.getCurrentRoom().getName().equals("Marketplace")){
 				if(game.getCurrentItem().getName().equals("Backpack")){
 					output = ((YNItem)game.getCurrentItem()).getYesText();
-					//If we actually kept items in backpack, this is where we'd enable it
+					//If we actually kept items in Backpack, this is where we'd enable it
 					game.getCurrentRoom().removeItem(game.getCurrentItem());
 				} else if(game.getCurrentItem().getName().equals("rmSpell")){
 					if(game.numGearsMade() == 6 && game.isLibQuestFinished()){
 						output = ((YNItem)game.getCurrentItem()).getYesText();
 						game.learnSpell("rm");
-						game.rockyPath.addCommand("rm");
+						game.RockyPath.addCommand("rm");
 						game.getCurrentRoom().removeItem(game.getCurrentItem());
 					} else {
 						output = "You don't have enough money to buy that.";
