@@ -110,6 +110,7 @@ public class Game {
 		link(theAwakening, theTrial);
 		link(theAwakening, theCottage);
 		link(theDesolation, theCottage);
+		link(theCottage, theTrial);
 		link(theDesolation, theAwakening);
 		link(theDesolation, theTrial);
 		link(theCottage, theTrial);

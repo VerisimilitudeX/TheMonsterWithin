@@ -1731,8 +1731,8 @@ function link_rooms(parentRoom, childRoom) { if (!(childRoom in parentRoom.child
 link_rooms(Home, TheAwakening);
 link_rooms(TheAwakening, theDesolation);
 link_rooms(theDesolation, theCottage);
-link_rooms(theTrial, theAwakening);
-link_rooms(theTrial, theDesolation);
+link_rooms(theCottage, theTrial);
+link_rooms(theTrial, roomname);
 link_rooms(theAwakening, theTrial);
 link_rooms(theDesolation, theAwakening);
 link_rooms(theCottage, theTrial);
