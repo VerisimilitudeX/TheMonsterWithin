@@ -23,56 +23,42 @@ var Home = new Room("Home",
 
 //first comment the awakening
 var TheAwakening = new Room("TheAwakening",
-    "Clink Clink- You have Awaken! \
-        Welcome to the Awakening! \
-        You wake up and look at your creator. \
-        Interact with items using the command \"less ITEM\". \ ",
+    "Clink Clink- You have Awaken! Welcome to the Awakening! You wake up and look at your creator. Interact with items using the command \"less ITEM\". \ ",
     "loc_awake.png");
 // The Desolation
 var theDesolation = new Room("theDesolation",
     "Use the command less ITEM to select the correct item to kill William, your creator's brother. ",
     "loc_desolation.png");
 theDesolation.addItem(new Item("gloves",
-    " You have collected gloves! \
-        You have used the gloves to strangle William- your creator's brother! \ " +
-    "You have killed William! \ ",
+    " You have collected gloves! You have used the gloves to strangle William- your creator's brother! You have killed William! \ ",
     "item_gloves.png"));
 theDesolation.addItem(new Item("knife",
-    "Hmmm, Are you sure this is the correct item? \
-        Use less and the correct item to complete the objective and try again. \ " +
-    "item_knife.png"));
+    "Hmmm, Are you sure this is the correct item? Use less and the correct item to complete the objective and try again. \ " ,
+    "knife.png"));
 // The Cottage
 var theCottage = new Room("theCottage",
-    "You have been fleed to the Cottage. \
-        Which items are used in theCottage? \ ",
+    "You have been fleed to the Cottage. Which items are used in theCottage? \ ",
     "loc_cottage.png");
 theCottage.addItem(new Item("book",
-    "You have used the book to learn how to read succesfuly. \
-            You have learned how to read! \ ",
-            "item_book.png"));
+    "You have used the book to learn how to read succesfuly. You have learned how to read! \ ",
+    "item_book.png"));
 theCottage.addItem(new Item("headphones",
-    "You have used the headphones to listen to music. \
-            You have listened to music but they have not helped you learn how to read! \
-            Lyrics to the song:",
-            "item_headphones.png"));
+    "You have used the headphones to listen to music. You have listened to music but they have not helped you learn how to read! Lyrics to the song:",
+    "item_headphones.png"));
 
 theCottage.addItem(new Item("friendliness_potion",
-    "You used the friendliness_potion to attempt to make friends with the family in the cottage. \" \
-            You have been recieved with extreme hate and beatings! \ ",
-            "item_friendliness_potion.png"));
+    "You used the friendliness_potion to attempt to make friends with the family in the cottage. You have been recieved with extreme hate and beatings! \ ",
+    "item_potion.png"));
 // The Trial
 var theTrial = new Room("theTrial",
-    "You have been transported to the Trial. \
-        Which item will you use to hide in the corner? \ " +
+    "You have been transported to the Trial. Which item will you use to hide in the corner? \ ",
     "loc_trial.png");
 
 theTrial.addItem(new Item("cloak",
-    "You have used the cloak to hide in the corner succesfuly. \
-        Justine has been convicted and she will expire later. \ "));
+    "You have used the cloak to hide in the corner succesfuly. Justine has been convicted and she will expire later. \ "));
 
 theTrial.addItem(new Item("cape",
-    "Hmmm, Are you sure this is the correct item? \
-        Use less and the correct item to complete the objective and try again. \ "));
+    "Hmmm, Are you sure this is the correct item?  Use less and the correct item to complete the objective and try again. \ "));
 //PORTAL (to bring you to the next level
 var Portal = new Room("Portal",
     "You have been transported through time...",
