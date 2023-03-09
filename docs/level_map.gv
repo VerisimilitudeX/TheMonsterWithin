@@ -43,6 +43,22 @@ digraph level_map{
 	<tr><td align="left" port="r1">cape</td></tr>
 	</table>>];
 
+	"theFinalplea" [label = 
+	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">theFinalplea</font></td></tr><tr>
+	<td align="left" port="r0">SouthAmerica</td></tr>
+	<tr><td align="left" port="r1">Antarctica</td></tr>
+	<tr><td align="left" port="r2">Africa</td></tr>
+	<tr><td align="left" port="r3">Europe</td></tr>
+	</table>>];
+
+	"theBrokenpromise" [label = 
+	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
+	<td bgcolor="black" align="center" colspan="2"><font color="white">theBrokenpromise</font></td></tr><tr>
+	<td align="left" port="r0">pullupbar</td></tr>
+	<tr><td align="left" port="r1">dumbell</td></tr>
+	</table>>];
+
 	"Portal" [label = 
 	<<table border="0" cellborder="0" cellpadding="3" bgcolor="white"><tr>
 	<td bgcolor="black" align="center" colspan="2"><font color="white">Portal</font></td></tr>

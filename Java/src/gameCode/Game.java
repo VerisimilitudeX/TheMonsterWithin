@@ -111,15 +111,27 @@ public class Game {
 		theFinalplea.addItem(new Item("SouthAmerica", "You have used the South America map to plan ahead for your wife.",
 		"item_southamerica.png"));
 
-		theFinalplea.addItem(new Item("Antartica", "You have used theAntartica map to plan ahead for your wife. However, you release Antartica is way too cold even though it is far from current humanity.",
-		"item_antartica.png"));
+		theFinalplea.addItem(new Item("Antarctica", "You have used the Antarctica map to plan ahead for your wife. However, you release Antarctica is way too cold even though it is far from current humanity.",
+		"item_Antarctica.png"));
 
 		theFinalplea.addItem(new Item("Africa", "You have used the Africa map to plan ahead for your wife. However, you release Africa is way too hot even though it is far from current humanity.",
 		"item_africa.png"));
 
-		theFinalplea.addItem(new Item("Europe", "You have used the Europe map to plan ahead for your wife. However, you release Europe is too close to your current civilisation.",
+		theFinalplea.addItem(new Item("Europe", "You have used the Europe map to plan ahead for your wife. However, you release Europe is too close to your current civilization.",
 		"item_europe.png"));  
 		//PORTAL (to bring you to the next level)
+
+		// theBrokenpromise
+	Room theBrokenpromise = new Room("theBrokenpromise",
+	"Your creator has broken his promise. He has killed your wife that was nearly finished, crushing your hopes and dreams while wasting the time you spent planning. You leave him saying 'I shall be with you on your wedding night!' ",
+	"loc_brokenpromise.png");    
+
+	theBrokenpromise.addItem(new Item("pullupbar",
+	"You have used the pullupbar to improve your grip strength and become stronger.",
+	"item_pullupbar.png"));
+	theBrokenpromise.addItem(new Item("dumbell",
+	"You have used the dumbell get jacked muscles and big hands.",
+	"item_dumbell.png"));
 		Room portal = new Room("Portal", "You have been transported through time...\n", "item_portal");
 
 		link(home, theAwakening);
